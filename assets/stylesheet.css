@@ -1,0 +1,115 @@
+body {
+	font-family: "Palatino Linotype", "Book Antiqua", "URW Palladio L", Palatino, sans-serif;
+	line-height: 1.4;
+	margin: 1em auto;
+	width: 44em;
+}
+h1, h2, h3 {
+	text-align: center;
+}
+h1 {
+	font-weight: bold;
+}
+h2, h3 {
+	font-weight: normal;
+}
+h3 {
+	font-style: italic;
+}
+p.source {
+	text-align: center;
+}
+.author {
+	display: block;
+	font-size: larger;
+	font-style: italic;
+}
+.published {
+	display: block;
+	font-size: smaller;
+}
+p.formula {
+	text-align: center;
+}
+table.formula {
+	margin-left: auto;
+	margin-right: auto;
+}
+p + h2, div + h2, blockquote + h2 {
+	margin-top: 2em;
+}
+h2, h3, h4, h5, h6 {
+	margin-bottom: 1ex;
+}
+pre {
+	border-left: 0.5ex solid maroon;
+	padding-left: 1ex;
+	margin-left: -1.5ex;
+}
+code {
+	background: #EEE;
+}
+
+dd {
+	margin-top: 1ex;
+	margin-bottom: 1ex;
+}
+dd:before {
+	content: "—";
+	margin-left: -1em;
+}
+dd + dt {
+	margin-top: 1em;
+}
+dt {
+	font-style: italic;
+}
+li {
+	margin-top: 1ex;
+	margin-bottom: 1ex;
+}
+blockquote {
+	margin-left: 2em;
+}
+.screen-only {
+	display: none;
+}
+@media print {
+	h1, h2, h3, h4, h5, h6 {
+		/* I live in hope... */
+		page-break-after: avoid;
+		page-break-inside: avoid;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	.host-note {
+		display: none;
+	}
+	.aside {
+		display: none;
+	}
+	pre {
+		margin-left: 0;
+	}
+}
+@media screen {
+	.host-note {
+		border: 1px solid silver;
+		padding: 0 1em;
+		font-size: smaller;
+		margin: 1em 0;
+		color: gray;
+	}
+	.aside {
+		font-size: smaller;
+		font-style: italic;
+	}
+	p + h1, div + h1, blockquote + h1 {
+		margin-top: 2em;
+	}
+	.screen-only {
+		display: block;
+	}
+}

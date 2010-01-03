@@ -1,0 +1,154 @@
+PRIMITIVE TYPES
+
+char  - character
+int   - integer
+float - floatingpoint
+expr  - expression or statement
+type  - type of object
+var   - variable type
+Q_    - queue of _s (nestable to get QQ_, etc.)
+
+(You cannot declare a primitive type variable without a Q (or F; see below)
+in front of it. I know that's a throwback to the old cuteness that Andy
+complained about, but I can't bear to take it out because it would
+un-queue-ify Q-BAL so much.)
+
+PREFIX OPERATORS
+
+@  - peek (returns top without popping it)
+#  - count (number of elements in queue)
+$  - top (considers the top of the queue)
+%  - bottom (considers the bottom of the queue)
+       ($ and % are used mostly with nested Qs)
+:  - higher-level (context containing current context)
+.  - in current context (as opposed to local variables)
+_. - in context named _ (subcontext of current one)
+?  - type of object (returns a type variable)
+~  - evaluate (executes expressions and statements, returning their value.
+       (Can also "execute" type variables, returning a variable of that type,
+       which can then be stored to a var type, or another type if you want to
+       risk a type mismatch.)
+
+ARITHMETIC/LOGIC OPERATORS
+
++ - * / \ ^      guess what these do!
+& | !            logical and/or/not (nonzero=true, 0=false)
+== != < > <= >=  more logic operators
+
+STATEMENTS
+
+->    attachment (pops off source and appends to destination)
+=     assignment (sets dest equal to source)
+=>    repeated attachment (repeats -> a number of times equal to #source)
+~>    repeated attachment with recycling (same as => except before each
+        attachment, @source -> source is executed)
+
+(all these abort immediately if any types are incompatible. They return
+the value of the destination queue after all operations, so x -> y -> z
+is possible.)
+
+;     comment (ignored)
+
+LITERALS
+
+{,,}    queue literal (nestable)
+"..."   string literal = Qchar
+'.'     character literal = char
+[...]   expression literal = expr
+`...`   type literal = type
+
+(Qexpr can be literalized either as {[...],[...]} or as
+
+{
+...
+...
+}
+
+with carriage returns taking the place of ],[ in the literal. Qtype can
+be initialized in the same way, rather than {`...`,`...`}.)
+
+COMPOUND TYPES
+
+context    execution context (function)
+class      template for contexts
+F_         function on _ (specialized context)
+
+(contexts and classes can be declared without a Q or F in front, because
+they are already queue-like compound types.)
+
+PREDEFINED QUEUES
+
+These queues occur in all contexts automatically. They can be redefined to
+initialize them (all) or have different types (in and out only).
+
+Qexpr code = {}
+Qexpr eol = {[.ip + 1 -> .ip]}
+Qint ip = {1}
+Qexpr exec = {[#.in > 0]}
+Qvar in = {}
+Qvar out = {}
+
+These queues all have special places in the use of the context. Whenever
+@exec is true (nonzero), then execution of code begins, counting lines with
+ip. eol is executed at the end of each line. Whenever the context name is
+used as a source, it actually refers to out, and when it is a destination, it
+refers to in. Note that with all default definitions, the code will execute
+line by line whenever something is input.
+
+TO DEFINE A CONTEXT (OR CLASS)
+
+context context_name = {
+  Qexpr code = {
+    ...
+    Qint local_variable
+    ...
+  }
+  Qchar in
+  Qfloat out
+  Qint context_variable
+}
+
+local variables are recreated whenever the code is executed. context
+variables stay the same for a given context instance. classes are defined the
+same as contexts, and instances of a class are declared as follows:
+
+context context_name = ~class_name
+
+FUNCTIONS
+
+Fchar function_name = {
+  ...
+  ...
+  ...
+}
+
+looks exactly the same to the interpreter as
+
+context function_name = {
+  Qexpr code = {
+    ...
+    ...
+    ...
+  }
+  Qchar in
+  Qchar out
+}
+
+It's just a kind of shorthand.
+
+ANATOMY OF A VARIABLE REFERENCE
+
+[#~?@]?[$%]*[:]*[.]?    all followed by the variable name.
+
+I hope I got the regexp right, plus 2 things I didn't know how to do in it:
+
+ 1: you can have ~@ meaning execute top w/o popping
+ 2: . can be preceeded by a context-name to specify which sub-context
+
+PROBLEMS
+
+How could you program it so the code executes whenever output is demanded,
+rather than whenever input is recieved?
+
+[I now think this can be fixed with some modification of the multithreading
+model in Andy's comment.]

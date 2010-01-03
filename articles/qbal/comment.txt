@@ -1,0 +1,94 @@
+This is a modification to the qbal language to support multithreading.
+
+functions were previously declared as
+
+context f_name
+    = {
+    Qexpr code
+        = {
+        function_code
+        ...
+        }
+    Qchar in
+    Qchar out
+    }
+
+however, this format is not conducive to multi-threading due to the case of
+concurrent function calls. In other words, what if two threads are executing
+the same function or context at once?
+    The resolution to this problem is to have *implied* in and out queues,
+defined by the code declaration, as in c++, so that data space can be
+allocated on an as-need, per-thread basis.
+    So the above function definition changes to the following:
+
+context f_name
+    ={
+    Qexpr f_name {in_types}
+        ={
+        func_code
+        } out_type
+    }
+
+by calling the context's name as a function, then the context will call its
+member function that has identical arguments, so supporting function
+overloading (type-sensitive calls).
+
+an example of the above implemented in a real class would be as follows:
+
+context square
+    ={
+    Qexpr square {Qfloat inputs}
+        ={
+        inputs^2 => outputs
+        } Qfloat outputs
+    }
+
+thus to square a queue, you merely call
+
+Qfloat someData = square(sourceQueue)
+
+
+Another critical modification that must occur to do true multithreading, is
+restructuring of the ip, now a context.
+    One thing to remember, is that all calls to ip will be *from* ip =)
+
+context ip
+    ={
+    QQexpr private code
+    Qlong private handle
+    Qexpr private currentCode
+
+    Qexpr createThread {}
+        ={
+        :@code -> code
+        ; -- Assign unique handle -- how??
+        }
+    Qexpr create {}
+        ={
+        program.code -> code
+        handle = {0}
+        }
+    Qexpr deleteThread {}
+        ={
+        code ->
+        handle ->
+        }
+     Qexpr exec {Qchar arg}
+        ={
+        @code -> currentCode
+        ~code -> code
+        handle -> handle
+        } int returnVal
+     Qexpr synch {}
+        ={
+        ; -- this func makes threads wait at this place until
+        ; -- all the threads reach here.
+        }
+    }
+
+also, i made a context called "program" which is, well, the whole program.
+all it consists of is Qexpr data. also, the above does not have a modifiable
+eol. Seriously, though, why do you need to be able to make eol = {[ip - 1 ->
+ip]}?? Also i killed the program counter because, well, i can't directly
+access data in a random place in a queue.
+    ip.create is called upon program start, by the program context.
