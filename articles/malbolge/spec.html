@@ -5,7 +5,7 @@
 <title>Maelbolge language specification</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="">
-<meta name="keywords" content="translation, tagmemics, artificial language, constructed language, conlang, classroom, research">
+<meta name="keywords" content="malbolge, dis, esoteric, programming language">
 <link rel="stylesheet" type="text/css" href="../../assets/stylesheet.css" media="all">
 
 </head><body>
@@ -17,6 +17,13 @@ is a duplicate of sorts of
 This content is also <a href="http://www.lscheffer.com/malbolge.shtml">mirrored
 by Lou Scheffer</a>, who has some interesting stuff on the langauge too.</p>
 <p>I&rsquo;ve added additional links to the text.</p>
+
+<p>Ben&rsquo;s original interpreter is available for download here too as a
+<a href="malbolge.zip" title="Malbolge interpreter">ZIP file</a> and as a
+<a href="malbolge.tar.gz" title="Malbolge interpreter">tarball</a>.</p>
+
+<p>If you&rsquo;re interested in Malbolge, you&rsquo;d probably be interested
+in <a href="dis.html">Dis</a> too.</p>
 </div>
 
 <div class="aside">
@@ -143,11 +150,11 @@ B6v^=I_0/8|jsb9m&lt;.TVac`uY*MK'X~xDl}REokN:#?G"i@</pre>
 <dd>performs a tritwise &lsquo;op&lsquo; on the value pointed to by D with the contents of A. The op (don&rsquo;t look for pattern, it&rsquo;s not there) is:
 
 <pre>
-            | A trit:
-    ________|_0__1__2_
-          0 | 1  0  0
-      *D  1 | 1  0  2
-     trit 2 | 2  2  1
+       | A trit:
+_______|_0__1__2_
+     0 | 1  0  0
+ *D  1 | 1  0  2
+trit 2 | 2  2  1
 
 Di-trits:
     00 01 02 10 11 12 20 21 22
@@ -174,7 +181,7 @@ Di-trits:
 <dd>indicates a full stop for the machine.</dd>  
 
 <dt><kbd>o</kbd></dt>
-<dd>does nothing, except increment C and D, as all other instructions do.</dd>
+<dd>does nothing, except increment <var>C</var> and <var>D</var>, as all other instructions do.</dd>
 </dl>
 
 
