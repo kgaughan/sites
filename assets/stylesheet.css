@@ -1,17 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
+@import url(http://fonts.googleapis.com/css?family=Asap:400,700,400italic);
+
+html {
+	margin: 0;
+	padding: 0;
+
+	background: #EEE no-repeat;
+	background-image: -webkit-linear-gradient(top, #CCC 0, #EEE 16px);
+	background-image: -moz-linear-gradient(top, #CCC 0, #EEE 16px);
+	background-image: linear-gradient(top, #CCC 0, #EEE 16px);
+}
+
 body {
-	font-family: "Palatino Linotype", "Book Antiqua", "URW Palladio L", Palatino, sans-serif;
+	font-family: "Asap", sans-serif;
 	line-height: 1.5;
-	margin: 1em auto;
+	margin: 0 auto 1em auto;
+	padding: 1em;
 	width: 44em;
+
+	background: #FFF no-repeat;
+	background-image: -webkit-linear-gradient(top, #DDD 0, #FFF 12px);
+	background-image: -moz-linear-gradient(top, #DDD 0, #FFF 12px);
+	background-image: linear-gradient(top, #DDD 0, #FFF 12px);
+
+	border: 1px solid #DDD;
+	border-top: none;
+
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	-moz-box-shadow: 0 8px 6px -6px black;
+	box-shadow: 0 8px 6px -6px black;
 }
 h1, h2, h3 {
-	text-align: center;
+	font-family: "Yanone Kaffeesatz", sans-serif;
+	color: maroon;
 }
 h1 {
 	font-weight: bold;
+	font-size: 300%;
+	text-align: center;
 }
 h2, h3 {
 	font-weight: normal;
+	font-size: 200%;
+	text-align: left;
 }
 h3 {
 	font-style: italic;
@@ -42,18 +73,22 @@ table.formula {
 	margin-right: auto;
 }
 p + h2, div + h2, blockquote + h2 {
-	margin-top: 2em;
+	margin-top: 1em;
 }
 h2, h3, h4, h5, h6 {
-	margin-bottom: 1ex;
+	margin-bottom: 0;
 }
 pre {
 	border-left: 0.5ex solid maroon;
+	border-right: 0.5ex solid maroon;
 	padding-left: 1ex;
+	padding-right: 1ex;
 	margin-left: -1.5ex;
+	margin-right: -1.5ex;
+	background: #FEE;
 }
 code {
-	background: #EEE;
+	background: #FEE;
 }
 
 dd {
