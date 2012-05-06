@@ -1,6 +1,6 @@
 body {
 	font-family: "Palatino Linotype", "Book Antiqua", "URW Palladio L", Palatino, sans-serif;
-	line-height: 1.4;
+	line-height: 1.5;
 	margin: 1em auto;
 	width: 44em;
 }
@@ -30,6 +30,12 @@ p.source {
 }
 p.formula {
 	text-align: center;
+}
+table {
+	border-collapse: collapse;
+}
+table th {
+	text-align: left;
 }
 table.formula {
 	margin-left: auto;
