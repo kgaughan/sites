@@ -47,6 +47,10 @@ h2, h3 {
 h3 {
 	font-style: italic;
 }
+h1 + h2 {
+	margin-top: -1em;
+	text-align: center;
+}
 p.source {
 	text-align: center;
 }
