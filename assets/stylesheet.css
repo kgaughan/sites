@@ -41,15 +41,28 @@ h1 {
 }
 h2, h3 {
 	font-weight: normal;
-	font-size: 200%;
 	text-align: left;
 }
+h2 {
+	font-size: 200%;
+}
 h3 {
-	font-style: italic;
+	font-size: 125%;
 }
 h1 + h2 {
 	margin-top: -1em;
 	text-align: center;
+}
+h4 {
+	font-family: inherit;
+	font-size: 100%;
+	font-weight: bold;
+	font-style: normal;
+	margin-top: 3ex;
+	margin-bottom: 0;
+}
+h4 + p {
+	margin-top: 1ex;
 }
 p.source {
 	text-align: center;
@@ -68,9 +81,18 @@ p.formula {
 }
 table {
 	border-collapse: collapse;
+	margin: 1em auto;
 }
 table th {
+	font-weight: bold;
+}
+table tr {
+	border-bottom: 1px solid silver;
+}
+table th, table td {
+	padding: 0.125ex 1ex 0.5ex 1ex;
 	text-align: left;
+	vertical-align: top;
 }
 table.formula {
 	margin-left: auto;
@@ -98,6 +120,7 @@ code {
 dd {
 	margin-top: 1ex;
 	margin-bottom: 1ex;
+	margin-left: 1em;
 }
 dd:before {
 	content: "—";
