@@ -1,0 +1,45 @@
+---
+- name: deploy {{ domain_name }}
+  hosts: all
+  remote_user: keith
+  become: yes
+  gather_facts: false
+
+  vars:
+    ansible_python_interpreter: /usr/local/bin/python
+
+    # domain_name comes in from the invocation.
+    vhosts_root: /usr/local/www
+    webserver_config_root: /usr/local/etc/nginx
+    tls_root: /usr/local/etc/ssl/acme
+    logs_root: /var/logs/www
+
+  tasks:
+    - name: ensure target directories exist
+      file:
+        dest: '{{ item }}'
+        state: directory
+      with_items:
+        - '{{ vhosts_root }}/{{ domain_name }}'
+        - '{{ webserver_config_root }}/vhosts'
+        - '{{ logs_root }}'
+
+    - name: copy up vhost config
+      template:
+        src: vhost.conf.j2
+        dest: '{{ webserver_config_root }}/vhosts'
+      notify:
+        - reload nginx
+
+    - name: copy up site
+      synchronize:
+        src: web
+        dest: '{{ vhosts_root }}/{{ domain_name }}'
+        recursive: yes
+        delete: yes
+
+  handlers:
+    - name: reload nginx
+      service:
+        name: nginx
+        state: reloaded
