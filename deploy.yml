@@ -35,7 +35,8 @@
       synchronize:
         src: web
         dest: '{{ vhosts_root }}/{{ domain_name }}'
-        recursive: yes
+        group: no
+        owner: no
         delete: yes
 
   handlers:
