@@ -1,0 +1,123 @@
+@import 'https://fonts.googleapis.com/css?family=Inconsolata:400,700|Raleway:400,400i,600';
+body {
+  font-family: 'Raleway', sans-serif;
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 5rem 0 0 0;
+  color: #555;
+}
+pre, code {
+  font-family: 'Inconsolata', monospace;
+}
+main, footer {
+  line-height: 1.6;
+  max-width: 50rem;
+  width: 100%;
+  padding: 0 4rem;
+  margin: 2rem auto;
+}
+footer {
+  text-align: center;
+}
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 0 2rem;
+  overflow: visible !important;
+}
+.brand {
+  display: inline-block;
+  padding: 1rem;
+  margin: 0;
+  font-weight: 600;
+  float: left;
+  color: #802;
+}
+h1, h2 {
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #802;
+}
+h1 {
+  font-size: 300%;
+  line-height: 1.1;
+}
+h2 {
+  font-size: 250%;
+  line-height: 1.2;
+}
+pre, code {
+  background: #eee;
+}
+p code {
+  padding: 0.25em;
+}
+pre {
+  padding: 0.75rem;
+  border-left: 2px solid #802;
+  overflow-x: auto;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+nav > ul {
+  display: inline-block;
+  float: left;
+}
+nav > ul > li {
+  display: inline-block;
+  padding: 1rem;
+  margin: 0;
+  position: relative;
+}
+nav ul > li > ul {
+  display: none;
+  position: absolute;
+  min-width: 20rem;
+  background: #eee;
+  border: 1px solid #ddd;
+  border-top: 0;
+  z-index: 1000;
+  left: 0;
+  top: 100%;
+  float: left;
+  white-space: nowrap;
+}
+nav ul > li:hover > ul {
+  display: block;
+}
+nav li:hover li {
+  margin: 0;
+  padding: 0;
+}
+nav li li a {
+  display: block;
+  padding: 1rem;
+}
+nav li li:hover {
+  background: #f8f8f8;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+thead, tbody {
+  border-bottom: 1px solid #802;
+}
+tbody tr + tr {
+  border-top: 1px solid #ccc;
+}
+th, td {
+  padding: 0.5em 1em;
+}
+th {
+  text-align: left;
+}

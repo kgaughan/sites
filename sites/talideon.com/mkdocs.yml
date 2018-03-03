@@ -1,4 +1,10 @@
 site_name: talideon.com
+copyright: Keith Gaughan, 2001-2018
+
+theme:
+  name: null
+  custom_dir: ../../themes/simple
+
 pages:
   - Home: index.md
   - Articles:
