@@ -1,0 +1,7 @@
+site_name: talideon.com
+pages:
+  - Home: index.md
+  - Articles:
+      - Web development notes: webdev-notes.md
+      - Getting Ubuntu running on a Lenovo Miix 310: ubuntu-lenovo-miix-310.md
+  - Elsewhere: elsewhere.md
