@@ -15,3 +15,5 @@ it with the pipsi_ wrapper around pip_.
 .. _mkdocs: http://www.mkdocs.org/
 .. _pipsi: https://github.com/mitsuhiko/pipsi
 .. _pip: https://pypi.python.org/pypi/pip
+
+.. vim:set ft=rst:
