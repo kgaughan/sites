@@ -1,0 +1,10 @@
+site_name: Mirrored content hosted on mirrors.talideon.com
+
+markdown_extension:
+  - smarty
+  - sane_lists
+
+plugins: []
+
+pages:
+  - Home: index.md
