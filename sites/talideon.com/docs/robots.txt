@@ -1,0 +1,4 @@
+# These don't need to # be spidered, so it's best they're ignored.
+User-agent: *
+Disallow: /id/
+Disallow: /visitors/
