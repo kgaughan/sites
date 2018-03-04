@@ -1,48 +1,32 @@
-<!DOCTYPE html>
+Mirrored Content at mirrors.talideon.com
+========================================
 
-<html lang="en-ie"><head>
+The purpose this site is to host *mirrored content* of various sorts,
+such as mirrored articles, FreeBSD distfiles, &c.
 
-<title>Mirrors hosted on talideon.com</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="assets/stylesheet.css" media="all">
+Languages
+---------
 
-</head><body>
+- [Kalaba-X: An Artificial Language that Teaches Translation](articles/kalabax.md)
 
-<h1>Mirrored Content at mirrors.talideon.com</h1>
+Constructed languages
+---------------------
 
-<p>The purpose this site is to host <em>mirrored content</em> of various sorts,
-such as mirrored articles, FreeBSD distfiles, &amp;c.</p>
+- [Breathanach](articles/morven/breathanach.md) by Geoff Eddy
 
-<h2>Languages</h2>
+Esoteric programming languages
+------------------------------
 
-<ul>
-<li><a href="articles/kalabax.html">Kalaba-X: An Artificial Language that Teaches Translation</a></li>
-</ul>
+- [Q-BAL, a queue-based programming language](articles/qbal/index.md)
+- [Malbolge language specification](articles/malbolge/spec.md)
+- [Dis language specification](articles/malbolge/dis.md)
 
-<h2>Constructed languages</h2>
+Development
+-----------
 
-<ul>
-<li><a href="articles/morven/breathanach.html">Breathanach</a> by Geoff Eddy</li>
-</ul>
+- [RFC: system.multicall](articles/multicall.md) (XML-RPC)
 
-<h2>Esoteric programming languages</h2>
+General
+-------
 
-<ul>
-<li><a href="articles/qbal/">Q-BAL, a queue-based programming language</a></li>
-<li><a href="articles/malbolge/spec.html">Malbolge language specification</a></li>
-<li><a href="articles/malbolge/dis.html">Dis language specification</a></li>
-</ul>
-
-<h2>Development</h2>
-
-<ul>
-<li><a href="articles/multicall.html">RFC: system.multicall</a> (XML-RPC)</li>
-</ul>
-
-<h2>General</h2>
-
-<ul>
-<li><a href="articles/rauch.html">Caring for your introvert: The habits and needs of a little-understood group</a></li>
-</ul>
-
-</body></html>
+- [Caring for your introvert: The habits and needs of a little-understood group](articles/rauch.md)
