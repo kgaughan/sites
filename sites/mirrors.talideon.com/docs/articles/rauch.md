@@ -7,8 +7,8 @@ Caring for your introvert
 The habits and needs of a little-understood group
 -------------------------------------------------
 
-by [Jonathan Rauch]{.author}
-[from The Atlantic Monthly, March 2003](http://www.theatlantic.com/issues/2003/03/rauch.htm){.published}
+by Jonathan Rauch
+[from The Atlantic Monthly, March 2003](http://www.theatlantic.com/issues/2003/03/rauch.htm)
 
 Do you know someone who needs hours alone every day? Who loves quiet
 conversations about feelings or ideas, and can give a dynamite

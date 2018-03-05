@@ -24,9 +24,8 @@ acquire some of the necessary skills…
 An Artificial Language that Teaches the Art of Translation
 ----------------------------------------------------------
 
-Extracted from a lecture given in 1956 by [Kenneth L. Pike,
-Ph.D.]{.author} [first published in Bibliotheca Sacra Vol.
-114]{.published}
+Extracted from a lecture given in 1956 by Kenneth L. Pike, Ph.D. first
+published in Bibliotheca Sacra Vol.  114
 
 In our first lecture we emphasized the fact that a language was a grid,
 an emic system by means of which and through which communication takes
@@ -348,37 +347,41 @@ following verse utilizes that pattern, with a few changes; one further
 sentence type, limited to a single exclamatory word, is added, and some
 hyphenated two-morpheme items are treated as single slot-filling units:
 
-> Enters bird big, man bewildered.\
-> Maketh sound loud, bird silvered.\
->   Whoosh!\
-> Aimeth sky top, bird up-flying\
-> Falleth ground face, earth low-lying.\
->   Wow!\
-> Hideth earth low, clouds heavy.\
-> Rocketh gentle man, bird steady.\
->   Nice!\
-> Cover eyes blue, eyelids drooping.\
-> Covers sky blue, darkness stooping,\
->   Sleep!\
-> Open eyes tired, man wondering.\
-> Breaketh air night, storm thundering.\
->   Boom!\
-> Rocketh bird poor, storm no-cease.\
-> Reacheth land firm, bird one-piece.\
->   Whew!\
->     *—Dorothy Barnhouse*
+```nohighlight
+Enters bird big, man bewildered.
+Maketh sound loud, bird silvered.
+  Whoosh!
+Aimeth sky top, bird up-flying
+Falleth ground face, earth low-lying.
+  Wow!
+Hideth earth low, clouds heavy.
+Rocketh gentle man, bird steady.
+  Nice!
+Cover eyes blue, eyelids drooping.
+Covers sky blue, darkness stooping,
+  Sleep!
+Open eyes tired, man wondering.
+Breaketh air night, storm thundering.
+  Boom!
+Rocketh bird poor, storm no-cease.
+Reacheth land firm, bird one-piece.
+  Whew!
+    —Dorothy Barnhouse
+```
 
 For verse with no changes other than a comma to make unambiguous by a
 pause the end of the object, note the following:
 
-> Owns lamb little, Mary.\
-> Loves lamb, Mary little.\
-> Loves Mary pretty, lamb.\
-> Owns lamb, Mary pretty.\
-> Seems snow, fleece white.\
-> Equals snow white, fleece.\
-> Equals snow, fleece soft.\
-> Seems fleece soft, snow.
+```nohighlight
+Owns lamb little, Mary.
+Loves lamb, Mary little.
+Loves Mary pretty, lamb.
+Owns lamb, Mary pretty.
+Seems snow, fleece white.
+Equals snow white, fleece.
+Equals snow, fleece soft.
+Seems fleece soft, snow.
+```
 
 First-Stage Translation into a Complex Structure
 ------------------------------------------------

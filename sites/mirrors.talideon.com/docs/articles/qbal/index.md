@@ -76,7 +76,7 @@ Revisions since then {#revisions-since-then}
 Other versions {#other-versions}
 --------------
 
--   [PDF](specification.pdf "Q-BAL Specification in PDF format")
+-   [Q-BAL Specification in PDF format](specification.pdf)
 
 Introduction {#intro}
 ============
@@ -101,7 +101,9 @@ has no floating point capacity as yet).
 
 An object is declared by a declaration statement, as follows:
 
-    Q queue_name
+```nohighlight
+Q queue_name
+```
 
 This declares a queue of numbers named queue\_name. The name is an
 alphanumeric sequence which can include letters, numbers, and
@@ -115,7 +117,9 @@ A queue may be initialized to a certain list of numbers. This is done
 using the `=` initialization operator and the `{ , }` literal queue
 operators. An example follows:
 
-    Q squares = {1,4,9,16,25}
+```nohighlight
+Q squares = {1,4,9,16,25}
+```
 
 The first number inside the `{ , }` comes at the top of the queue and
 the last comes at the bottom. Literal queues can also be used in
@@ -152,10 +156,12 @@ Attachment is also known as appending, or “sticking on the bottom.”
 What the first attachment does is to pop the top of x and append it to
 the bottom of y. That is, this code:
 
-    Q x = {1,2,3}
-    Q y = {4,5,6}
-    x -> y
-    y -> x
+```nohighlight
+Q x = {1,2,3}
+Q y = {4,5,6}
+x -> y
+y -> x
+```
 
 will end up with `x = {2,3,4}` and `y = {5,6,1}`.
 
@@ -192,9 +198,11 @@ The assignment sets one queue *equal* to another. It does not modify the
 source queue (the one on the right), but the destination queue is
 completely overwritten by the source queue. An example will illustrate:
 
-    Q x = {1,2,3}
-    Q y = {4,6}
-    y = x
+```nohighlight
+Q x = {1,2,3}
+Q y = {4,6}
+y = x
+```
 
 This example produces `x = {1,2,3}` and `y = {1,2,3}`. As it shows, the
 assignment operator does not care about how many elements are in the
@@ -237,10 +245,12 @@ left blank. This is called the “null queue.” The null queue is never
 modified and is considered to have no elements. Here are the possible
 combinations:
 
-    x ->
-    -> x
-    x =
-    = x
+```nohighlight
+x ->
+-> x
+x =
+= x
+```
 
 Of these, the fourth is the only one with no use whatever. The first
 pops an element from x and discards it, and the third erases x
@@ -268,9 +278,11 @@ one letter after the period designating what type of directive it is,
 then a space and any parameters required by the directives. At the time
 this is being written there are only three directives:
 
-    .I "included.qbl"
-    .P ;-1 -> ;
-    .M print 'out?
+```nohighlight
+.I "included.qbl"
+.P ;-1 -> ;
+.M print 'out?
+```
 
 The first tells the compiler/interpreter to include a specified file at
 that point. The pathname can be relative or absolute. The second changes
@@ -293,10 +305,12 @@ the group are `in` and `out`. `in` can only be a source and `out` can
 only be a destination. Numerical input and output is handled with
 attachments, as follows:
 
-    Q x
-    in -> x
-    x + 1 -> x
-    x -> out
+```nohighlight
+Q x
+in -> x
+x + 1 -> x
+x -> out
+```
 
 This will input a number, add one to it, and output it in numerical
 format. Note that at the end of this code snippet x is a null queue
@@ -318,9 +332,11 @@ difficult to engineer longer input and output, however.) However, we can
 use the assignment operator rather than the attachment operators.
 Therefore, this code:
 
-    Q x
-    x = 'in
-    'out = x
+```nohighlight
+Q x
+x = 'in
+'out = x
+```
 
 will read a string from stdin until return is pressed and output it to
 stdout. Note that at the end of this code snippet x still contains the
@@ -355,7 +371,9 @@ to be generated. Variable I/O is initialized by putting a number
 (usually defined by the `.M` directive to be a descriptive word) into
 the queue `?` as follows:
 
-    PRINTER -> ?
+```nohighlight
+PRINTER -> ?
+```
 
 Assuming that earlier in the program there was a `.M PRINTER x`
 statement, where x is whatever number the compiler/interpreter decides
@@ -390,7 +408,9 @@ number (after all `.I` inclusions: see below), starting from 1 at the
 first line. Blank lines and comments are not counted. So the following
 line:
 
-    0 -> ;
+```nohighlight
+0 -> ;
+```
 
 Will reset program execution to the beginning of the program. But in
 reality, it is never necessary to know the exact line number of any
@@ -418,9 +438,11 @@ say “go back x lines if such-and-such is true.” This is done by
 multiplying x by the result of a logic operation, which is 0 if false
 and 1 if true. The code snippet
 
-    Q x
-    in -> x
-    ; - 2 \ (x != 0) -> ;
+```nohighlight
+Q x
+in -> x
+; - 2 \ (x != 0) -> ;
+```
 
 illustrates this concept, and will get input repeatedly until the number
 0 is entered. Remember that after the line the statement `;+1 -> ;` is
@@ -456,11 +478,13 @@ program flow. Fortunately, it is possible to “label” a line in Q-BAL,
 although (like so many other things in Q-BAL) it is not designed
 directly into the language. Consider this code:
 
-    Q LABEL
-    ...
-    LABEL = ;
-    ...
-    ; = LABEL
+```nohighlight
+Q LABEL
+...
+LABEL = ;
+...
+; = LABEL
+```
 
 The first statement functions as the “label,” storing the program
 counter value (i.e. line number) at that point. It does not modify the
@@ -493,7 +517,9 @@ Declaring Functions {#declfs}
 A function on numbers is declared in the same way as a queue of numbers,
 except with an `F` instead of a `Q` for the type, as follows:
 
-    F func_name
+```nohighlight
+F func_name
+```
 
 The same restrictions on the name of a function apply as on the name of
 a queue.
@@ -504,12 +530,14 @@ Initializing Functions {#initf}
 The instruction queue of a function is the only part that can be
 initialized. It is done as follows:
 
-    F square
-     Q x
-     *in -> x
-     x \ in -> x
-     x -> out
-    F
+```nohighlight
+F square
+ Q x
+ *in -> x
+ x \ in -> x
+ x -> out
+F
+```
 
 Don’t worry about what that function does; we’ll get to that in the next
 section.
@@ -681,14 +709,16 @@ For example, `FQ sort` would declare a function on queues. In general, a
 “queue” or “function” refers to a queue of numbers or a function on
 numbers. An example of a use of a queue of queues follows:
 
-    QQ x
-    Q y
-    y = 'in
-    *$y -> x
-    ; - 3\(#y != 0) -> ;
-    $x -> 'out
-    ; - 2\(#x != 0) -> ;
-    ; ->
+```nohighlight
+QQ x
+Q y
+y = 'in
+*$y -> x
+; - 3\(#y != 0) -> ;
+$x -> 'out
+; - 2\(#x != 0) -> ;
+; ->
+```
 
 This complete program will read strings until a null string is entered
 (return with no other characters), and then print them all out in the
@@ -710,15 +740,17 @@ is attachment) or if it is at all shorter (if the operation is
 assignment), then the excess is put onto the top of the queue (or the
 output queue for functions.) An example will serve to make this clearer:
 
-    FQQ x
-    QQ y
-    FQ z
-    ...
-    y -> x
-    y = x
-    z = y
-    y -> z
-    x -> z
+```nohighlight
+FQQ x
+QQ y
+FQ z
+...
+y -> x
+y = x
+z = y
+y -> z
+x -> z
+```
 
 Admittedly, you aren’t likely to run across anything nearly this
 complex. But it serves a good illustration. Let’s take this in order.
@@ -785,20 +817,24 @@ The String prefix operator `$` forces the GCD to a higher level. One use
 of the string on the source will raise an attachment to the level of the
 smaller, if possible. For example:
 
-    QQ x
-    Q y
-    ...
-    $y -> x
+```nohighlight
+QQ x
+Q y
+...
+$y -> x
+```
 
 This code will leave y a null queue and append to x (a queue of queues)
 what it used to be. The string operator often leaves its operand a null
 queue. When used other than this, it causes things to be strung
 together. For example:
 
-    Q x
-    Q y
-    ...
-    $x -> y
+```nohighlight
+Q x
+Q y
+...
+$x -> y
+```
 
 This code will string together all of x and append it to y. If
 `x = {1,2,3}` and `y = {1,4,9}`, then after this code executes

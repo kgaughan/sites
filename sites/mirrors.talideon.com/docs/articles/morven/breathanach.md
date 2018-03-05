@@ -49,7 +49,7 @@ grammatical endings and their replacement by more analytical
 constructions, while LN is terser and more synthetic. The following
 description covers both registers, since the learner is likely to
 encounter both. LN words are preferred in the text; LF equivalents,
-where different, are given in \[square brackets\]
+where different, are given in [square brackets]
 
 The variety of Breathanach presented here is the de facto standard,
 which is a hybrid of the two main dialect groupings. The main division
@@ -73,7 +73,6 @@ Contents
 Bits and pieces will be added to this file as time goes on and I unearth
 more about Breathanach, so keep coming back!
 
--   [Contents](#contents)
 -   [Sounds and Spelling](#ssp)
     -   [Stress and syncope](#s-stress)
     -   [Consonants](#s-cons)
@@ -137,20 +136,20 @@ is commonly expressed as **láth a láth e striocht a striocht**, i.e.
 The approximate pronunciations of the basic consonants are given by the
 letter in uppercase in the words shown below.
 
-         Broad     Slender
-  ------ --------- ----------
-  P      Pat       Pure
-  B      Bat       Beauty
-  T      Tap       Tune (1)
-  D      Dot       Dune (2)
-  C      Cat       Cure
-  G      Got       arGue
-  F      Fat       Few
-  L(L)   aLL (3)   Let (3)
-  S      Sat       Sheet
-  N(N)   oN        Net (4)
-  M      Mat       Mew
-  R(R)   aRe       Real (4)
+| Letter | Broad     | Slender
+| ------ | --------- | ----------
+| P      | Pat       | Pure
+| B      | Bat       | Beauty
+| T      | Tap       | Tune (1)
+| D      | Dot       | Dune (2)
+| C      | Cat       | Cure
+| G      | Got       | arGue
+| F      | Fat       | Few
+| L(L)   | aLL (3)   | Let (3)
+| S      | Sat       | Sheet
+| N(N)   | oN        | Net (4)
+| M      | Mat       | Mew
+| R(R)   | aRe       | Real (4)
 
 Note the following:
 
@@ -185,21 +184,20 @@ being written LL NN RR (except at the beginning of a word, when you just
 have to know). The approximate sounds of the lenited consonants are
 indicated below.
 
-  ---- --------- ------------
-       Broad     Slender
-  PH   Fat       Few
-  BH   Vat (3)   View
-  TH   Hat       Hat (1)
-  DH   (4)       Yet
-  CH   aCH (2)   iCH (2)
-  GH   (4)       Yet
-  FH   silent    silent
-  L    (6)       Lure (9)
-  SH   Hat       Hew
-  N    (7)       oNion (10)
-  MH   (5)       (5)
-  R    (8)       (8)
-  ---- --------- ------------
+|      | Broad     | Slender
+| ---- | --------- | ------------
+| PH   | Fat       | Few
+| BH   | Vat (3)   | View
+| TH   | Hat       | Hat (1)
+| DH   | (4)       | Yet
+| CH   | aCH (2)   | iCH (2)
+| GH   | (4)       | Yet
+| FH   | silent    | silent
+| L    | (6)       | Lure (9)
+| SH   | Hat       | Hew
+| N    | (7)       | oNion (10)
+| MH   | (5)       | (5)
+| R    | (8)       | (8)
 
 Again, note the following:
 
@@ -296,12 +294,12 @@ spellings of the short vowel sounds in stressed syllables are as
 follows, where B and S represent broad and slender consonants
 respectively.
 
-        A     E     I     O     U     IA        UA    schwa
-  ----- ----- ----- ----- ----- ----- --------- ----- -------
-  B-B   A     AO    (1)   O     U     (4)       UA    A
-  B-S   AI    (2)   AOI   OI    UI    (4)       UAI   AI
-  S-B   (3)   EA    IO    EO    IU    IA        (5)   EA
-  S-S   EAI   EI    I     EOI   IUI   IAI (6)   (5)   I
+|       | A     | E     | I     | O     | U     | IA        | UA    | schwa
+| ----- | ----- | ----- | ----- | ----- | ----- | --------- | ----- | -------
+| B-B   | A     | AO    | (1)   | O     | U     | (4)       | UA    | A
+| B-S   | AI    | (2)   | AOI   | OI    | UI    | (4)       | UAI   | AI
+| S-B   | (3)   | EA    | IO    | EO    | IU    | IA        | (5)   | EA
+| S-S   | EAI   | EI    | I     | EOI   | IUI   | IAI (6)   | (5)   | I
 
 Notes:
 
@@ -321,7 +319,7 @@ broad vowel (normally ÉA), and pronounces the vowels transcribed AO(I)
 further back in the mouth.
 
 In LF, vowels before LL NN RR are often diphthongised; thus **mann**
-“big” and **ceall** “that” sound a bit like \[maun\] and \[k’eul\].
+“big” and **ceall** “that” sound a bit like [maun] and [k’eul].
 
 Grammar {#gram}
 -------
@@ -338,176 +336,34 @@ consonant or a vowel.
 Here are the full declensions of the masculine nouns **fior** “man”,
 **gleidh** “sword”, and **cain** “dog”:
 
-Singular
-
-Nom
-
-fior
-
-gleidh
-
-cain
-
-Acc
-
-fior-n
-
-gleidh-n
-
-cain-
-
-Gen
-
-fire
-
-gleidhe
-
-caine
-
-Dat
-
-fiora
-
-gleidhe
-
-caine
-
-Voc
-
-fire
-
-gleidhe
-
-caine
-
-Plural
-
-Nom
-
-fire
-
-gleidhe
-
-caine
-
-Acc
-
-fiora-\*
-
-gleidhe-\*
-
-caine-\*
-
-Gen
-
-fior(ra)-n
-
-gleidh(re)-n
-
-cain(re)-n
-
-Dat
-
-fir(eabh)
-
-gleidh(eabh)
-
-cain(eabh)
-
-Voc
-
-fior
-
-gleidh
-
-caine
+| Case/Number | man | sword | dog
+| ----------- | --- | ----- | ---
+| Nom sg. | fior | gleidh | cain
+| Nom pl. | fire | gleidhe | caine
+| Acc sg. | fior-n | gleidh-n | cain-
+| Acc pl. | fiora-\* | gleidhe-\* | caine-\*
+| Gen sg. | fire | gleidhe | caine
+| Gen pl. | fior(ra)-n | gleidh(re)-n | cain(re)-n
+| Dat sg. | fiora | gleidhe | caine
+| Dat pl. | fir(eabh) | gleidh(eabh) | cain(eabh)
+| Voc sg. | fire | gleidhe | caine
+| Voc pl. | fior | gleidh | caine
 
 And here are the feminine nouns **paoll** “girl”, **geil** “helmet” and
 **fidh** “faith”:
 
-Singular
-
-Nom
-
-paoll
-
-geil
-
-fidh(e)
-
-Acc
-
-paoll-n
-
-geil-n
-
-fidh-n
-
-Gen
-
-paolla
-
-geile
-
-fidhe
-
-Dat
-
-paolla
-
-geile
-
-fidhe
-
-Voc
-
-paoll
-
-geil
-
-fidh
-
-Plural
-
-Nom
-
-paolla
-
-geile
-
-fidhe
-
-Acc
-
-paolla-\*
-
-geile-\*
-
-fidhe-\*
-
-Gen
-
-paoll(ra)-n
-
-geile(ara)-n
-
-fidh(re)-n
-
-Dat
-
-paoill(eabh)
-
-geil(eabh)
-
-fidh(eabh)
-
-Voc
-
-paoille
-
-geile
-
-fidhe
+| Case/Number | girl | helmet | faith
+| ----------- | ---- | ------ | -----
+| Nom sg. | paoll | geil | fidh(e)
+| Nom pl. | paolla | geile | fidhe
+| Acc sg. | paoll-n | geil-n | fidh-n
+| Acc pl. | paolla-\* | geile-\* | fidhe-\*
+| Gen sg. | paolla | geile | fidhe
+| Gen pl. | paoll(ra)-n | geile(ara)-n | fidh(re)-n
+| Dat sg. | paolla | geile | fidhe
+| Dat pl. | paoill(eabh) | geil(eabh) | fidh(eabh)
+| Voc sg. | paoll | geil | fidh
+| Voc pl. | paoille | geile | fidhe
 
 The genitive and dative plural endings shown in brackets are nowadays
 very rarely found.
@@ -541,8 +397,8 @@ plural - note how the spelling of the vowel I changes to indicate the
 change in quality of the R. Similarly, the nouns “sword”, “girl” and
 “helmet” are **gleidh, paoll, geil** in the singular and **gleidhe,
 paolla, gaele** in the plural. The sentence “the man sees the girl’s
-house” in LF is thus **ill fior fidh la chas dealla phaoll**. \[Note
-that “sword” is more usually **glíth** in LF.\]
+house” in LF is thus **ill fior fidh la chas dealla phaoll**. [Note
+that “sword” is more usually **glíth** in LF.]
 
 #### Peculiar plurals
 
@@ -551,7 +407,7 @@ their plurals; thus, for example, **ill corn** “the horn”, plural **eall
 chorn**.
 
 Some nouns change vowels in the plural; thus **óbh** “egg”, plural
-**uabh** \[but both are **úth** in LF\]. Note that **-ao-** (sounded E)
+**uabh** [but both are **úth** in LF]. Note that **-ao-** (sounded E)
 becomes **-aoi-** (sounded I): **caos** “cheese”, plural **caois**.
 
 #### Articles and demonstratives
@@ -566,105 +422,18 @@ after the masculine singular indefinite article, and lenition after all
 demonstratives. The last two lines are the demonstrative pronouns
 (“this”, “that”, “this one” and so on).
 
-Masc singular
-
-Fem singular
-
-Masc plural
-
-Fem plural
-
-“the”
-
-ill cain
-
-eall phaoll
-
-ille \*caine
-
-ealla \*paolla
-
-ill fior
-
-eall ghail
-
-ille \*fire
-
-ealla \*gaile
-
-“a, some”
-
-u-ncain
-
-un phaoll
-
-dill \*caine
-
-deall \*paolla
-
-un fior
-
-un ghail
-
-dill \*fire
-
-deall \*gaile
-
-“this, these”
-
-ceist chain
-
-ceast phaoll
-
-ciste chaine
-
-ceasta phaolla
-
-ceist fhior
-
-ceast ghail
-
-ciste fhire
-
-ceasta ghaile
-
-“that, those”
-
-ceill chain
-
-ceall phaoll
-
-cille chaine
-
-cealla phaolla
-
-ceill fhior
-
-ceall ghail
-
-cille fhire
-
-cealla ghaile
-
-“this one”
-
-ceistean
-
-ceastan
-
-cistine
-
-ceastana
-
-“that one”
-
-ceillean
-
-ceallan
-
-cilline
-
-ceallana
+|       | Masc sg. | Fem sg. | Masc pl. | Fem pl.
+| ----- | -------- | ------- | -------- | -------
+| “the” | ill cain | eall phaoll | ille \*caine | ealla \*paolla
+| | ill fior | eall ghail | ille \*fire | ealla \*gaile
+| “a, some” | u-ncain | un phaoll | dill \*caine | deall \*paolla
+| | un fior | un ghail | dill \*fire | deall \*gaile
+| “this, these” | ceist chain | ceast phaoll | ciste chaine | ceasta phaolla
+| | ceist fhior | ceast ghail | ciste fhire | ceasta ghaile
+| “that, those” | ceill chain | ceall phaoll | cille chaine | cealla phaolla
+| | ceill fhior | ceall ghail | cille fhire | cealla ghaile
+| “this one” | ceistean | ceastan | cistine | ceastana
+| “that one” | ceillean | ceallan | cilline | ceallana
 
 Note that the words for “some” are formed with **de** “of, from”.
 
@@ -674,69 +443,18 @@ Adjectives almost always follow the nouns they modify and, like nouns,
 decline in five cases in LN. They also inflect for gender and number
 similar to nouns, as shown below. The adjective is **parbh** “small”.
 
-Singular
-
-nom
-
-fior parbh
-
-paoll pharbh
-
-acc
-
-fior bparbh
-
-paoll bparbh
-
-gen
-
-fire phairbh
-
-paolla pharbha
-
-dat
-
-fiora parbh
-
-paolla pharbha
-
-voc
-
-fire pharbh
-
-paoll pharbh
-
-Plural
-
-nom
-
-fire phairbhe
-
-paolla pharbha
-
-acc
-
-fiora \*parbh
-
-paolla \*parbh
-
-gen
-
-fior bparbh(ra)
-
-paoll bparbh(ra)
-
-dat
-
-fior pairbh(eabh)
-
-paoill phairbh(eabh)
-
-voc
-
-fir phairbh
-
-paoille phharbh
+| Case/Number | Masc. | Fem.
+| ----------- | ----- | ----
+| nom sg. | fior parbh | paoll pharbh
+| nom pl. | fire phairbhe | paolla pharbha
+| acc sg. | fior bparbh | paoll bparbh
+| acc pl. | fiora \*parbh | paolla \*parbh
+| gen sg. | fire phairbh | paolla pharbha
+| gen pl. | fior bparbh(ra) | paoll bparbh(ra)
+| dat sg. | fiora parbh | paolla pharbha
+| dat pl. | fior pairbh(eabh) | paoill phairbh(eabh)
+| voc sg. | fire pharbh | paoll pharbh
+| voc pl. | fir phairbh | paoille pharbh
 
 As with nouns, only the nominatives of adjectives are used in LF. Thus
 it only needs to be remembered that adjectives after feminine and plural
@@ -744,12 +462,12 @@ nouns lenite the initial consonant, and plurals of adjectives follow the
 same rules as nouns. Thus the four LF forms of **parbh** and the slender
 adjective **féilisc** “happy” are as follows:
 
-  -------------------- ---------------- ----------------
-  Masculine singular   fior parbh       fior féilisc
-  Masculine plural     fire phairbhe    fire fhéilsce
-  Feminine singular    paoll pharbh     paoll fhéilisc
-  Feminine plural      paolla pharbha   paolla fhéilsc
-  -------------------- ---------------- ----------------
+|           | parbh          | féilisc
+| --------- | -------------- | --------------
+| Masc. sg. | fior parbh     | fior féilisc
+| Masc. pl. | fire phairbhe  | fire fhéilsce
+| Fem. sg.  | paoll pharbh   | paoll fhéilisc
+| Fem. pl.  | paolla pharbha | paolla fhéilsc
 
 Note the syncope in the plural of **féilisc**.
 
@@ -794,12 +512,12 @@ comparitives **ailtear** and **ail(t)seamh**.
 
 Four common adjectives have irregular comparitives and superlatives:
 
-  Positive        Comparitive   Superlative
-  --------------- ------------- -------------
-  bon “good”      meilear       oichteamh
-  mal “bad”       píor          peiseamh
-  mann “great”    méar          maisceamh
-  parbh “small”   meanar        mineamh
+| Positive      | Comparitive | Superlative
+| ------------- | ----------- | -------------
+| bon “good”    | meilear     | oichteamh
+| mal “bad”     | píor        | peiseamh
+| mann “great”  | méar        | maisceamh
+| parbh “small” | meanar      | mineamh
 
 **Mann** and **grand** both mean the same thing and may be used
 interchangeably. A corresponding alternative to **parbh** is **póch**.
@@ -818,14 +536,14 @@ Prepositions are used to indicate relations between nouns. A few common
 prepositions combine with a following definite or indefinite article,
 for example:
 
-             a “to”    de “from”   in “in”     so “on”    por “for”
-  ---------- --------- ----------- ----------- ---------- -----------
-  ill        aill      dill        nill        soill      poill
-  eall-h     alla-h    deall-h     neall-h     soll-h     polla-h
-  ille       aille     dille       nille       soille     poille
-  ealla-\*   alla-\*   dealla-\*   nealla-\*   solla-\*   polla-\*
-  u-n        a-n       de-n        i-n         so-n       por u-n
-  un-h       an-h      dean-h      in-h        son-h      por un-h
+|          | a “to”  | de “from” | in “in”   | so “on”  | por “for”
+| -------- | ------- | --------- | --------- | -------- | ---------
+| ill      | aill    | dill      | nill      | soill    | poill
+| eall-h   | alla-h  | deall-h   | neall-h   | soll-h   | polla-h
+| ille     | aille   | dille     | nille     | soille   | poille
+| ealla-\* | alla-\* | dealla-\* | nealla-\* | solla-\* | polla-\*
+| u-n      | a-n     | de-n      | i-n       | so-n     | por u-n
+| un-h     | an-h    | dean-h    | in-h      | son-h    | por un-h
 
 **De** replaces the genitive case in LF: **la chas dill fior** “the
 man’s house, the house of the man” (formal **cas fire**). As mentioned
@@ -837,101 +555,17 @@ both “some bread” and “of the bread”.
 The pronouns retain three of the noun cases: the nominative, accusative
 and genitive. They are as shown below.
 
-person
-
-English
-
-nom
-
-acc
-
-gen
-
-1 sing
-
-I me my
-
-geo
-
-me-h
-
-mia-h
-
-2 sing
-
-thou thee thy
-
-tu
-
-te-h
-
-tua-h
-
-3 sing
-
-he him his
-
-is
-
-ill
-
-sua-h
-
-she her her
-
-sa
-
-eall-h
-
-sa-h
-
-1 plur
-
-we us our
-
-nua-\*
-
-nua-\*
-
-noist
-
-2 plur
-
-you you your
-
-fua-\*
-
-fua-\*
-
-foist
-
-3 plur
-
-they them their
-
-ise
-
-ille
-
-saoi-h
-
-they them their
-
-saoi
-
-ealla
-
-saoi-h
-
-refl
-
--self
-
--
-
-se-h
-
-sia-h
+| person | English | nom | acc | gen
+| ------ | ------- | --- | --- | ---
+| 1 sing | I me my | geo | me-h | mia-h
+| 2 sing | thou thee thy | tu | te-h | tua-h
+| 3 sing | he him his | is | ill | sua-h
+| | she her her | sa | eall-h | sa-h
+| 1 plur | we us our | nua-\* | nua-\* | noist
+| 2 plur | you you your | fua-\* | fua-\* | foist
+| 3 plur | they them their | ise | ille | saoi-h
+| | they them their | saoi | ealla | saoi-h
+| refl | -self | - | se-h | sia-h
 
 The vowels of **me**, **te** and **tu** are usually short in normal
 conversation, but are lengthened when the pronoun is being emphasised.
@@ -960,14 +594,14 @@ and “themselves”: **eall cain sia labh** “the dog washes itself”.
 The possessive pronouns “mine”, “yours” and so on are formed with the
 genitive of the pronoun and **un** “one”:
 
-  person   English       masc sing   fem sing   masc plur   fem plur
-  -------- ------------- ----------- ---------- ----------- -----------
-  1 sing   “mine”        mean        mean       meine       meana
-  2 sing   “thine”       tean        tean       teine       teana
-  3 sing   “his, hers”   sean        sean       seine       seana
-  1 plur   “ours”        noistean    noistean   noistine    noisteana
-  2 plur   “yours”       foistean    foistean   foistine    foisteana
-  3 plur   “theirs”      sean        sean       seine       seana
+| person | English     | masc sing | fem sing | masc plur | fem plur
+| ------ | ----------- | --------- | -------- | --------- | -----------
+| 1 sing | “mine”      | mean      | mean     | meine     | meana
+| 2 sing | “thine”     | tean      | tean     | teine     | teana
+| 3 sing | “his, hers” | sean      | sean     | seine     | seana
+| 1 plur | “ours”      | noistean  | noistean | noistine  | noisteana
+| 2 plur | “yours”     | foistean  | foistean | foistine  | foisteana
+| 3 plur | “theirs”    | sean      | sean     | seine     | seana
 
 All of these are preceded by the appropriate article: **eall mhean**
 “mine (fem sing)”, etc.
@@ -977,41 +611,12 @@ All of these are preceded by the appropriate article: **eall mhean**
 The principal indefinite pronouns and the corresponding adjectives are
 the following:
 
-adjective
-
-pronoun
-
-some, any
-
-aileach
-
-someone, anyone
-
-alchan
-
-all
-
-tóth
-
-everyone
-
-tóthan
-
-each
-
-caosc
-
-each one
-
-caoscan
-
-no
-
-null
-
-no-one
-
-nullan
+| adjective |         | pronoun         |         |
+| --------- | ------- | --------------- | ------- |
+| some, any | aileach | someone, anyone | alchan  |
+| all       | tóth    | everyone        | tóthan  |
+| each      | caosc   | each one        | caoscan |
+| no        | null    | no-one          | nullan  |
 
 ### Verbs {#g-verbs}
 
@@ -1038,225 +643,29 @@ LF requires three, which are less distinct than in LN, and subject
 pronouns are always used before the verb. In LN, subject pronouns are
 only used for emphasis. The personal endings are as follows.
 
-LN
-
-1
-
-2
-
-3
-
-4
-
-5
-
-6
-
-1 sing
-
-a
-
-e
-
-e
-
-e
-
-a
-
-e
-
-í
-
-a
-
-e
-
-sa
-
-2 sing
-
-as
-
-is
-
-is
-
-is
-
-as
-
-is
-
-íste
-
-a
-
-is
-
-is
-
-3 sing
-
-ath
-
-ith
-
-ith
-
-ith
-
-ath
-
-ith
-
-íth
-
-a
-
-ith
-
-ist
-
-1 plur
-
-àmha
-
-éamha
-
-eamha
-
-íomha
-
-amha
-
-eàmha
-
-íomha
-
-àmha
-
-eàmha
-
-sumha
-
-2 plur
-
-àithe
-
-éithe
-
-ithe
-
-íthe
-
-aithe
-
-eàithe
-
-íst
-
-àithe
-
-eàithe
-
-iste
-
-3 plur
-
-ann
-
-eann
-
-eann
-
-eann
-
-ann
-
-eann
-
-earann
-
-ann
-
-eann
-
-sunn
-
-LF
-
-1
-
-2
-
-3
-
-1 sing
-
-a
-
-e
-
-ò
-
-í
-
-2 sing
-
-as
-
-is
-
-ò
-
-íste
-
-3 sing
-
-ath
-
-ith
-
-òth
-
-íth
-
-1 plur
-
-amha
-
-eamha
-
-òmha
-
-íomha
-
-2 plur
-
-aiche
-
-iche
-
-òiche
-
-íche
-
-3 plur
-
-ann
-
-eann
-
-ònn
-
-earann
+| LN     | 1 |   |   |   | 2 | 3 | 4 | 5 |   | 6
+| ------ | - | - | - | - | - | - | - | - | - | -
+| 1 sing | a | e | e | e | a | e | í | a | e | sa
+| 2 sing | as | is | is | is | as | is | íste | a | is | is
+| 3 sing | ath | ith | ith | ith | ath | ith | íth | a | ith | ist
+| 1 plur | àmha | éamha | eamha | íomha | amha | eàmha | íomha | àmha | eàmha | sumha
+| 2 plur | àithe | éithe | ithe | íthe | aithe | eàithe | íst | àithe | eàithe | iste
+| 3 plur | ann | eann | eann | eann | ann | eann | earann | ann | eann | sunn
+
+| LF | 1 |   | 2 | 3
+| -- | - | - | - | -
+| 1 sing | a | e | ò | í
+| 2 sing | as | is | ò | íste
+| 3 sing | ath | ith | òth | íth
+| 1 plur | amha | eamha | òmha | íomha
+| 2 plur | aiche | iche | òiche | íche
+| 3 plur | ann | eann | ònn | earann
 
 The **-ch-** in the LF second person plural is probably a borrowing from
 Brithenig, motivated by the similarity in sound of slender TH and CH.
 
 One verb from each declension is conjugated below; the verbs are
-**amháir** “to love”, **fidhéir** \[**fír**\] “to see”, **mitir** “to
+**amháir** “to love”, **fidhéir** [**fír**] “to see”, **mitir** “to
 send” and **óidhír** “to hear”. The third conjugation is identical to
 the fourth, except that the characteristic vowel **-i-** is always short
 and thus pronounced as schwa.
@@ -1266,7 +675,7 @@ and thus pronounced as schwa.
 The infinitive of all regular verbs ends in **-àir** (first
 conjugation), **-éir** (second), **-ir** (third) or **-ír** (fourth).
 Removing these endings yields the **present stem** of the verb; thus
-**amhàir** for “to love” has the present stem **amh-** \[**cad-**\].
+**amhàir** for “to love” has the present stem **amh-** [**cad-**].
 
 The imperative, the mood of command, has only the present tense; in the
 familiar singular it is formed from the bare stem: **amh!** “love!”. In
@@ -1280,27 +689,27 @@ The commonest tense is of course the present indicative, which
 corresponds to “I sing/am singing”, and so on. It is formed with the
 present stem plus set 1 of the personal endings; thus in LN:
 
-  -------- ---------- ----------- ---------- -----------
-  1 sing   amha       fidhe       mite       óidhe
-  2 sing   amhas      fidhis      mitis      óidhis
-  3 sing   amhath     fidhith     mitith     óidhith
-  1 plur   amhámha    fidhéamha   miteamha   óidhíomha
-  2 plur   amháithe   fidhéithe   mitithe    óidhíthe
-  3 plur   amhann     fidheann    miteann    óidheann
-  -------- ---------- ----------- ---------- -----------
+|        | amhàir   | fidhéir   | mitir    | óidhír
+| ------ | -------- | --------- | -------- | -----------
+| 1 sing | amha     | fidhe     | mite     | óidhe
+| 2 sing | amhas    | fidhis    | mitis    | óidhis
+| 3 sing | amhath   | fidhith   | mitith   | óidhith
+| 1 plur | amhámha  | fidhéamha | miteamha | óidhíomha
+| 2 plur | amháithe | fidhéithe | mitithe  | óidhíthe
+| 3 plur | amhann   | fidheann  | miteann  | óidheann
 
 And in LF:
 
-  ------------- ---------------- ------------- ------------ -------------
-  1 sing        geo amha         fhidhe        mhite        óidhe
-  2 sing        tu amha          fhidhe        mhite        óidhe
-  3 sing masc   is amh           fidh          mit          óidh
-  3 sing fem    sa amh           fhidh         mhit         óidh
-  1 plur        nua h-amhamha    \*fidheamha   \*miteamha   h-óidheamha
-  2 plur        fua h-amhaiche   \*fidhiche    \*mitiche    h-óidhiche
-  3 plur masc   ise chadann      fhidheann     mhiteann     dhoirmheann
-  3 plur fem    saoi chadann     fhidheann     mhiteann     dhoirmheann
-  ------------- ---------------- ------------- ------------ -------------
+|             | amhàir         | fidhéir     | mitir      | óidhír
+| ----------- | -------------- | ----------- | ---------- | -----------
+| 1 sing      | geo amha       | fhidhe      | mhite      | óidhe
+| 2 sing      | tu amha        | fhidhe      | mhite      | óidhe
+| 3 sing masc | is amh         | fidh        | mit        | óidh
+| 3 sing fem  | sa amh         | fhidh       | mhit       | óidh
+| 1 plur      | nua h-amhamha  | \*fidheamha | \*miteamha | h-óidheamha
+| 2 plur      | fua h-amhaiche | \*fidhiche  | \*mitiche  | h-óidhiche
+| 3 plur masc | ise chadann    | fhidheann   | mhiteann   | dhoirmheann
+| 3 plur fem  | saoi chadann   | fhidheann   | mhiteann   | dhoirmheann
 
 Note the mutations after the pronouns in LF, in particular the
 non-mutation after **nua** and **fua**. The final schwa in these persons
@@ -1319,71 +728,20 @@ many times, or as the background to another action. It is formed in LN
 from the present stem plus the thematic vowel, broad BH and set 2; and
 in LF from just the present stem plus set 2:
 
-LN
-
-LF
-
-1 sing
-
-amhàbha
-
-geo chadò
-
-2 sing
-
-amhàbhas
-
-tu chadò
-
-3 sing masc
-
-amhàbhath
-
-is cadòth
-
-3 sing fem
-
-amhàbhath
-
-sa chadòth
-
-1 plur
-
-amhàbhàmha
-
-nua \*cadòmha
-
-2 plur
-
-amhàbhàithe
-
-fua \*cadòiche
-
-3 plur masc
-
-amhàbhann
-
-ise chadònn
-
-3 plur fem
-
-amhàbhann
-
-saoi chadònn
-
- 
-
-fidhiabha
-
-geo fhidheò
-
-miteabha
-
-geo mhiteò
-
-óidhiabha
-
-geo óidhreò
+|   | LN | LF
+| - | -- | --
+| 1 sing | amhàbha | geo chadò
+| 2 sing | amhàbhas | tu chadò
+| 3 sing masc | amhàbhath | is cadòth
+| 3 sing fem | amhàbhath | sa chadòth
+| 1 plur | amhàbhàmha | nua \*cadòmha
+| 2 plur | amhàbhàithe | fua \*cadòiche
+| 3 plur masc | amhàbhann | ise chadònn
+| 3 plur fem | amhàbhann | saoi chadònn
+| | 
+| | fidhiabha | geo fhidheò
+| | miteabha | geo mhiteò
+| | óidhiabha | geo óidhreò
 
 Note that there is no syncope in the imperfect, i.e you don’t find
 **\*amhábhmha**, for example. Note too that the thematic vowels of
@@ -1400,95 +758,20 @@ LF but syncopates the infinitive and omits the **-bh-**. Here are the
 complete future forms of **amhàir** and the first person singulars of
 the other sample verbs:
 
-first form
-
-second form
-
-LF
-
-1 sing
-
-amhàirbhe
-
-aimhre
-
-geo aimhre
-
-2 sing
-
-amhàirbhis
-
-aimhris
-
-tu aimhre
-
-3 sing masc
-
-amhàirbhith
-
-aimhrith
-
-is aimhre
-
-3 sing fem
-
-amhàirbhith
-
-aimhrith
-
-sa aimhre
-
-1 plur
-
-amhàirmhe
-
-amhàirmhe
-
-nua h-amhairmhe
-
-2 plur
-
-amhàirthe
-
-amhàirthe
-
-fua h-amhairche
-
-3 plur masc
-
-amhàirbheann
-
-aimhreann
-
-ise aimhreann
-
-3 plur fem
-
-amhàirbheann
-
-aimhreann
-
-saoi aimhreann
-
- 
-
-fidhéirbhe
-
-fidhre
-
-fidhre
-
-mitirbhe
-
-mitre
-
-mitre
-
-óidhírbhe
-
-óidhre
-
-óidhre
+|   | first form | second form | LF
+| - | ---------- | ----------- | --
+| 1 sing | amhàirbhe | aimhre | geo aimhre
+| 2 sing | amhàirbhis | aimhris | tu aimhre
+| 3 sing masc | amhàirbhith | aimhrith | is aimhre
+| 3 sing fem | amhàirbhith | aimhrith | sa aimhre
+| 1 plur | amhàirmhe | amhàirmhe | nua h-amhairmhe
+| 2 plur | amhàirthe | amhàirthe | fua h-amhairche
+| 3 plur masc | amhàirbheann | aimhreann | ise aimhreann
+| 3 plur fem | amhàirbheann | aimhreann | saoi aimhreann
+| | | | 
+| | fidhéirbhe | fidhre | fidhre
+| | mitirbhe | mitre | mitre
+| | óidhírbhe | óidhre | óidhre
 
 Note the shortening of the vowel in the 1 and 2 plural in LF. A schwa is
 sometimes inserted to break up complicated consonant clusters, as with
@@ -1506,80 +789,29 @@ future. As its name suggests, it is mainly used in conditional
 sentences; for example, “if you were here you would see her” is **si tu
 ích iarras, tu eall fhidhreós**.
 
-LN
-
-LF
-
-1 sing
-
-aimhreabha
-
-geo aimhreò
-
-2 sing
-
-aimhreabhas
-
-tu aimhreòs
-
-3 sing masc
-
-aimhreabhath
-
-is aimheòth
-
-3 sing fem
-
-aimhreabhath
-
-sa aimhreòth
-
-1 plur
-
-aimhreabhamha
-
-nua h-aimhreòmha
-
-2 plur
-
-aimhreabhaithe
-
-fua h-aimhreòiche
-
-3 plur masc
-
-aimhreabhann
-
-ise aimhreònn
-
-3 plur fem
-
-aimhreabhann
-
-saoi aimhreònn
-
- 
-
-fidhreabha
-
-geo fhidhreò
-
-mitreabha
-
-geo mhitreò
-
-óidhreabha
-
-geo óidhreò
+|   | LN | LF
+| - | -- | --
+| 1 sing | aimhreabha | geo aimhreò
+| 2 sing | aimhreabhas | tu aimhreòs
+| 3 sing masc | aimhreabhath | is aimheòth
+| 3 sing fem | aimhreabhath | sa aimhreòth
+| 1 plur | aimhreabhamha | nua h-aimhreòmha
+| 2 plur | aimhreabhaithe | fua h-aimhreòiche
+| 3 plur masc | aimhreabhann | ise aimhreònn
+| 3 plur fem | aimhreabhann | saoi aimhreònn
+| | |
+| | fidhreabha | geo fhidhreò
+| | mitreabha | geo mhitreò
+| | óidhreabha | geo óidhreò
 
 #### Present participle and gerund
 
 These are the only other verb forms which are formed from the present
 tense; they correspond roughly to “loving”, “seeing”, “hearing” and so
-on. They are formed by substituting **-nte** \[**-de**\] and **-nn** for
+on. They are formed by substituting **-nte** [**-de**] and **-nn** for
 the final **-r** of the infinitive; **amhàir** thus has the present
-participle **amhàinte** \[**amhàide**\] and the gerund **amhàinn**
-\[**amhàinn**\]. The present participle is used as an adjective: **eall
+participle **amhàinte** [**amhàide**] and the gerund **amhàinn**
+[**amhàinn**]. The present participle is used as an adjective: **eall
 phaoll dhoirmhinte** “the sleeping girl”. The gerund is a noun: **ill
 cantàinn dealla phaoll eist bon** “the girl’s singing is good”.
 
@@ -1608,14 +840,14 @@ conjugation verbs are formed with S or T. Thus, omitting the personal
 pronouns in LF, the preterites of **amhàir**, **óidhír**, **moinéir**
 “to remind” and **scríbhir** “to write” are:
 
-  -------- ----------- ------------ ----------- -------------
-  1 sing   amhaí       óidhí        munuí       scrisí
-  2 sing   amhaíste    óidhíste     munuíste    scrisíste
-  3 sing   amhaíth     óidhíth      munuíth     scrisíth
-  1 plur   amhaíomha   óidhíomha    munuíomha   scrisíomha
-  2 plur   amhaíst     óidhíst      munuíst     scrisíst
-  3 plur   amharann    óidhearann   munarann    scrisearann
-  -------- ----------- ------------ ----------- -------------
+|        | amhàir    | óidhír     | moinéir   | scríbhir
+| ------ | --------- | ---------- | --------- | -------------
+| 1 sing | amhaí     | óidhí      | munuí     | scrisí
+| 2 sing | amhaíste  | óidhíste   | munuíste  | scrisíste
+| 3 sing | amhaíth   | óidhíth    | munuíth   | scrisíth
+| 1 plur | amhaíomha | óidhíomha  | munuíomha | scrisíomha
+| 2 plur | amhaíst   | óidhíst    | munuíst   | scrisíst
+| 3 plur | amharann  | óidhearann | munarann  | scrisearann
 
 Note the choice of U as the glide in **munuí**, and many other second
 conjugation verbs; this has no effect on the pronunciation and is merely
@@ -1640,14 +872,14 @@ to broad in the others, often with a change in the stem vowel. Here are
 the LN subjunctives of the sample verbs; the LF forms are the same with
 short vowels in the endings:
 
-  -------- ----------- ------------- ----------- ------------
-  1 sing   aimhe       feidhe        meata       óidhe
-  2 sing   aimhis      feidheas      meatas      óidheas
-  3 sing   aimhith     feidheath     meatath     óidheath
-  1 plur   aimhéamha   feidheámha    meatamha    óidheámha
-  2 plur   aimhéithe   feidheáithe   meataithe   óidheáithe
-  3 plur   aimhinn     feidheann     meatann     óidheann
-  -------- ----------- ------------- ----------- ------------
+|        | amhàir    | fidhéir     | mitir     | óidhír
+| ------ | --------- | ----------- | --------- | -----------
+| 1 sing | aimhe     | feidhe      | meata     | óidhe
+| 2 sing | aimhis    | feidheas    | meatas    | óidheas
+| 3 sing | aimhith   | feidheath   | meatath   | óidheath
+| 1 plur | aimhéamha | feidheámha  | meatamha  | óidheámha
+| 2 plur | aimhéithe | feidheáithe | meataithe | óidheáithe
+| 3 plur | aimhinn   | feidheann   | meatann   | óidheann
 
 The imperfect subjunctive, which is very rare in LF, is formed by adding
 the thematic vowel, **-(i)s-**, and the set 3 endings to the preterite
@@ -1659,19 +891,19 @@ is **amhàise**.
 Some common verbs are irregular in tenses other than the past. The
 following are the three most important.
 
-               “to be”            “to have”           “to go”
-  ------------ ------------------ ------------------- ---------------------------
-  Infinitive   éiséir             aibhéir             fàidhir \[féir\]
-  1 sing       so                 aibhe               féithe \[féithe\]
-  2 sing       seis               aibhis \[aibhe\]    fàidhis \[féithe\]
-  3 sing       eist               aibhith \[aibh\]    fàidhith \[féith\]
-  1 plur       sumha              aibheamha           fàidheamha \[féamha\]
-  2 plur       seist \[seiche\]   aibhithe \[-che\]   fàidhithe \[féiche\]
-  3 plur       sunn               aibheann            fàidheann \[féann\]
-  imperfect    earr-a             aibheabha-          éabha- \[itheò, féitheò\]
-  future       seirbh-e           aibhr-e             ir-bhe
-  perfect      faí                obhuí \[úthuí\]     ibhí
-  past part    stàth              óth/uath            íoth/éath
+|            | “to be”          | “to have”         | “to go”
+| ---------- | ---------------- | ----------------- | -------------------------
+| Infinitive | éiséir           | aibhéir           | fàidhir [féir]
+| 1 sing     | so               | aibhe             | féithe [féithe]
+| 2 sing     | seis             | aibhis [aibhe]    | fàidhis [féithe]
+| 3 sing     | eist             | aibhith [aibh]    | fàidhith [féith]
+| 1 plur     | sumha            | aibheamha         | fàidheamha [féamha]
+| 2 plur     | seist [seiche]   | aibhithe [-che]   | fàidhithe [féiche]
+| 3 plur     | sunn             | aibheann          | fàidheann [féann]
+| imperfect  | earr-a           | aibheabha-        | éabha- [itheò, féitheò]
+| future     | seirbh-e         | aibhr-e           | ir-bhe
+| perfect    | faí              | obhuí [úthuí]     | ibhí
+| past part  | stàth            | óth/uath          | íoth/éath
 
 #### Compound tenses
 
@@ -1692,8 +924,7 @@ example below.
 
 -   **so fíodhúth** “I am seen” - present passive
 -   **earra fíodhúth** “I was seen” - past passive
--   **obhuí stàtha fíodhúth** “I have been seen” - present perfect
-    passive
+-   **obhuí stàtha fíodhúth** “I have been seen” - present perfect passive
 -   **so íoth** “I have gone”
 -   **sunn càithe** “they have fallen”.
 
@@ -1704,27 +935,27 @@ LN retains an older form of the passive voice in which the forms of
 indicative passive forms of **amhàir**, **óidhír** and **scribhir**;
 note the set 6 endings:
 
-  -------- ----------- ------------- ---------------
-  1 sing   amhàsa      óidhíosa      scriochtsa
-  2 sing   amhàis      óidhís        scriochtais
-  3 sing   amhàst      óidhíst       scriochtaist
-  1 plur   amhàsumha   óidhíosumha   scriochtsumha
-  2 plur   amhàiste    óidhíste      scriochtaiste
-  3 plur   amhàsunn    óidhíosunn    scriochsunn
-  -------- ----------- ------------- ---------------
+|        | amhàir    | óidhír      | scribhir
+| ------ | --------- | ----------- | ---------------
+| 1 sing | amhàsa    | óidhíosa    | scriochtsa
+| 2 sing | amhàis    | óidhís      | scriochtais
+| 3 sing | amhàst    | óidhíst     | scriochtaist
+| 1 plur | amhàsumha | óidhíosumha | scriochtsumha
+| 2 plur | amhàiste  | óidhíste    | scriochtaiste
+| 3 plur | amhàsunn  | óidhíosunn  | scriochsunn
 
 And here are the first person passive forms of the other tenses of
 **amhàir**:
 
-  Tense            Form            Endings
-  ---------------- --------------- ---------
-  Imperfect ind    amhàrra         set 2
-  Future           amhàisirbha     set 3
-  Conditional      amhàistreabha   set 2
-  Preterite        amhàbhuí        set 4
-  Present subj     amhàise         set 5
-  Imperfect subj   amhàibhise      set 3
-  Infinitive       amhàisir        
+| Tense          | Form          | Endings
+| -------------- | ------------- | ---------
+| Imperfect ind  | amhàrra       | set 2
+| Future         | amhàisirbha   | set 3
+| Conditional    | amhàistreabha | set 2
+| Preterite      | amhàbhuí      | set 4
+| Present subj   | amhàise       | set 5
+| Imperfect subj | amhàibhise    | set 3
+| Infinitive     | amhàisir      |
 
 Past participles of transitive verbs also fused with **éiséir** in this
 way to form a synthetic perfect tense: **íosa** “I have gone”.
@@ -1732,7 +963,7 @@ way to form a synthetic perfect tense: **íosa** “I have gone”.
 #### Preverbal particles
 
 Negation is expressed with **no-n** before the verb: **no-namha**
-\[**geo no-chada**\] “I do not sing”.
+[**geo no-chada**] “I do not sing”.
 
 ### Conjunctions and relatives {#g-conj}
 
@@ -1763,31 +994,31 @@ bhfídhí** “whom did I see?”
 
 Other common question words are:
 
-  --------- --------------
-  coil      what kind of
-  conn      how much
-  coth      which one
-  comhodh   how
-  uibh      where
-  --------- --------------
+| Bre.    | Eng.
+| ------- | ------------
+| coil    | what kind of
+| conn    | how much
+| coth    | which one
+| comhodh | how
+| uibh    | where
 
 Numbers {#numb}
 -------
 
 The numbers up to twenty are as follows:
 
-  ---- ------------------------ ---- --------------------
-  1    ú-n (masc), ún-h (fem)   11   úinde
-  2    dua-h                    12   doide, duaide
-  3    tria-\*                  13   treide
-  4    cotar                    14   cotairde
-  5    caonc \[caog\]           15   caínde
-  6    seisc                    16   séide, deich-seisc
-  7    seicht-n                 17   deich-seicht-n
-  8    oicht-n                  18   deich-oicht-n
-  9    noibh-n                  19   deich-noibh-n
-  10   deich-n                  20   fíghinn \[fínn\]
-  ---- ------------------------ ---- --------------------
+| No | Word                   | No | Word
+| -- | ---------------------- | -- | --------------------
+| 1  | ú-n (masc), ún-h (fem) | 11 | úinde
+| 2  | dua-h                  | 12 | doide, duaide
+| 3  | tria-\*                | 13 | treide
+| 4  | cotar                  | 14 | cotairde
+| 5  | caonc [caog]           | 15 | caínde
+| 6  | seisc                  | 16 | séide, deich-seisc
+| 7  | seicht-n               | 17 | deich-seicht-n
+| 8  | oicht-n                | 18 | deich-oicht-n
+| 9  | noibh-n                | 19 | deich-noibh-n
+| 10 | deich-n                | 20 | fíghinn [fínn]
 
 For example: **seicht gcaine** “seven dogs”, **dua phaolla** “two
 girls”, **deich-oicht gcasa** “eighteen houses”. The noun being counted
@@ -1797,60 +1028,60 @@ is often also found in the singular, for example **seicht gcain**.
 ways: with the old Celtic system using twenties, or the Latinate system
 with tens. Thus:
 
-         Celtic              Latinate
-  ------ ------------------- -------------------------------------
-  21     fíghinn e ún        (same)
-  22     fíghinn dhua        (same)
-  23     fíghinn thria       (same)
-  30     fíghinn dheich      tríghinn \[trínn\]
-  31     fíghinn úinde       tríghinn e ún
-  32     fíghinn dhoide      tríghinn dhua
-  40     dua fhíghinn        codhraíghinn \[codhraínn\]
-  41     dua fhíghinn e ún   codhraíghinn e ún
-  50     dua fhíghinn        dheich cioncaíghinn \[ciogaínn\]
-  60     tria fhíghinn       seascaíghinn \[seascaínn\]
-  70     tria fhíghinn       dheich seachtaíghinn \[seachtaínn\]
-  80     cotar fhíghinn      ochtaíghinn \[ochtaínn\]
-  90     cotar fhíghinn      dheich nónaíghinn \[nónaínn\]
-  100    ceann               (same)
-  1000   mill                (same)
+|      | Celtic            | Latinate
+| ---- | ----------------- | -------------------------------------
+| 21   | fíghinn e ún      | (same)
+| 22   | fíghinn dhua      | (same)
+| 23   | fíghinn thria     | (same)
+| 30   | fíghinn dheich    | tríghinn [trínn]
+| 31   | fíghinn úinde     | tríghinn e ún
+| 32   | fíghinn dhoide    | tríghinn dhua
+| 40   | dua fhíghinn      | codhraíghinn [codhraínn]
+| 41   | dua fhíghinn e ún | codhraíghinn e ún
+| 50   | dua fhíghinn      | dheich cioncaíghinn [ciogaínn]
+| 60   | tria fhíghinn     | seascaíghinn [seascaínn]
+| 70   | tria fhíghinn     | dheich seachtaíghinn [seachtaínn]
+| 80   | cotar fhíghinn    | ochtaíghinn [ochtaínn]
+| 90   | cotar fhíghinn    | dheich nónaíghinn [nónaínn]
+| 100  | ceann             | (same)
+| 1000 | mill              | (same)
 
 Note that **fíghinn**, **tríghinn** and so on lenite the first letter of
 the following word only if it is a number.
 
-“First”, “second” and “third” are **príomh, seacúnn \[scunn\], tirt**.
+“First”, “second” and “third” are **príomh, seacúnn [scunn], tirt**.
 The higher ordinals are formed by adding **-eamh**: **coitreamh**,
-**caoinceamh \[caogeamh\]**, and so on.
+**caoinceamh [caogeamh]**, and so on.
 
 Other bits {#etc}
 ----------
 
 The names of the months and the days of the week are:
 
-  ---------- ----------- ----------- ----------- ----------- --------------------------
-  January    Geonàir     July        Giúil       Monday      Lóindé
-  February   Féabhràir   August      Óghast      Tuesday     Mairdé
-  March      Mairt       September   Seichtir    Wednesday   Mearchraídé
-  April      Aiphríl     October     Oichteóir   Thursday    Geoibhdé \[Geoidé\]
-  May        Màith       November    Noibhir     Friday      Feinirdé
-  June       Giúin       December    Deichir     Saturday    Sàthairdé \[Sàirdé\]
-                                                 Sunday      Doimhneach \[Doinneach\]
-  ---------- ----------- ----------- ----------- ----------- --------------------------
+| Eng.     | Bre.      | Eng.      | Bre.      | Eng.      | Bre.
+| -------- | --------- | --------- | --------- | --------- | --------------------------
+| January  | Geonàir   | July      | Giúil     | Monday    | Lóindé
+| February | Féabhràir | August    | Óghast    | Tuesday   | Mairdé
+| March    | Mairt     | September | Seichtir  | Wednesday | Mearchraídé
+| April    | Aiphríl   | October   | Oichteóir | Thursday  | Geoibhdé [Geoidé]
+| May      | Màith     | November  | Noibhir   | Friday    | Feinirdé
+| June     | Giúin     | December  | Deichir   | Saturday  | Sàthairdé [Sàirdé]
+|          |           |           |           | Sunday    | Doimhneach [Doinneach]
 
 The names of the letters are all plant-names, most of them trees, Here
 is the complete Breathanach alphabet.
 
-  --- ------------------ ------------ --- --------- ----------------
-  A   aichir             “maple”      L   lairich   “larch”
-  B   béathal \[béal\]   “birch”      M   mór       “mulberry”
-  C   castain            “chestnut”   N   nusc      “nut-tree”
-  D   dúmh               “bramble”    O   oistír    “hop-hornbeam”
-  E   eibh               “fir”        P   píon      “pine”
-  F   fàigh \[féith\]    “beech”      R   róbh      “oak”
-  G   geineast           “broom”      S   sailich   “willow”
-  H   shorbh             “rowan”      T   til       “lime”
-  I   ílich              “holly”      U   ulmh      “elm”
-  --- ------------------ ------------ --- --------- ----------------
+|   | Name             | Trans.     |   | Name    | Trans.
+| - | ---------------- | ---------- | - | ------- | ----------------
+| A | aichir           | “maple”    | L | lairich | “larch”
+| B | béathal [béal]   | “birch”    | M | mór     | “mulberry”
+| C | castain          | “chestnut” | N | nusc    | “nut-tree”
+| D | dúmh             | “bramble”  | O | oistír  | “hop-hornbeam”
+| E | eibh             | “fir”      | P | píon    | “pine”
+| F | fàigh [féith]    | “beech”    | R | róbh    | “oak”
+| G | geineast         | “broom”    | S | sailich | “willow”
+| H | shorbh           | “rowan”    | T | til     | “lime”
+| I | ílich            | “holly”    | U | ulmh    | “elm”
 
 -   H comes from **moinn-shorbh**, “mountain-service tree”, in which the
     initial SH sounds like H.
@@ -1913,7 +1144,7 @@ Aideicht proisceamh: 23 Iúil 2004
 Last update: 23 July 2004
 
 Words are indexed here by their most usual LN forms; LF forms, where
-they differ, are given in \[square brackets\]. Nouns are preceded by the
+they differ, are given in [square brackets]. Nouns are preceded by the
 article to show their gender; note that the initial letters of feminine
 nouns are therefore lenited.
 
@@ -1932,7 +1163,7 @@ eall acal
 :   eagle
 
 aibhéir
-:   to have (past **obhuí** \[**úthuí**\])
+:   to have (past **obhuí** [**úthuí**])
 
 ill aichir
 :   maple
@@ -1947,7 +1178,7 @@ eall airéanath
 :   mortar
 
 eall ainceall
-:   maid \[**aigeall**\]
+:   maid [**aigeall**]
 
 albh
 :   white
@@ -1967,7 +1198,7 @@ beall
 :   beautiful
 
 eall bhéathal
-:   birch \[**béal**\]
+:   birch [**béal**]
 
 bein
 :   well
@@ -1984,19 +1215,19 @@ ca-n
 :   that (conjunction)
 
 ill cabhall
-:   horse \[**cóll**\]
+:   horse [**cóll**]
 
 caidhéir
-:   to fall \[**caéir**\]
+:   to fall [**caéir**]
 
 ill cain
 :   dog
 
 ill camp
-:   field \[**cab**\]
+:   field [**cab**]
 
 cantáir
-:   to sing \[**cadáir**\]
+:   to sing [**cadáir**]
 
 ill caol
 :   sky
@@ -2008,7 +1239,7 @@ eall chaos
 :   cheese
 
 ill caph
-:   head \[**cóth**\]
+:   head [**cóth**]
 
 eall chás
 :   box
@@ -2029,13 +1260,13 @@ comúin
 :   common
 
 confaindir
-:   \[**cobhainnir**\] to confuse (past **confuidhí** \[**cobhuí**\])
+:   [**cobhainnir**] to confuse (past **confuidhí** [**cobhuí**])
 
 ill corn
 :   horn
 
 créidhéir
-:   \[**créir**\] to believe (past **créidhí** \[**crí**\])
+:   [**créir**] to believe (past **créidhí** [**crí**])
 
 cu-n
 :   with
@@ -2105,13 +1336,13 @@ eilean
 :   to be (past faí)
 
 eith
-:   and \[**e**\]
+:   and [**e**]
 
 ill eoch
 :   game
 
 eall eóghlan
-:   walnut \[**eólan**\]
+:   walnut [**eólan**]
 
 Eóinn
 :   John
@@ -2128,10 +1359,10 @@ faichir
 :   to make, do (past **féichí**)
 
 fáidhir
-:   \[**faéir**\] to go (past **ibhí**)
+:   [**faéir**] to go (past **ibhí**)
 
 eall fháigh
-:   beech \[**féith**\]
+:   beech [**féith**]
 
 ill feann
 :   wind
@@ -2146,7 +1377,7 @@ eall fhéath
 :   life
 
 feathal
-:   \[**féal**\] old
+:   [**féal**] old
 
 eall fhéil
 :   cat
@@ -2164,7 +1395,7 @@ feispir
 :   evening
 
 eall fhidh
-:   faith \[**fíth**\]
+:   faith [**fíth**]
 
 fidhéir
 :   to see (past **fídhí**; LF **fír**)
@@ -2179,7 +1410,7 @@ firidh
 :   green
 
 flábh
-:   yellow \[**flóth**\]
+:   yellow [**flóth**]
 
 eall fhlóir
 :   flower
@@ -2208,7 +1439,7 @@ eall gheineast
 :   broom, gorse
 
 ill gleidh
-:   sword \[**gléith**\]
+:   sword [**gléith**]
 
 grand
 :   large, big
@@ -2222,13 +1453,13 @@ eall ílisc
 :   holly
 
 impoisibh
-:   impossible \[**iboisibh**\]
+:   impossible [**iboisibh**]
 
 i-n
 :   in
 
 infeinír
-:   to find (past inféiní) \[**ibheinír**\]
+:   to find (past inféiní) [**ibheinír**]
 
 ill inith
 :   start
@@ -2239,7 +1470,7 @@ labháir
 :   to wash
 
 labhóráir
-:   to work \[**lóráir**\]
+:   to work [**lóráir**]
 
 ill laicht
 :   milk
@@ -2251,7 +1482,7 @@ eall lairisc
 :   larch
 
 ill laithir
-:   brick \[**láir**\]
+:   brick [**láir**]
 
 láth
 :   broad, wide
@@ -2292,7 +1523,7 @@ mal
 :   bad
 
 meirídh
-:   south \[**meiríth**\]
+:   south [**meiríth**]
 
 mion-\*
 :   less
@@ -2313,7 +1544,7 @@ moinéir
 :   to remind (past **munuí**)
 
 ill mund
-:   world \[**mun**\]
+:   world [**mun**]
 
 ### Nusc
 
@@ -2321,16 +1552,16 @@ ill nás
 :   nose
 
 neighlighir
-:   to neglect \[**néilír**\]
+:   to neglect [**néilír**]
 
 níl
 :   nothing
 
 nioghr
-:   black \[**níorr**\]
+:   black [**níorr**]
 
 nobh
-:   new \[**núth**\]
+:   new [**núth**]
 
 nóibhil
 :   noble
@@ -2347,7 +1578,7 @@ eall oc
 :   water
 
 oichidheann
-:   west \[**oichíonn**\]
+:   west [**oichíonn**]
 
 oidh
 :   today
@@ -2371,7 +1602,7 @@ ill ort
 :   to use
 
 oth
-:   or \[**o**\]
+:   or [**o**]
 
 ### Píon
 
@@ -2391,7 +1622,7 @@ peascáir
 :   to fish
 
 ill peathr
-:   stone \[**péarr**\]
+:   stone [**péarr**]
 
 peirdhir
 :   to lose
@@ -2415,13 +1646,13 @@ póiphir
 :   poor
 
 poithéir
-:   to be able, can (past **puthuí** \[**puí**\])
+:   to be able, can (past **puthuí** [**puí**])
 
 ill pophal
 :   people
 
 eall phóphúl
-:   poplar \[**pól**\]
+:   poplar [**pól**]
 
 por
 :   for
@@ -2441,13 +1672,13 @@ purphair
 ### Róbh
 
 eall róbh
-:   oak \[**rúth**\]
+:   oak [**rúth**]
 
 eall roth
 :   wheel
 
 ruimpir
-:   to break \[**ruibir**\] (past part **rucht**)
+:   to break [**ruibir**] (past part **rucht**)
 
 ruibhir
 :   red
@@ -2458,13 +1689,13 @@ eall shailisc
 :   willow
 
 saiphéir
-:   to know (past **sophuí** \[**súthuí**\])
+:   to know (past **sophuí** [**súthuí**])
 
 scríbhir
 :   to write (past **scrísí**)
 
 seachand
-:   second \[**scunn**\]
+:   second [**scunn**]
 
 seidh
 :   but
@@ -2491,7 +1722,7 @@ striocht
 :   narrow, slender
 
 subh
-:   under \[**súth**\]
+:   under [**súth**]
 
 suibhir
 :   on, upon, above
@@ -2522,7 +1753,7 @@ uaráith
 :   speech
 
 ill úbh
-:   egg \[**óth**\] (plural **eall uabh** \[**óth**\])
+:   egg [**óth**] \(plural **eall uabh** [**óth**])
 
 eall ulmh
 :   elm
@@ -2553,43 +1784,41 @@ were retained.
 Consonantal /i u/ are treated as consonants, and in this document are
 spelled J W respectively. In general, final syllables were lost entirely
 unless they contained a long vowel, in which case they remain as schwa:
-**canis** &gt; **cain**, **canes** &gt; **caine**.
+**canis** > **cain**, **canes** > **caine**.
 
 #### Short stressed vowels
 
-  Latin   Breathanach   Environment   example
-  ------- ------------- ------------- -----------------------
-  i       e             before a, o   piscare &gt; peascáir
-          i             otherwise     minus &gt; mion
-  e       i             before j      
-          e             otherwise     ventu &gt; feann
-  a       e             before j      abjes &gt; eibh
-          o             before w      aqua &gt; oc
-          a             otherwise     canis &gt; cain
-  o       u             before w      potui &gt; puthuí
-          o             otherwise     novus &gt; nobh
-  u       o             before a, o   unda &gt; ond
-          u             otherwise     ulmus &gt; ulmh
+| Latin | Breathanach | Environment | example
+| ----- | ----------- | ------------| -----------------------
+| i     | e           | before a, o | piscare > peascáir
+|       | i           | otherwise   | minus > mion
+| e     | i           | before j    |
+|       | e           | otherwise   | ventu > feann
+| a     | e           | before j    | abjes > eibh
+|       | o           | before w    | aqua > oc
+|       | a           | otherwise   | canis > cain
+| o     | u           | before w    | potui > puthuí
+|       | o           | otherwise   | novus > nobh
+| u     | o           | before a, o | unda > ond
+|       | u           | otherwise   | ulmus > ulmh
 
 #### Long vowels and diphthongs
 
-  Latin   Breathanach   Environment               example
-  ------- ------------- ------------------------- ----------------------
-  i:      e:            before a, o               vita &gt; féath
-          i:            otherwise                 fine &gt; fín
-  e:      ia            before a, o               plena &gt; plian
-          e:            otherwise                 plenus &gt; pléan
-  a:      a:            always                    flavus &gt; flábh
-  o:      ua            before non-velar + a, o   sola &gt; sual
-          o:            otherwise                 nobilis &gt; nóibhil
-  u:      o:            before a, o               usare &gt; ósáir
-          u:            otherwise                 durum &gt; dúr
-  au      ua            before non-velar + a, o   causa &gt; cuas
-          o:            otherwise                 aurum &gt; ór
-  ae      e, i (AO)     always                    caesus &gt; caos
-  oe      e, i (AO)     always                    poena &gt; paon
-
-\
+| Latin | Breathanach | Environment             | example
+| ----- | ----------- | ----------------------- | ----------------------
+| i:    | e:          | before a, o             | vita > féath
+|       | i:          | otherwise               | fine > fín
+| e:    | ia          | before a, o             | plena > plian
+|       | e:          | otherwise               | plenus > pléan
+| a:    | a:          | always                  | flavus > flábh
+| o:    | ua          | before non-velar + a, o | sola > sual
+|       | o:          | otherwise               | nobilis > nóibhil
+| u:    | o:          | before a, o             | usare > ósáir
+|       | u:          | otherwise               | durum > dúr
+| au    | ua          | before non-velar + a, o | causa > cuas
+|       | o:          | otherwise               | aurum > ór
+| ae    | e, i (AO)   | always                  | caesus > caos
+| oe    | e, i (AO)   | always                  | poena > paon
 
 #### Unstressed vowels
 
@@ -2599,48 +1828,48 @@ unless they contained a long vowel, in which case they remain as schwa:
 
 Consonants developed in approximately the following order.
 
--   H disappears in all cases: **hodje** &gt; **oidh**, **Johanne** &gt;
+-   H disappears in all cases: **hodje** > **oidh**, **Johanne** >
     **Eóinn**.
 -   Q becomes C.
 -   V becomes F initially, B (later BH) intervocalically, and W
-    otherwise: **vesper** &gt; **feisbir**, **levis** &gt; **léibh**. W
-    becomes B after L R: **parwus** &gt; **parbh**.
--   J becomes G (later GH) intervocalically: **pejore** &gt; **pighir**.
--   J becomes G initially before a back vowel: **Iulius** &gt;
+    otherwise: **vesper** > **feisbir**, **levis** > **léibh**. W
+    becomes B after L R: **parwus** > **parbh**.
+-   J becomes G (later GH) intervocalically: **pejore** > **pighir**.
+-   J becomes G initially before a back vowel: **Iulius** >
     **Giúil**.
--   MN, GN and final NT become NN: **pugnu** &gt; **punn**,
-    **ventu** &gt; **feann**.
+-   MN, GN and final NT become NN: **pugnu** > **punn**,
+    **ventu** > **feann**.
 -   NS, PS and SS all become single S, lengthening the preceding vowel:
-    **pensare** &gt; **piasáir**, **capsa** &gt; **cás**.
--   X becomes SC: **nux** &gt; **nusc**.
+    **pensare** > **piasáir**, **capsa** > **cás**.
+-   X becomes SC: **nux** > **nusc**.
 -   MPT and NCT become NT.
--   /pt kt/ both become CHT: **ruptu** &gt; **rucht**, **lacte** &gt;
+-   /pt kt/ both become CHT: **ruptu** > **rucht**, **lacte** >
     **laicht**.
 -   Consonants preceding E I J becone slender.
 -   P T C B D G M all lenite between vowels, between a vowel and L R,
     and finally after a vowel or L R; but note that T D are not lenited
     after L R.
--   Double consonants are reduced to single: **mittere** &gt; **mitir**.
+-   Double consonants are reduced to single: **mittere** > **mitir**.
 
 #### LF developments from LN
 
 -   PH TH CH BH DH GH before L R disappear and lengthen the preceding
-    vowel, changing the L R to LL RR: **nigru** &gt; **nioghr** &gt; LF
+    vowel, changing the L R to LL RR: **nigru** > **nioghr** > LF
     **níorr**.
--   MP NT NC become simple B D G: **rumpere** &gt; **ruibir**,
-    **cantare** &gt; **cadáir**, **ancilla** &gt; **aigeall**.
--   MB ND NG become M N NG: **impoisibh** &gt; **iboisibh**. NG in LF
+-   MP NT NC become simple B D G: **rumpere** > **ruibir**,
+    **cantare** > **cadáir**, **ancilla** > **aigeall**.
+-   MB ND NG become M N NG: **impoisibh** > **iboisibh**. NG in LF
     sounds as in “siNG”.
 -   ABH OBH UBH finally or before a short vowel become Ó Ú Ú, with TH
-    added finally to nouns: **cantabha** &gt; **cantó**, **nobh** &gt;
+    added finally to nouns: **cantabha** > **cantó**, **nobh** >
     **núth**.
 -   AIDH EIDH IDH and AIGH EIGH IGH similarly become É Í Í:
-    **gleidh** &gt; **glíth**.
+    **gleidh** > **glíth**.
 -   In the preceding nine groups, if the preceding vowel is long the
     consonant disappears, although it is still written TH finally on
-    nouns: **fáigh** &gt; **féith**.
+    nouns: **fáigh** > **féith**.
 -   Intervocalic TH is lost before a short vowel, lengthening the
-    preceding vowel: **béathal** &gt; **béal**.
+    preceding vowel: **béathal** > **béal**.
 
 ### Relative chronology
 
@@ -2651,40 +1880,40 @@ are purely arbitrary; a “sonant” is a vowel or /l r/.
 
 -   Loss of /h/. Between vowels, the preceding vowel is lengthened and
     the following vowel lost.
--   /q/ &gt; /c/
--   /v/ &gt; /f/ initially, /u/ otherwise
--   /u/ &gt; /b/ between /l r/ and a vowel
--   /e i/ &gt; /g'/ between vowels and initially before /a o u/
--   /u i e/ &gt; /w j j/ between a consonant and a vowel
--   /e i/ &gt; /j/ initially before a vowel
--   /ie/ &gt; /e/ initially
+-   /q/ > /c/
+-   /v/ > /f/ initially, /u/ otherwise
+-   /u/ > /b/ between /l r/ and a vowel
+-   /e i/ > /g'/ between vowels and initially before /a o u/
+-   /u i e/ > /w j j/ between a consonant and a vowel
+-   /e i/ > /j/ initially before a vowel
+-   /ie/ > /e/ initially
 
 #### Stage 2
 
--   /au/ &gt; /o:/
--   /ae oe/ &gt; /e:/ (written AO)
--   /w/ &gt; /b/ after /l r/
--   /mn gn/ &gt; /nn/
--   /nt/ &gt; /nn/ before a vowel
--   /ns ps/ &gt; /s/, lengthening the preceding vowel
--   /ks/ (X) &gt; /sk/
--   /mpt nkt/ &gt; /nt/
--   /pt kt/ &gt; /xt/ (CHT)
+-   /au/ > /o:/
+-   /ae oe/ > /e:/ (written AO)
+-   /w/ > /b/ after /l r/
+-   /mn gn/ > /nn/
+-   /nt/ > /nn/ before a vowel
+-   /ns ps/ > /s/, lengthening the preceding vowel
+-   /ks/ (X) > /sk/
+-   /mpt nkt/ > /nt/
+-   /pt kt/ > /xt/ (CHT)
 
 #### Stage 3
 
 -   All consonants become slender before /e i j/ and finally after /e
     i/, and broad otherwise
--   short /a e/ &gt; /e i/ before /j/
--   short /a o/ &gt; /o u/ before /w/
--   /e i o u/ &gt; /E e O o/ before /a o/, whether long or short
+-   short /a e/ > /e i/ before /j/
+-   short /a o/ > /o u/ before /w/
+-   /e i o u/ > /E e O o/ before /a o/, whether long or short
 
 #### Stage 4
 
--   /E:/ &gt; /ia/ in first syllable before a broad consonant
--   /O:/ &gt; /ua/ in first syllable except before /k g/
--   /E O/ &gt; /e o/, long or short
--   /ja wa we/ &gt; /e o e/ before a consonant
+-   /E:/ > /ia/ in first syllable before a broad consonant
+-   /O:/ > /ua/ in first syllable except before /k g/
+-   /E O/ > /e o/, long or short
+-   /ja wa we/ > /e o e/ before a consonant
 
 #### Stage 5
 

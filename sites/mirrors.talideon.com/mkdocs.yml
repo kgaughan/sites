@@ -1,8 +1,10 @@
 site_name: Mirrored content hosted on mirrors.talideon.com
 
-markdown_extension:
-  - smarty
+markdown_extensions:
+  - attr_list
+  - def_list
   - sane_lists
+  - smarty
 
 plugins: []
 
@@ -10,3 +12,13 @@ use_directory_urls: false
 
 pages:
   - Home: index.md
+  - Conlanging:
+      - Kalaba-X: articles/kalabax.md
+      - Breathanach: articles/morven/breathanach.md
+  - Esolangs:
+      - Q-BAL: articles/qbal/index.md
+      - Malbolge: articles/malbolge/spec.md
+      - Dis: articles/malbolge/dis.md
+  - Other:
+      - XML-RPC Multicall: articles/multicall.md
+      - Caring for your introvert: articles/rauch.md

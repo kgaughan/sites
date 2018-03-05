@@ -7,8 +7,8 @@ RFC: system.multicall
 =====================
 
 Originally posted by
-[Eric Kidd](http://www.xmlrpc.com/profiles/$11){.author}
-on [2001-01-25 31:34:52]{.published}
+[Eric Kidd](http://www.xmlrpc.com/profiles/$11)
+on 2001-01-25 31:34:52
 
 After speaking with Adrian Likins at RedHat, I’ve been thinking about
 ways to boxcar XML-RPC calls without changing the official
@@ -53,12 +53,16 @@ a different solution.
 The Proposal
 ------------
 
-    array system.multicall(array)
+```nohighlight
+array system.multicall(array)
+```
 
 Takes an array of XML-RPC calls encoded as structs of the form (in a
 Pythonish notation here):
 
-    { 'methodName': string, 'params': array }
+```json
+{ 'methodName': string, 'params': array }
+```
 
 The array of structs may be of any length. In particular, empty lists
 are supported, so clients can test for the presence of the function
@@ -97,8 +101,8 @@ Virtues
     empty list.
 -   Smart XML-RPC libraries can do all the work behind the scenes.
 
-[An Example]{#example}
-----------------------
+An Example {#example}
+----------
 
 This example uses a Python-like notation to represent XML-RPC values. If
 you have any questions about what the corresponding XML looks like,
@@ -106,21 +110,25 @@ please ask.
 
 A sample argument to `system.multicall`:
 
-    [{ 'methodName': 'system.add', 'params': [2, 2] },
-     { 'methodName': 'test.nonexistant', 'params': [1] },
-     { 'methodName': 'system.multicall', 'params': [] },
-     { 'methodName': 'system.multicall' },
-     'this is not a struct',
-     { 'methodName': 'system.add', 'params': [4, 4] }]
+```json
+[{ 'methodName': 'system.add', 'params': [2, 2] },
+ { 'methodName': 'test.nonexistant', 'params': [1] },
+ { 'methodName': 'system.multicall', 'params': [] },
+ { 'methodName': 'system.multicall' },
+ 'this is not a struct',
+ { 'methodName': 'system.add', 'params': [4, 4] }]
+```
 
 The return value:
 
-    [[4],
-     { 'faultCode': 123, 'faultString': 'No such method test.nonexistant' },
-     { 'faultCode': 456, 'faultString': 'Recursive system.multicall forbidden' },
-     { 'faultCode': 789, 'faultString': 'Missing params' },
-     { 'faultCode': 987, 'faultString': 'system.multicall expected struct' },
-     [8]]
+```json
+[[4],
+ { 'faultCode': 123, 'faultString': 'No such method test.nonexistant' },
+ { 'faultCode': 456, 'faultString': 'Recursive system.multicall forbidden' },
+ { 'faultCode': 789, 'faultString': 'Missing params' },
+ { 'faultCode': 987, 'faultString': 'system.multicall expected struct' },
+ [8]]
+```
 
 Notice that regular return values are always nested inside a one-element
 array. This allows you to return structs from functions without
@@ -138,5 +146,4 @@ available in the CVS version of
 
 Thank you for any feedback on this proposal!
 
-Cheers,\
-Eric
+Cheers, Eric
