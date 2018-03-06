@@ -6,12 +6,14 @@ by [Rick Harrison](http://www.rickharrison.com/) about the page
 potentially disappearing because of the coming death of Geocities. Its
 hosting here for non-commercial purposes, thus would be covered by fair
 dealing under Irish copyright law, so I’ve decided to host it here. —K.
+{: .host-note }
 
 September 17th, 2009: And just to make sure this mirror's safe, we’ve
 [definite permission](http://listserv.brown.edu/archives/cgi-bin/wa?A2=ind0909c&L=conlang&D=1&T=0&P=4261)
 from
 [Bibliotheca Sacra](http://www.dts.edu/media/publications/bibliothecasacra/) to
 mirror it here.
+{: .host-note }
 
 Kalaba-X
 ========
@@ -24,8 +26,9 @@ acquire some of the necessary skills…
 An Artificial Language that Teaches the Art of Translation
 ----------------------------------------------------------
 
-Extracted from a lecture given in 1956 by Kenneth L. Pike, Ph.D. first
-published in Bibliotheca Sacra Vol.  114
+Extracted from a lecture given in 1956 by *Kenneth L. Pike, Ph.D.* first
+published in *Bibliotheca Sacra Vol.  114*
+{: .source }
 
 In our first lecture we emphasized the fact that a language was a grid,
 an emic system by means of which and through which communication takes
@@ -59,9 +62,11 @@ turn is followed by a subject slot. If we symbolize the obligatory
 occurrence by a plus sign (**+**), the formula in so far as it is
 implied up to this point would be:
 
-  ------------- ------------ -------------
-  **+** Pred.   **+** Obj.   **+** Subj.
-  ------------- ------------ -------------
+<table class="formula"><tr>
+<td><strong>+</strong> Pred.</td>
+<td><strong>+</strong> Obj.</td>
+<td><strong>+</strong> Subj.</td>
+</tr></table>
 
 The fillers of these slots must also be specified, however, before the
 formula is usable. That is, both slot and filler of the three gramemes
@@ -106,10 +111,15 @@ English nouns. Here, too, delicate problems arise as to the forms to be
 permitted, even though it is specified in advance that any inflected
 form of the noun may be used. The formula, then, now looks like this:
 
-  ------------- ------------ -------------
-  Verb          Noun         Noun
-  **+** Pred.   **+** Obj.   **+** Subj.
-  ------------- ------------ -------------
+<table class="formula"><tr>
+<td>Verb</td>
+<td>Noun</td>
+<td>Noun</td>
+</tr><tr>
+<td><strong>+</strong> Pred.</td>
+<td><strong>+</strong> Obj.</td>
+<td><strong>+</strong> Subj.</td>
+</tr></table>
 
 One further amplification of the formula is introduced to give more
 flexibility to Kalaba-X and to provide an artificial language that is
@@ -142,7 +152,8 @@ Note, then, the revised formula, with the added symbols of slant line
 (/) meaning ‘or,’ and parentheses to show the basic gramemes expanded by
 a modifier:
 
-+(+P^V^ ±M^N/V/A^) + (+O^N^ ±M^N/V/A^) + (+S^N^ ±M^N/V/A^)
++(+P<sup>V</sup> ±M<sup>N/V/A</sup>) + (+O<sup>N</sup> ±M<sup>N/V/A</sup>) + (+S<sup>N</sup> ±M<sup>N/V/A</sup>)
+{: .formula }
 
 Note, further, that this formula in part defines a noun for the Kalaba-X
 structure: it is a member of that list of words which can fill object,
@@ -347,7 +358,7 @@ following verse utilizes that pattern, with a few changes; one further
 sentence type, limited to a single exclamatory word, is added, and some
 hyphenated two-morpheme items are treated as single slot-filling units:
 
-```nohighlight
+<blockquote style="white-space:pre">
 Enters bird big, man bewildered.
 Maketh sound loud, bird silvered.
   Whoosh!
@@ -366,13 +377,13 @@ Breaketh air night, storm thundering.
 Rocketh bird poor, storm no-cease.
 Reacheth land firm, bird one-piece.
   Whew!
-    —Dorothy Barnhouse
-```
+    —<em>Dorothy Barnhouse</em>
+</blockquote>
 
 For verse with no changes other than a comma to make unambiguous by a
 pause the end of the object, note the following:
 
-```nohighlight
+<blockquote style="white-space:pre">
 Owns lamb little, Mary.
 Loves lamb, Mary little.
 Loves Mary pretty, lamb.
@@ -381,7 +392,7 @@ Seems snow, fleece white.
 Equals snow white, fleece.
 Equals snow, fleece soft.
 Seems fleece soft, snow.
-```
+</blockquote>
 
 First-Stage Translation into a Complex Structure
 ------------------------------------------------
@@ -562,5 +573,5 @@ of the translations in accordance with these principles:
 > all, she is only 15, and is going through the exasperating period of
 > adolescence.” Imagine then my feeling when, quite by accident, I came
 > across Janet’s New Year’s resolutions and saw at the head of her list:
-> “Try and be more patient with Mother.” Contributed by Mrs. C. R.
-> Knowles, *The Reader’s Digest*, Jan. 1952, p. 79.
+> “Try and be more patient with Mother.” *Contributed by Mrs. C. R.
+> Knowles, *The Reader’s Digest*, Jan. 1952, p. 79.*

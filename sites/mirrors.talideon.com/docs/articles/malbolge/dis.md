@@ -1,9 +1,9 @@
 Ben’s original interpreter is available for download here too as a
 [ZIP file](dis.zip "Dis interpreter") and as a
 [tarball](dis.tar.gz "Dis interpreter").
-
 If you’re interested in Dis, you’d probably be interested in
 [Malbolge](spec.html) too.
+{: .host-note }
 
 Dis ’98
 =======

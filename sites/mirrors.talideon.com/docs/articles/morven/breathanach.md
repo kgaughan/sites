@@ -1,9 +1,9 @@
 July 31st, 2013: Currently, the description of Breathanach isn’t
 published anywhere, so I grabbed
 [a cached version from the Internet Archive](http://web.archive.org/web/20100110124000/http://www.cix.co.uk/~morven/lang/breath.html).
-
 I hope Geoff Eddy doesn’t mind me taking liberties like this, but I
 think the language is worth preserving.
+{: .host-note }
 
 Bein-fheinéath all fhoil de Bhreathanach!
 =========================================

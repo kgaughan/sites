@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en-ie" dir="ltr"><head>
+	{% block head %}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ config.site_name }}</title>
+
+	<link rel="stylesheet" type="text/css" href="{{ base_url }}/css/style.css" media="all">
+
+	{% for path in extra_css %}
+	<link href="{{ path }}" rel="stylesheet">
+	{% endfor %}
+
+	{% for path in extra_javascript %}
+	<script src="{{ path }}"></script>
+	{% endfor %}
+
+	{% block extrahead %}{% endblock %}
+	{% endblock %}
+
+</head><body>
+
+{% block content %}
+{{ page.content }}
+{% endblock %}
+
+</body></html>

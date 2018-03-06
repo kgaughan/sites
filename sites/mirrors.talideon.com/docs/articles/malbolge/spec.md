@@ -4,15 +4,13 @@ mirror is a duplicate of sorts of
 This content is also
 [mirrored by Lou Scheffer](http://www.lscheffer.com/malbolge.shtml), who has
 some interesting stuff on the langauge too.
-
 I’ve added additional links to the text.
-
 Ben’s original interpreter is available for download here too as a
 [ZIP file](malbolge.zip "Malbolge interpreter") and as a
 [tarball](malbolge.tar.gz "Malbolge interpreter").
-
 If you’re interested in Malbolge, you’d probably be interested in
 [Dis](dis.html) too.
+{: .host-note }
 
 Malbolge ’98
 ============

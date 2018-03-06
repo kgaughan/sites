@@ -1,5 +1,6 @@
 Please link to [the original](http://www.theatlantic.com/issues/2003/03/rauch.htm)
 and only refer to this as a mirror.
+{: .host-note }
 
 Caring for your introvert
 =========================
@@ -8,7 +9,8 @@ The habits and needs of a little-understood group
 -------------------------------------------------
 
 by Jonathan Rauch
-[from The Atlantic Monthly, March 2003](http://www.theatlantic.com/issues/2003/03/rauch.htm)
+[from The Atlantic Monthly, March 2003](http://www.theatlantic.com/issues/2003/03/rauch.htm){: .published }
+{: .source }
 
 Do you know someone who needs hours alone every day? Who loves quiet
 conversations about feelings or ideas, and can give a dynamite

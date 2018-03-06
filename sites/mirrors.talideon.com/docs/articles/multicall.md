@@ -2,6 +2,7 @@ January 2nd, 2010: I pulled this article from
 [its archive.org cache](http://web.archive.org/web/20060824100531/http://www.xmlrpc.com/discuss/msgReader$1208).
 [Its original location](http://www.xmlrpc.com/discuss/msgReader$1208)
 appears to be permanently broken, so I’ve mirrored it for posterity. —K.
+{: .host-note }
 
 RFC: system.multicall
 =====================
@@ -9,6 +10,7 @@ RFC: system.multicall
 Originally posted by
 [Eric Kidd](http://www.xmlrpc.com/profiles/$11)
 on 2001-01-25 31:34:52
+{: .source }
 
 After speaking with Adrian Likins at RedHat, I’ve been thinking about
 ways to boxcar XML-RPC calls without changing the official
