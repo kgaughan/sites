@@ -15,12 +15,30 @@
     logs_root: /var/logs/www
 
   tasks:
+    - name: check the site exists
+      local_action:
+        module: stat
+        path: "sites/{{ domain_name }}/mkdocs.yml"
+      register: stat
+
+    - assert:
+        that: stat.stat.exists
+        msg: "{{ stat.stat.path }} does not exist."
+
+    - local_action: tempfile state=directory
+      register: local_tmp
+
+    - name: build {{ domain_name }}
+      local_action: shell mkdocs build --strict --site-dir {{ local_tmp.path }}
+      args:
+        chdir: "sites/{{ domain_name }}"
+
     - name: ensure target directories exist
       file:
         dest: '{{ item }}'
         state: directory
       with_items:
-        - '{{ vhosts_root }}/{{ domain_name }}'
+        - '{{ vhosts_root }}/{{ domain_name }}/web'
         - '{{ webserver_config_root }}/vhosts'
         - '{{ logs_root }}'
 
@@ -32,12 +50,7 @@
         - reload nginx
 
     - name: copy up site
-      synchronize:
-        src: web
-        dest: '{{ vhosts_root }}/{{ domain_name }}'
-        group: no
-        owner: no
-        delete: yes
+      local_action: shell rsync --recursive --delete-after --exclude-from=exclusions --progress "{{ local_tmp.path }}/" "{{ inventory_hostname }}:{{ vhosts_root }}/{{ domain_name }}/web"
 
   handlers:
     - name: reload nginx
