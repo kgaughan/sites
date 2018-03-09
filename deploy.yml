@@ -1,4 +1,30 @@
 ---
+- name: build {{ domain_name }}
+  hosts: localhost
+  become: no
+  gather_facts: false
+
+  tasks:
+    - stat:
+        path: "sites/{{ domain_name }}/mkdocs.yml"
+      register: stat
+
+    - assert:
+        that: stat.stat.exists
+        msg: "{{ stat.stat.path }} does not exist."
+
+    - tempfile:
+        state: directory
+      register: local_tmp
+
+    # To persist across plays.
+    - set_fact:
+        tmp: "{{ local_tmp.path }}"
+
+    - shell: mkdocs build --strict --site-dir {{ local_tmp.path }}
+      args:
+        chdir: "sites/{{ domain_name }}"
+
 - name: deploy {{ domain_name }}
   hosts: all
   remote_user: keith
@@ -12,31 +38,17 @@
     vhosts_root: /usr/local/www
     webserver_config_root: /usr/local/etc/nginx
     tls_root: /usr/local/etc/ssl/acme
-    logs_root: /var/logs/www
+    logs_root: /var/log/www
+    tmp: "{{ hostvars.localhost.tmp }}"
 
   tasks:
-    - name: check the site exists
-      local_action:
-        module: stat
-        path: "sites/{{ domain_name }}/mkdocs.yml"
-      register: stat
-
-    - assert:
-        that: stat.stat.exists
-        msg: "{{ stat.stat.path }} does not exist."
-
-    - local_action: tempfile state=directory
-      register: local_tmp
-
-    - name: build {{ domain_name }}
-      local_action: shell mkdocs build --strict --site-dir {{ local_tmp.path }}
-      args:
-        chdir: "sites/{{ domain_name }}"
-
     - name: ensure target directories exist
       file:
         dest: '{{ item }}'
         state: directory
+        owner: www
+        group: wheel
+        mode: 0755
       with_items:
         - '{{ vhosts_root }}/{{ domain_name }}/web'
         - '{{ webserver_config_root }}/vhosts'
@@ -50,7 +62,13 @@
         - reload nginx
 
     - name: copy up site
-      local_action: shell rsync --recursive --delete-after --exclude-from=exclusions --progress "{{ local_tmp.path }}/" "{{ inventory_hostname }}:{{ vhosts_root }}/{{ domain_name }}/web"
+      synchronize:
+        src: "{{ tmp }}/"
+        dest: "{{ vhosts_root }}/{{ domain_name }}/web"
+        group: no
+        owner: no
+        perms: no
+        delete: yes
 
   handlers:
     - name: reload nginx
