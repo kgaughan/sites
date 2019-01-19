@@ -9,7 +9,7 @@ Ben’s original interpreter is available for download here too as a
 [ZIP file](malbolge.zip "Malbolge interpreter") and as a
 [tarball](malbolge.tar.gz "Malbolge interpreter").
 If you’re interested in Malbolge, you’d probably be interested in
-[Dis](dis.html) too.
+[Dis](dis.md) too.
 {: .host-note }
 
 Malbolge ’98

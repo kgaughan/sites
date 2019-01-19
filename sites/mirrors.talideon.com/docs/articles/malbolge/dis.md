@@ -2,7 +2,7 @@ Ben’s original interpreter is available for download here too as a
 [ZIP file](dis.zip "Dis interpreter") and as a
 [tarball](dis.tar.gz "Dis interpreter").
 If you’re interested in Dis, you’d probably be interested in
-[Malbolge](spec.html) too.
+[Malbolge](spec.md) too.
 {: .host-note }
 
 Dis ’98
@@ -32,7 +32,7 @@ of mental torment, were designed with other goals: INTERCAL to have
 nothing in common with any major programming language, and BrainF\*\*\*
 to be a very tiny, yet still Turing-complete, language.
 
-Hence the author created [Malbolge](spec.html). It was meant to be a
+Hence the author created [Malbolge](spec.md). It was meant to be a
 nightmare to write in, and it was.
 
 But the author soon discovered that, try as he had, the only program he

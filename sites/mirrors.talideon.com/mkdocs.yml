@@ -14,7 +14,7 @@ plugins: []
 
 use_directory_urls: false
 
-pages:
+nav:
   - Home: index.md
   - Conlanging:
       - Kalaba-X: articles/kalabax.md
