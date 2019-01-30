@@ -1,7 +1,7 @@
 ---
 - name: build {{ domain_name }}
   hosts: localhost
-  become: no
+  become: false
   gather_facts: false
 
   tasks:
@@ -28,7 +28,7 @@
 - name: deploy {{ domain_name }}
   hosts: all
   remote_user: keith
-  become: yes
+  become: true
   gather_facts: false
 
   vars:
@@ -65,13 +65,14 @@
       synchronize:
         src: "{{ tmp }}/"
         dest: "{{ vhosts_root }}/{{ domain_name }}/web"
-        group: no
-        owner: no
-        perms: no
-        delete: yes
+        group: false
+        owner: false
+        perms: false
+        delete: true
 
   handlers:
     - name: reload nginx
       service:
         name: nginx
         state: reloaded
+      ignore_errors: true

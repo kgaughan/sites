@@ -15,9 +15,17 @@ To keep things sane, all the sites go in `sites/<hostname>`.
 I intend on using mkdocs_ for most things, if possible. I recommend installing
 it with the pipsi_ wrapper around pip_.
 
+To do
+=====
+
+Currently, it only works for domains under talideon.com, and doesn't interact
+with any of the ACME_ tooling present, nor is there support for distinct vhost
+configurations, though ideally this shouldn't be super necessary.
+
 .. _Can't Hack: https://i.canthack.it/
 .. _mkdocs: http://www.mkdocs.org/
 .. _pipsi: https://github.com/mitsuhiko/pipsi
 .. _pip: https://pypi.python.org/pypi/pip
+.. _ACME: https://en.wikipedia.org/wiki/Automated_Certificate_Management_Environment
 
 .. vim:set ft=rst:
