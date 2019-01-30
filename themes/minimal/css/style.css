@@ -1,0 +1,59 @@
+@import 'https://fonts.googleapis.com/css?family=Inconsolata:400,700|Raleway:400,400i,600';
+body {
+  font-family: 'Raleway', sans-serif;
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 5rem 0 0 0;
+  color: #555;
+}
+main, footer {
+  line-height: 1.6;
+  max-width: 40rem;
+  width: 100%;
+  padding: 0 4rem;
+  margin: 2rem auto;
+}
+footer {
+  text-align: center;
+}
+footer:before {
+  content: "❧ ";
+  text-align: center;
+  display: block;
+  color: #802;
+  font-size: 150%;
+  margin: 0.5em 0;
+}
+h1, h2 {
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #802;
+  text-align: center;
+  text-transform: lowercase;
+}
+h1 {
+  font-size: 300%;
+  line-height: 1.1;
+}
+h2 {
+  font-size: 250%;
+  line-height: 1.2;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+thead, tbody {
+  border-bottom: 1px solid #802;
+}
+tbody tr + tr {
+  border-top: 1px solid #ccc;
+}
+th, td {
+  padding: 0.5em 1em;
+}
+th {
+  text-align: left;
+}

@@ -1,10 +1,10 @@
 ---
 site_name: talideon.com
-copyright: Keith Gaughan, 2001-2018
+copyright: Keith Gaughan, 2001-2019
 
 theme:
   name: null
-  custom_dir: ../../themes/simple
+  custom_dir: ../../themes/minimal
 
 markdown_extensions:
   - smarty
@@ -14,15 +14,3 @@ plugins: []
 
 nav:
   - Home: index.md
-  - Articles:
-      - Web development notes: webdev-notes.md
-      - Getting Ubuntu running on a Lenovo Miix 310: https://i.canthack.it/getting-ubuntu-up-and-running-on-a-lenovo-miix-310.html
-  - Elsewhere:
-      - Inklings: https://stereochro.me/weblog/
-      - Can't Hack: https://i.canthack.it/
-      - Stack Overflow: http://stackoverflow.com/users/8342/keith-gaughan
-      - LinkedIn: https://www.linkedin.com/in/keithgaughan
-      - Github: https://github.com/kgaughan
-      - Twitter: https://twitter.com/talideon
-      - FreeBSD ports I maintain: http://portsmon.freebsd.org/portsconcordanceformaintainer.py?maintainer=k%40stereochro.me
-      - portscout: http://portscout.freebsd.org/k@stereochro.me.html
