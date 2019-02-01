@@ -6,10 +6,8 @@ server {
 	root {{ vhosts_root }}/{{ domain_name }}/web;
 	index index.html index.htm;
 
-	include letsencrypt_params;
-
-	ssl_certificate {{ tls_root }}/{{ tls_domain | default(domain_name) }}/fullchain.pem;
-	ssl_certificate_key {{ tls_root }}/private/{{ tls_domain | default(domain_name) }}.pem;
+	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
+	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;
 
 	access_log {{ logs_root }}/{{ domain_name }}.access.log combined;
 	error_log {{ logs_root }}/{{ domain_name }}.error.log;

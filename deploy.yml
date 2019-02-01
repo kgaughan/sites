@@ -37,6 +37,7 @@
     # domain_name comes in from the invocation.
     vhosts_root: /usr/local/www
     webserver_config_root: /usr/local/etc/nginx
+    acme_client_root: /usr/local/etc/acme
     tls_root: /usr/local/etc/ssl/acme
     logs_root: /var/log/www
     tmp: "{{ hostvars.localhost.tmp }}"
@@ -54,10 +55,25 @@
         - '{{ webserver_config_root }}/vhosts'
         - '{{ logs_root }}'
 
+    - name: populate domains.txt
+      lineinfile:
+        dest: "{{ acme_client_root }}/domains.txt"
+        create: true
+        line: "{{ domain_name }}"
+
+    - name: check if the cert already exists
+      stat:
+        path: "{{ tls_root }}/{{ domain_name }}/fullchain.pem"
+      register: chain
+
+    - name: generate missing certificates
+      command: "{{ acme_client_root }}/acme-client.sh"
+      when: not chain.stat.exists
+
     - name: copy up vhost config
       template:
         src: vhost.conf.j2
-        dest: '{{ webserver_config_root }}/vhosts'
+        dest: '{{ webserver_config_root }}/vhosts/{{ domain_name }}'
       notify:
         - reload nginx
 
