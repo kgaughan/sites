@@ -22,6 +22,12 @@ Currently, it only works for domains under talideon.com, and doesn't interact
 with any of the ACME_ tooling present, nor is there support for distinct vhost
 configurations, though ideally this shouldn't be super necessary.
 
+I currently have a directory here called 'vhosts' full of nginx vhosts config.
+Where possible and sensible, I hope to migrate the sites listed there to be
+deployed the same way as the other site. For some of the existing ones, I have
+a 'vhost' file in each directory that I want to work into the pipeline
+properly.
+
 .. _Can't Hack: https://i.canthack.it/
 .. _mkdocs: http://www.mkdocs.org/
 .. _pipsi: https://github.com/mitsuhiko/pipsi

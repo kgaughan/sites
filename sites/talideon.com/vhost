@@ -1,0 +1,84 @@
+server {
+	include common_params;
+	include php_params;
+	include ssl_params;
+	include letsencrypt_params;
+
+	server_name talideon.com;
+	root /home/freebsd/sites/talideon.com/web;
+	index index.php index.html index.htm;
+
+	location /inklings/ {
+		proxy_pass http://unix:/var/run/www/komorebi.socket:/;
+		proxy_set_header Host $host;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Scheme $scheme;
+		proxy_set_header X-Script-Name /inklings;
+	}
+
+	location /inklings/static/ {
+		alias /home/freebsd/transitional/komorebi/src/komorebi/static/;
+	}
+
+	# Legacy redirects.
+	location = "/Getting%20Ubuntu%20running%20on%20a%20Lenovo%20Miix%20310" { return 301 https://i.canthack.it/getting-ubuntu-up-and-running-on-a-lenovo-miix-310.html; }
+	location = "/ubuntu-lenovo-miix-310/" { return 301 https://i.canthack.it/getting-ubuntu-up-and-running-on-a-lenovo-miix-310.html; }
+	location = "/weblog" { return 301 "https://talideon.com/inklings/"; }
+	location = "/weblog/" { return 301 "https://talideon.com/inklings/"; }
+	location = "/linklog" { return 301 "https://talideon.com/inklings/"; }
+	location = "/linklog/" { return 301 "https://talideon.com/inklings/"; }
+	location = "/weblog/syndication.cfm" { return 301 "https://talideon.com/inklings/feed"; }
+	location = "/linklog/syndication.cfm" { return 301 "https://talideon.com/inklings/feed"; }
+	location = "/Web%20Development%20Notes" { return 301 /webdev-notes/; }
+	location = "/reader/" { return 301 https://reader.talideon.com/; }
+	location = "/weblog/2004/09/starting-hackers-diet.cfm" { return 301 https://i.canthack.it/starting-hackers-diet.html; }
+	location = "/weblog/2004/10/hackers-diet-downloads.cfm" { return 301 https://i.canthack.it/starting-hackers-diet.html; }
+	location = "/weblog/2005/02/detecting-broken-images-js.cfm." { return 301 https://i.canthack.it/detecting-broken-images-js.html; }
+	location = "/weblog/2005/02/detecting-broken-images-js.cfm" { return 301 https://i.canthack.it/detecting-broken-images-js.html; }
+	location = "/weblog/2005/03/js-memory-leaks.cfm" { return 301 https://i.canthack.it/js-memory-leaks.html; }
+	location = "/weblog/2005/05/xmlparser.cfm" { return 301 https://i.canthack.it/xmlparser.html; }
+	location = "/weblog/2005/07/javascript-memoization.cfm." { return 301 https://i.canthack.it/javascript-memoization.html; }
+	location = "/weblog/2005/07/javascript-memoization.cfm" { return 301 https://i.canthack.it/javascript-memoization.html; }
+	location = "/weblog/2006/05/fisking-myers-on-gay-marriage.cfm" { return 301 https://i.canthack.it/fisking-myers-on-gay-marriage.html; }
+	location = "/weblog/2006/07/tir-gan-teanga-tir-gan-anam.cfm" { return 301 https://i.canthack.it/tir-gan-teanga-tir-gan-anam.html; }
+	location = "/weblog/2007/06/h365-hamster.cfm" { return 301 https://i.canthack.it/h365-hamster.html; }
+	location = "/weblog/2007/09/sum-coalesce.cfm" { return 301 https://i.canthack.it/sum-coalesce.html; }
+	location = "/weblog/2008/01/rpm-unwilling.cfm" { return 301 https://i.canthack.ie/rpm-for-the-unwilling.html; }
+	location = "/weblog/2008/02/find-duplicates.cfm" { return 301 https://i.canthack.it/find-duplicates.html; }
+	location = "/weblog/2008/03/mosml-pt1.cfm" { return 301 https://i.canthack.it/mosml-pt1.html; }
+	location = "/weblog/2008/05/python-netstring-reader.cfm" { return 301 https://i.canthack.it/python-netstring-reader.html; }
+	location = "/weblog/2008/05/srgp.cfm" { return 301 https://i.canthack.it/srgp.html; }
+	location = "/weblog/2007/09/the-monologue.cfm" { return 301 https://i.canthack.it/the-monologue.html; }
+	location = "/feed/" { return 301 https://i.canthack.it/feeds/all.xml; }
+	location = "/rss.xml" { return 301 https://i.canthack.it/feeds/all.xml; }
+	location = "/code/qbal/spec/" { return 301 https://mirrors.talideon.com/articles/qbal/; }
+	location = "/about/" { return 301 https://stereochro.me/about; }
+	location = "/about/contact/" { return 301 https://stereochro.me/about; }
+	location = "/notes/" { return 301 https://stereochro.me/projects/dcom3notes; }
+	location = "/concultures/" { return 301 https://i.canthack.it/pages/conlanging.html; }
+	location = "/concultures/ananagyu/" { return 301 https://i.canthack.it/pages/ananagyu.html; }
+	location = "/concultures/ananagyu/nouns.cfm" { return 301 https://i.canthack.it/pages/ananagyu.html; }
+	location = "/concultures/porteressia/" { return 301 https://i.canthack.it/pages/porteressia.html; }
+	location ~ "/notes/dcom3/(.*)" { return 301 https://stereochro.me/assets/uploads/notes/dcom3/$1; }
+
+	location = "/inklings/;feed" { return 301 https://talideon.com/inklings/feed; }
+	location = "/inklings/%3bfeed" { return 301 https://talideon.com/inklings/feed; }
+
+	ssl_certificate /usr/local/etc/ssl/acme/talideon.com/fullchain.pem;
+	ssl_certificate_key /usr/local/etc/ssl/acme/private/talideon.com.pem;
+
+	access_log /var/log/www/talideon.com.access.log combined;
+	error_log /var/log/www/talideon.com.error.log;
+}
+
+server {
+	include common_params;
+	include ssl_params;
+	include letsencrypt_params;
+
+	server_name www.talideon.com;
+	return 301 https://talideon.com$request_uri;
+
+	ssl_certificate /usr/local/etc/ssl/acme/talideon.com/fullchain.pem;
+	ssl_certificate_key /usr/local/etc/ssl/acme/private/talideon.com.pem;
+}
