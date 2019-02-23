@@ -1,11 +1,10 @@
 server {
 	include common_params;
 	include ssl_params;
-	include letsencrypt_params;
 
 	server_name mail.talideon.com;
 	return 301 https://webmail.talideon.com$request_uri;
 
-	ssl_certificate /usr/local/etc/ssl/acme/talideon.com/fullchain.pem;
-	ssl_certificate_key /usr/local/etc/ssl/acme/private/talideon.com.pem;
+	ssl_certificate /usr/local/etc/ssl/acme/mail.talideon.com/fullchain.pem;
+	ssl_certificate_key /usr/local/etc/ssl/acme/private/mail.talideon.com.pem;
 }

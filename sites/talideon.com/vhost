@@ -2,7 +2,6 @@ server {
 	include common_params;
 	include php_params;
 	include ssl_params;
-	include letsencrypt_params;
 
 	server_name talideon.com;
 	root /home/freebsd/sites/talideon.com/web;
@@ -74,7 +73,6 @@ server {
 server {
 	include common_params;
 	include ssl_params;
-	include letsencrypt_params;
 
 	server_name www.talideon.com;
 	return 301 https://talideon.com$request_uri;

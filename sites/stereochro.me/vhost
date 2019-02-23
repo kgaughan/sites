@@ -2,7 +2,6 @@ server {
 	include common_params;
 	include php_params;
 	include ssl_params;
-	include letsencrypt_params;
 
 	server_name stereochro.me;
 	root /home/freebsd/sites/stereochro.me/web;
@@ -38,7 +37,6 @@ server {
 server {
 	include common_params;
 	include ssl_params;
-	include letsencrypt_params;
 
 	server_name www.stereochro.me;
 	return 301 https://stereochro.me$request_uri;

@@ -4,8 +4,8 @@ sites
 
 Yet another attempt to get my various sites under control.
 
-The aim is for everything except `Can't Hack`_ to go here, which has
-`its own repo <https://github.com/kgaughan/canthack>`_.
+The aim is for everything except `Can't Hack`_ and `bethisad.talideon.com`_ to
+go here, which have their own repos.
 
 Layout
 ======
@@ -28,7 +28,8 @@ deployed the same way as the other site. For some of the existing ones, I have
 a 'vhost' file in each directory that I want to work into the pipeline
 properly.
 
-.. _Can't Hack: https://i.canthack.it/
+.. _Can't Hack: https://github.com/kgaughan/canthack
+.. _bethisad.talideon.com: https://github.com/kgaughan/bethisad.talideon.com
 .. _mkdocs: http://www.mkdocs.org/
 .. _pipsi: https://github.com/mitsuhiko/pipsi
 .. _pip: https://pypi.python.org/pypi/pip

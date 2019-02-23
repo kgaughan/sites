@@ -1,7 +1,6 @@
 server {
 	include common_params;
 	include ssl_params;
-	include letsencrypt_params;
 
 	server_name i.canthack.it;
 	root /home/freebsd/sites/canthack.it/web;
@@ -15,9 +14,8 @@ server {
 }
 
 server {
-	include ssl_params;
 	include common_params;
-	include letsencrypt_params;
+	include ssl_params;
 
 	server_name .canthack.it;
 	return 301 https://i.canthack.it$request_uri;
@@ -28,7 +26,6 @@ server {
 
 server {
 	include common_params;
-	include letsencrypt_params;
 
 	listen 80;
 	listen [::]:80;
