@@ -31,5 +31,5 @@ server {
 	listen [::]:80;
 
 	server_name .gaughan.ie;
-	return 301 https://gaughan.ie$request_uri;
+	return 301 https://$host$request_uri;
 }
