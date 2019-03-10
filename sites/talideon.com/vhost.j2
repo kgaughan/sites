@@ -4,7 +4,7 @@ server {
 	include ssl_params;
 
 	server_name talideon.com;
-	root /home/freebsd/sites/talideon.com/web;
+	root {{ vhosts_root }}/talideon.com/web;
 	index index.php index.html index.htm;
 
 	location /inklings/ {
@@ -63,11 +63,11 @@ server {
 	location = "/inklings/;feed" { return 301 https://talideon.com/inklings/feed; }
 	location = "/inklings/%3bfeed" { return 301 https://talideon.com/inklings/feed; }
 
-	ssl_certificate /usr/local/etc/ssl/acme/talideon.com/fullchain.pem;
-	ssl_certificate_key /usr/local/etc/ssl/acme/private/talideon.com.pem;
+	ssl_certificate {{ tls_root }}/talideon.com/fullchain.pem;
+	ssl_certificate_key {{ tls_root }}/private/talideon.com.pem;
 
-	access_log /var/log/www/talideon.com.access.log combined;
-	error_log /var/log/www/talideon.com.error.log;
+	access_log {{ logs_root }}/talideon.com.access.log combined;
+	error_log {{ logs_root }}/talideon.com.error.log;
 }
 
 server {
@@ -77,8 +77,8 @@ server {
 	server_name www.talideon.com;
 	return 301 https://talideon.com$request_uri;
 
-	ssl_certificate /usr/local/etc/ssl/acme/talideon.com/fullchain.pem;
-	ssl_certificate_key /usr/local/etc/ssl/acme/private/talideon.com.pem;
+	ssl_certificate {{ tls_root }}/talideon.com/fullchain.pem;
+	ssl_certificate_key {{ tls_root }}/private/talideon.com.pem;
 }
 
 server {

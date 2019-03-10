@@ -4,7 +4,7 @@ server {
 	include ssl_params;
 
 	server_name stereochro.me;
-	root /home/freebsd/sites/stereochro.me/web;
+	root {{ vhosts_root }}/stereochro.me/web;
 	index index.html index.htm dispatch.php;
 
 	rewrite "^/weblog/(%3b|;)feed" https://talideon.com/inklings/feed permanent;
@@ -18,20 +18,20 @@ server {
 
 	location /distfiles {
 		autoindex on;
-		alias /home/freebsd/sites/stereochro.me/distfiles;
+		alias {{ vhosts_root }}/stereochro.me/distfiles;
 	}
 
 	location /assets/uploads {
-		alias /home/freebsd/sites/stereochro.me/uploads;
+		alias {{ vhosts_root }}/stereochro.me/uploads;
 	}
 
 	try_files $uri $uri/ /dispatch.php;
 
-	ssl_certificate /usr/local/etc/ssl/acme/stereochro.me/fullchain.pem;
-	ssl_certificate_key /usr/local/etc/ssl/acme/private/stereochro.me.pem;
+	ssl_certificate {{ tls_root }}/stereochro.me/fullchain.pem;
+	ssl_certificate_key {{ tls_root }}/private/stereochro.me.pem;
 
-	access_log /var/log/www/stereochro.me.access.log combined;
-	error_log /var/log/www/stereochro.me.error.log;
+	access_log {{ logs_root }}/stereochro.me.access.log combined;
+	error_log {{ logs_root }}/stereochro.me.error.log;
 }
 
 server {
@@ -41,8 +41,8 @@ server {
 	server_name www.stereochro.me;
 	return 301 https://stereochro.me$request_uri;
 
-	ssl_certificate /usr/local/etc/ssl/acme/stereochro.me/fullchain.pem;
-	ssl_certificate_key /usr/local/etc/ssl/acme/private/stereochro.me.pem;
+	ssl_certificate {{ tls_root }}/stereochro.me/fullchain.pem;
+	ssl_certificate_key {{ tls_root }}/private/stereochro.me.pem;
 }
 
 server {

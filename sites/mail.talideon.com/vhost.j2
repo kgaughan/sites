@@ -5,8 +5,8 @@ server {
 	server_name mail.talideon.com;
 	return 301 https://webmail.talideon.com$request_uri;
 
-	ssl_certificate /usr/local/etc/ssl/acme/mail.talideon.com/fullchain.pem;
-	ssl_certificate_key /usr/local/etc/ssl/acme/private/mail.talideon.com.pem;
+	ssl_certificate {{ tls_root }}/mail.talideon.com/fullchain.pem;
+	ssl_certificate_key {{ tls_root }}/private/mail.talideon.com.pem;
 }
 
 server {
