@@ -8,3 +8,13 @@ server {
 	ssl_certificate /usr/local/etc/ssl/acme/mail.talideon.com/fullchain.pem;
 	ssl_certificate_key /usr/local/etc/ssl/acme/private/mail.talideon.com.pem;
 }
+
+server {
+	include common_params;
+
+	listen 80;
+	listen [::]:80;
+
+	server_name mail.talideon.com;
+	return 301 https://$host$request_uri;
+}

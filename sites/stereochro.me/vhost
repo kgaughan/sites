@@ -44,3 +44,13 @@ server {
 	ssl_certificate /usr/local/etc/ssl/acme/stereochro.me/fullchain.pem;
 	ssl_certificate_key /usr/local/etc/ssl/acme/private/stereochro.me.pem;
 }
+
+server {
+	include common_params;
+
+	listen 80;
+	listen [::]:80;
+
+	server_name .stereochro.me;
+	return 301 https://$host$request_uri;
+}
