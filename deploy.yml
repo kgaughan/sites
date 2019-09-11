@@ -9,9 +9,8 @@
         path: "sites/{{ domain_name }}/mkdocs.yml"
       register: stat
 
-    - assert:
-        that: stat.stat.exists
-        msg: "{{ stat.stat.path }} does not exist."
+    - meta: end_play
+      when: not stat.stat.exists
 
     - tempfile:
         state: directory
@@ -19,7 +18,7 @@
 
     # To persist across plays.
     - set_fact:
-        tmp: "{{ local_tmp.path }}"
+        build_dir: "{{ local_tmp.path }}"
 
     - shell: mkdocs build --strict --site-dir {{ local_tmp.path }}
       args:
@@ -32,59 +31,53 @@
   gather_facts: false
 
   vars:
-    ansible_python_interpreter: /usr/local/bin/python
+    ansible_python_interpreter: /usr/local/bin/python3
 
     # domain_name comes in from the invocation.
     vhosts_root: /usr/local/www
     webserver_config_root: /usr/local/etc/nginx
-    acme_client_root: /usr/local/etc/acme
-    tls_root: /usr/local/etc/ssl/acme
     logs_root: /var/log/www
-    tmp: "{{ hostvars.localhost.tmp }}"
+    tls_root: /usr/local/etc/ssl/acme
 
   tasks:
-    - name: ensure target directories exist
+    - name: ensure web site root directory exists
       file:
-        dest: '{{ item }}'
+        dest: '{{ vhosts_root }}/{{ domain_name }}/web'
         state: directory
-        owner: www
-        group: wheel
+        owner: keith
+        group: www
         mode: 0755
-      with_items:
-        - '{{ vhosts_root }}/{{ domain_name }}/web'
-        - '{{ webserver_config_root }}/vhosts'
-        - '{{ logs_root }}'
 
-    - name: populate domains.txt
-      lineinfile:
-        dest: "{{ acme_client_root }}/domains.txt"
-        create: true
-        line: "{{ domain_name }}"
+    - name: check for custom vhost config
+      local_action: stat path="sites/{{ domain_name }}/vhost.j2"
+      become: false
+      register: st
 
-    - name: check if the cert already exists
-      stat:
-        path: "{{ tls_root }}/{{ domain_name }}/fullchain.pem"
-      register: chain
+    - name: copy up custom vhost config
+      template:
+        src: "sites/{{ domain_name }}/vhost.j2"
+        dest: '{{ webserver_config_root }}/vhosts/{{ domain_name }}'
+      when: st.stat.exists
+      notify:
+        - reload nginx
 
-    - name: generate missing certificates
-      command: "{{ acme_client_root }}/acme-client.sh"
-      when: not chain.stat.exists
-
-    - name: copy up vhost config
+    - name: copy up generic vhost config
       template:
         src: vhost.conf.j2
         dest: '{{ webserver_config_root }}/vhosts/{{ domain_name }}'
+      when: not st.stat.exists
       notify:
         - reload nginx
 
     - name: copy up site
       synchronize:
-        src: "{{ tmp }}/"
+        src: "{{ hostvars.localhost.build_dir }}/"
         dest: "{{ vhosts_root }}/{{ domain_name }}/web"
         group: false
         owner: false
         perms: false
         delete: true
+      when: hostvars.localhost.build_dir is defined
 
   handlers:
     - name: reload nginx
