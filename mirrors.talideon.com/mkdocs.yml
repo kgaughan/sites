@@ -2,7 +2,7 @@ site_name: Mirrored content hosted on mirrors.talideon.com
 
 theme:
   name: null
-  custom_dir: ../../themes/sheets
+  custom_dir: ../themes/sheets
 
 markdown_extensions:
   - attr_list
