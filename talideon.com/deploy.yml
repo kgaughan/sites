@@ -39,7 +39,7 @@
       lineinfile:
         dest: "{{ acme_client_root }}/domains.txt"
         create: true
-        line: "{{ domain_name }} www.{{ domain_name }} mail.{{ domain_name }}"
+        line: "{{ domain_name }} www.{{ domain_name }}"
       notify:
         - generate missing certificates
         - reload nginx

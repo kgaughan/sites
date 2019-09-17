@@ -1,0 +1,39 @@
+---
+- name: build mail.talideon.com
+  hosts: all
+  remote_user: freebsd
+  become: true
+  gather_facts: false
+
+  vars:
+    ansible_python_interpreter: /usr/local/bin/python3
+    domain_name: mail.talideon.com
+    webserver_config_root: /usr/local/etc/nginx
+    tls_root: /usr/local/etc/ssl/acme
+    acme_client_root: /usr/local/etc/acme
+
+  tasks:
+    - name: populate domains.txt
+      lineinfile:
+        dest: "{{ acme_client_root }}/domains.txt"
+        create: true
+        line: "{{ domain_name }}"
+      notify:
+        - generate missing certificates
+        - reload nginx
+
+    - name: copy up custom vhost config
+      template:
+        src: "vhost.j2"
+        dest: "{{ webserver_config_root }}/sites/{{ domain_name }}"
+      notify:
+        - reload nginx
+
+  handlers:
+    - name: generate missing certificates
+      command: "{{ acme_client_root }}/acme-client.sh"
+
+    - name: reload nginx
+      service:
+        name: nginx
+        state: reloaded
