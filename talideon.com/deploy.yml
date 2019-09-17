@@ -1,0 +1,71 @@
+---
+- name: build talideon.com
+  hosts: all
+  remote_user: freebsd
+  become: true
+  gather_facts: false
+
+  vars:
+    ansible_python_interpreter: /usr/local/bin/python3
+    domain_name: talideon.com
+    vhosts_root: /home/freebsd/sites
+    webserver_config_root: /usr/local/etc/nginx
+    logs_root: /var/log/www
+    tls_root: /usr/local/etc/ssl/acme
+    acme_client_root: /usr/local/etc/acme
+
+  tasks:
+    - name: create local build directory
+      local_action:
+        module: tempfile
+        state: directory
+      become: false
+      register: build_dir
+
+    - name: build site
+      local_action: command mkdocs build --strict --site-dir {{ build_dir.path }}
+      become: false
+
+    - name: ensure web site root directory exists
+      file:
+        dest: "{{ vhosts_root }}/{{ domain_name }}/web"
+        state: directory
+        owner: freebsd
+        group: freebsd
+        mode: 0755
+      become: false
+
+    - name: populate domains.txt
+      lineinfile:
+        dest: "{{ acme_client_root }}/domains.txt"
+        create: true
+        line: "{{ domain_name }} www.{{ domain_name }} mail.{{ domain_name }}"
+      notify:
+        - generate missing certificates
+        - reload nginx
+
+    - name: copy up custom vhost config
+      template:
+        src: "vhost.j2"
+        dest: "{{ webserver_config_root }}/sites/{{ domain_name }}"
+      notify:
+        - reload nginx
+
+    - name: copy up site
+      synchronize:
+        src: "{{ build_dir.path }}/"
+        dest: "{{ vhosts_root }}/{{ domain_name }}/web"
+        group: false
+        owner: false
+        perms: false
+        delete: true
+      become: false
+
+  handlers:
+    - name: generate missing certificates
+      command: "{{ acme_client_root }}/acme-client.sh"
+
+    - name: reload nginx
+      service:
+        name: nginx
+        state: reloaded

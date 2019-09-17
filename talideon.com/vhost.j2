@@ -3,8 +3,8 @@ server {
 	include php_params;
 	include ssl_params;
 
-	server_name talideon.com;
-	root {{ vhosts_root }}/talideon.com/web;
+	server_name {{ domain_name }};
+	root {{ vhosts_root }}/{{ domain_name }}/web;
 	index index.php index.html index.htm;
 
 	location /inklings/ {
@@ -22,13 +22,13 @@ server {
 	# Legacy redirects.
 	location = "/Getting%20Ubuntu%20running%20on%20a%20Lenovo%20Miix%20310" { return 301 https://i.canthack.it/getting-ubuntu-up-and-running-on-a-lenovo-miix-310.html; }
 	location = "/ubuntu-lenovo-miix-310/" { return 301 https://i.canthack.it/getting-ubuntu-up-and-running-on-a-lenovo-miix-310.html; }
-	location = "/weblog" { return 301 "https://talideon.com/inklings/"; }
-	location = "/weblog/" { return 301 "https://talideon.com/inklings/"; }
-	location = "/linklog" { return 301 "https://talideon.com/inklings/"; }
-	location = "/linklog/" { return 301 "https://talideon.com/inklings/"; }
-	location = "/weblog/syndication.cfm" { return 301 "https://talideon.com/inklings/feed"; }
-	location = "/linklog/syndication.cfm" { return 301 "https://talideon.com/inklings/feed"; }
-	location = "/Web%20Development%20Notes" { return 301 /webdev-notes/; }
+	location = "/weblog" { return 301 https://{{ domain_name }}/inklings/; }
+	location = "/weblog/" { return 301 https://{{ domain_name }}/inklings/; }
+	location = "/linklog" { return 301 https://{{ domain_name }}/inklings/; }
+	location = "/linklog/" { return 301 https://{{ domain_name }}/inklings/; }
+	location = "/weblog/syndication.cfm" { return 301 https://{{ domain_name }}/inklings/feed; }
+	location = "/linklog/syndication.cfm" { return 301 https://{{ domain_name }}/inklings/feed; }
+	location = "/Web%20Development%20Notes" { return 301 https://{{ domain_name }}/webdev-notes/"; }
 	location = "/reader/" { return 301 https://reader.talideon.com/; }
 	location = "/weblog/2004/09/starting-hackers-diet.cfm" { return 301 https://i.canthack.it/starting-hackers-diet.html; }
 	location = "/weblog/2004/10/hackers-diet-downloads.cfm" { return 301 https://i.canthack.it/starting-hackers-diet.html; }
@@ -60,25 +60,25 @@ server {
 	location = "/concultures/porteressia/" { return 301 https://i.canthack.it/pages/porteressia.html; }
 	location ~ "/notes/dcom3/(.*)" { return 301 https://stereochro.me/assets/uploads/notes/dcom3/$1; }
 
-	location = "/inklings/;feed" { return 301 https://talideon.com/inklings/feed; }
-	location = "/inklings/%3bfeed" { return 301 https://talideon.com/inklings/feed; }
+	location = "/inklings/;feed" { return 301 https://{{ domain_name }}/inklings/feed; }
+	location = "/inklings/%3bfeed" { return 301 https://{{ domain_name }}/inklings/feed; }
 
-	ssl_certificate {{ tls_root }}/talideon.com/fullchain.pem;
-	ssl_certificate_key {{ tls_root }}/private/talideon.com.pem;
+	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
+	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;
 
-	access_log {{ logs_root }}/talideon.com.access.log combined;
-	error_log {{ logs_root }}/talideon.com.error.log;
+	access_log {{ logs_root }}/{{ domain_name }}.access.log combined;
+	error_log {{ logs_root }}/{{ domain_name }}.error.log;
 }
 
 server {
 	include common_params;
 	include ssl_params;
 
-	server_name www.talideon.com;
-	return 301 https://talideon.com$request_uri;
+	server_name www.{{ domain_name }};
+	return 301 https://{{ domain_name }}$request_uri;
 
-	ssl_certificate {{ tls_root }}/talideon.com/fullchain.pem;
-	ssl_certificate_key {{ tls_root }}/private/talideon.com.pem;
+	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
+	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;
 }
 
 server {
@@ -87,6 +87,6 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	server_name .talideon.com;
+	server_name .{{ domain_name }};
 	return 301 https://$host$request_uri;
 }

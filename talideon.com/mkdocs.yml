@@ -4,7 +4,7 @@ copyright: Keith Gaughan, 2001-2019
 
 theme:
   name: null
-  custom_dir: ../../themes/minimal
+  custom_dir: ../themes/minimal
 
 markdown_extensions:
   - smarty
