@@ -7,32 +7,15 @@ Yet another attempt to get my various sites under control.
 The aim is for everything except `Can't Hack`_ and `bethisad.talideon.com`_ to
 go here, which have their own repos.
 
-Layout
-======
-
-To keep things sane, all the sites go in `sites/<hostname>`.
-
-I intend on using mkdocs_ for most things, if possible. I recommend installing
-it with the pipsi_ wrapper around pip_.
+.. _Can't Hack: https://github.com/kgaughan/canthack
+.. _bethisad.talideon.com: https://github.com/kgaughan/bethisad.talideon.com
 
 To do
 =====
 
-Currently, it only works for domains under talideon.com, and doesn't interact
-with any of the ACME_ tooling present, nor is there support for distinct vhost
-configurations, though ideally this shouldn't be super necessary.
+* Deploy komorebi__ on talideon.com properly.
+* Deploy stereochro.me: almost a series of redirects at this point.
 
-I currently have a directory here called 'vhosts' full of nginx vhosts config.
-Where possible and sensible, I hope to migrate the sites listed there to be
-deployed the same way as the other site. For some of the existing ones, I have
-a 'vhost' file in each directory that I want to work into the pipeline
-properly.
-
-.. _Can't Hack: https://github.com/kgaughan/canthack
-.. _bethisad.talideon.com: https://github.com/kgaughan/bethisad.talideon.com
-.. _mkdocs: http://www.mkdocs.org/
-.. _pipsi: https://github.com/mitsuhiko/pipsi
-.. _pip: https://pypi.python.org/pypi/pip
-.. _ACME: https://en.wikipedia.org/wiki/Automated_Certificate_Management_Environment
+.. __: https://github.com/kgaughan/komorebi/
 
 .. vim:set ft=rst:
