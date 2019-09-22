@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			ElementNode - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="masthead"><a href="/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>ElementNode</h1>
+
+	<p><strong>ElementNode</strong> is a port to Java of a small PHP library I wrote some time ago (<a href="http://projects.talideon.com/repos/afk/fwk/classes/AFK/ElementNode.php">which ended up in AFK</a>). It is designed to make building XML documents easy, and to present a simpler way to build DOM object trees.</p>
+
+<p>It presents a <a href="http://martinfowler.com/bliki/FluentInterface.html">fluent interface</a>, which is to say where you&#8217;d usually expect a method to return nothing, the method returns the object you&#8217;re calling it upon or the object you&#8217;d most likely be operating upon next. Its fluency is where its ease of use over the standard DOM interface comes from.</p>
+
+<p>In addition, its interface is designed so as to guarantee that ElementNode generates well-formed XML. There&#8217;s no need to worry about character encoding issues, missing end tags, malformed entities, &amp;c.</p>
+
+<h2>Usage</h2>
+
+<p>ElementNode is supplied with a full set of Javadoc documentation for the API as reference. Here, I&#8217;ll limit myself to demonstrating its use by showing some code for building an <a href="http://blogs.law.harvard.edu/tech/rss">RSS</a> document. It&#8217;s a bit of a toy example, but should get the point across.</p>
+
+<pre class="prettyprint">
+class Weblog ...
+
+    public void toRss(final ElementNode channel) {
+        channel
+            .addTextChild("title",         getTitle())
+            .addTextChild("description",   getTagline())
+            .addTextChild("link",          getUrl())
+            .addTextChild("language",      getLanguage())
+            .addTextChild("ttl",           "1440")
+            .addTextChild("copyright",     getCopyright())
+            .addTextChild("lastBuildDate", DateUtils.formatHttpDate(DateUtils.getUtcNow()))
+            .addTextChild("docs",          "http://blogs.law.harvard.edu/tech/rss")
+            .addTextChild("generator",     getEngineName())
+            .addChild("image")
+                .addTextChild("link",   getUrl())
+                .addTextChild("title",  getTitle())
+                .addTextChild("url",    getLogo().getUrl())
+                .addTextChild("width",  getLogo().getWidth())
+                .addTextChild("height", getLogo().getHeight());
+    }
+
+    public static String toRss(final Weblog blog, final Entry[] entries) {
+        ElementNode root    = new ElementNode("rss").addAttribute("version", "2.0");
+        ElementNode channel = root.addChild("channel");
+
+        // Generate the feed metadata.
+        blog.toRss(channel);
+
+        // Generate the items.
+        for (int i = 0; i < entries.length; ++i) {
+            entries[i].toRss(channel);
+        }
+
+        return root.toString();
+    }
+
+class Entry ...
+
+    public void toRss(final ElementNode channel) {
+        channel
+            .addChild("item")
+                .addTextChild("title",       getTitle())
+                .addTextChild("pubDate",     DateUtils.formatHttpDate(getPublicationDate())
+                .addTextChild("description", getBody())
+                .addChild("guid",            getPermaLink())
+                    .addAttribute("isPermaLink", "true");
+    }
+
+class DateUtils ...
+
+    public static Date   shiftDate(final Date dt, final TimeZone tz) ...
+    public static Date   getUtcNow() ...
+    public static String formatHttpDate(final Date dt) ...
+</pre>
+
+<p>Now imagine doing that with the DOM or string concatenation&#8230;</p>
+
+<p>The library comes with full source and an almost complete compliment of unit
+tests to demonstrate its usage.</p>
+
+<h2>Limitations</h2>
+
+<p>ElementNode currently omits namespace support. This is on purpose and down to me not having any projects I&#8217;m using ElementNode with that require namespaces. Extending it to support namespaces would, however, be trivial. If somebody wants it, or has a patch, <a href="/about">contact me</a>.</p>
+
+<p>ElementNode omits support for the embedding of comments and processing instructions. I don&#8217;t feel support for these is particularly necessary right now, so I feel no great need to add it.</p>
+
+<p>Unlike my original PHP class, the <code class="prettyprint">toString()</code> method only ever generates the default character encoding, UTF-8. If you want to generate an XML document in another encoding, then use <code class="prettyprint">toXml()</code> generate the DOM tree, and convert it yourself.</p>
+
+<p>There is no way to enumerate child nodes or attributes. This is by design to keep the interface simple.</p>
+
+<p>Values are currently limited to strings. I may extend ElementNode&#8217;s interface to support primitive types directly and formatting using <code class="prettyprint">java.text.Format</code>.</p>
+
+<h2>Credits and License</h2>
+
+<p>Copyright &copy; Keith Gaughan, 2006.</p>
+
+<p>This software is released under the terms of the <a href="http://www.opensource.org/licenses/cpl1.0.php">Common Public License</a> (CPL). If the terms of the CPL conflict with the license terms of a project you wish to use ElementNode with, <a href="/about">contact me</a> to see if it&#8217;s possible for me to give your project a special dispensation.</p>
+
+<h2>History</h2>
+
+<dl>
+<dt>1.0.0 (2006-03-18) [<a href="http://projects.talideon.com/static/archives/elementnode-1.0.0-all.zip">all</a>, 57kB;
+<a href="http://projects.talideon.com/static/archives/elementnode-1.0.0-bin.zip">binary only</a>, 46kB;
+<a href="http://projects.talideon.com/static/archives/elementnode-1.0.0-src.zip">source only</a>, 17kB]</dt>
+<dd>Initial Release.</dd>
+</dl>
+
+	<div id="metadata">
+		Created at 21:44 UTC on October 22nd, 2009					and last modified at 21:56 UTC on October 22nd, 2009			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/weblog/">Weblog</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/colophon">Colophon</a></li>
+					<li><a href="/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			git-svn notes - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="masthead"><a href="/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>git-svn notes</h1>
+
+	<p>Some quick notes on using <a href="http://man.github.com/git/git-svn.html">git-svn</a>. I&#8217;m not as comfortable with git-svn as I am with git itself.</p>
+
+<h2>Checkout from Subversion</h2>
+
+<pre class="prettyprint"><code>$ git svn clone &lt;url&gt; [&lt;localname&gt;]
+</code></pre>
+
+<p>Time consuming as it clones the whole repo, use <code>-rHEAD</code> for a lightweight checkout of only the current head revision.)</p>
+
+<h2>Committing to upstream</h2>
+
+<pre class="prettyprint"><code>$ git svn dcommit
+</code></pre>
+
+<p>Pushes any pending commits upstream; it&#8217;s a push, essentially.</p>
+
+<h2>Syncing with the remote repository</h2>
+
+<pre class="prettyprint"><code>$ git svn fetch
+</code></pre>
+
+<p>NOTE: Doesn&#8217;t update working copy.</p>
+
+<pre class="prettyprint"><code>$ git svn rebase
+</code></pre>
+
+<p>NOTE: Does update working copy, and linearises history.</p>
+
+<h2>Uncommitting the previous commit</h2>
+
+<pre class="prettyprint"><code>$ git reset [--hard|--soft] HEAD^
+</code></pre>
+
+<p><code>--hard</code> throws away changes; <code>--soft</code> keeps changes in working copy.</p>
+
+<h2>Importing from a git repo into a Subversion repo</h2>
+
+<pre class="prettyprint"><code>$ SVN_REMOTE=https://example.com/repo/PROJECT
+$ cd /path/to/git/localrepo
+$ svn mkdir --parents $SVN_REMOTE/trunk -m "Init for git import."
+$ git svn clone $SVN_REMOTE -s
+$ git rebase trunk
+$ git svn dcommit
+</code></pre>
+
+<p>This assumes your git repo is clean. You may need to do a few cycles of the following to clean things up after the initial rebase:</p>
+
+<pre class="prettyprint"><code>$ git status
+$ git add &lt;conflicted-files&gt;
+$ git rebase --continue
+</code></pre>
+
+	<div id="metadata">
+		Created at 14:08 UTC on May 8th, 2012					and last modified at 16:48 UTC on January 26th, 2013			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/weblog/">Weblog</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/colophon">Colophon</a></li>
+					<li><a href="/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

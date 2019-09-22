@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			tnef: Transport Neutral Encapsulation Format - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="masthead"><a href="/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>tnef: Transport Neutral Encapsulation Format</h1>
+
+	<p>I&#8217;m planning on removing the pain that is <a href="http://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format">TNEF</a> from my life completely as soon as I can. I have to deal with this nonsense at work (only the developers and half of the network engineers use something other than Outlook).</p>
+
+<p>I would like to have a single piece of code with no dependencies that can take an email and convert any TNEF attachments to proper MIME attachments that mail agents for grown-ups can understand. Nothing quite like that exists as yet, but some things come close:</p>
+
+<ul>
+<li><a href="https://github.com/verdammelt/tnef">tnef</a>: A command-line utility that takes a <code>winmail.dat</code> file and decodes it. It doesn&#8217;t know MIME, unfortunately.</li>
+<li><a href="https://github.com/koodaamo/tnefparse">tnefparse</a>: A fork of pytnef. It requires Python 2.7, unfortunately. I need to get this beast running on Python 2.5.</li>
+<li><a href="http://wiki.clug.org.za/wiki/Automatic_winmail.dat_decoding">This page</a> gives details of how to solve the problem pretty easily on anything after Debian Sarge (which is pretty ancient at this point). It requires a wee bit of grovelling on my part to the BOFHs at work though.</li>
+<li>Also, <a href="http://www.infiniteinjury.org/blog/autofiltering-tnef-attachments-with-procmail/">there is this</a>.</li>
+</ul>
+
+	<div id="metadata">
+		Created at 13:37 UTC on May 8th, 2012					and last modified at 13:56 UTC on May 8th, 2012			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/weblog/">Weblog</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/colophon">Colophon</a></li>
+					<li><a href="/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

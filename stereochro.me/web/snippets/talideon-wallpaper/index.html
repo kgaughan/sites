@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			talideon-wallpaper - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="masthead"><a href="/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>talideon-wallpaper</h1>
+
+	<p><strong><code>talideon-wallpaper</code></strong> is a small program for those of us who use <a href="http://icculus.org/openbox/index.php/Main_Page">OpenBox</a> as our window manager. The idea behind it is quite simple: if you run it without any arguments, it will use another program&#8212;<a href="http://thegraveyard.org/hsetroot.php"><code>hsetroot</code></a> by default, though you can add others&#8212;to set the wallpaper, and if ran with arguments, it will set the wallpaper to a given image if the path points to a file, or generate a <a href="http://icculus.org/openbox/index.php/Help:Menus#Pipe_menus">pipemenu</a> of the images if the path is that of a directory.</p>
+
+<p>Other than adding it to your root menu, there&#8217;s really little or no configuration to do.</p>
+
+<h2>How it works</h2>
+
+<p><code>talideon-wallpaper</code> keeps things simple: aside from the list of programs for setting the wallpaper, it&#8217;s only piece of configuration is a symlink at a well-known location&#8212;<code>~/.config/talideon.com/wallpaper</code>&#8212;to whatever you&#8217;ve currently configured your wallpaper to be.</p>
+
+<h2>Hidden features</h2>
+
+<p>It won&#8217;t be a feature until somebody decides to add this to OpenBox, but if somebody adds the ability to OpenBox to allow submenus in pipemenus, <code>talideon-wallpaper</code> will allow you to access subdirectories of your wallpaper directory.</p>
+
+<h2>Installing it</h2>
+
+<p>Copy the code below into file and place it somewhere on your <code>PATH</code>, such as <code>~/bin</code> or <code>~/.local/bin</code>:</p>
+
+<pre class="prettyprint"><code>#!/usr/bin/env python
+#
+# talideon-wallpaper
+# by Keith Gaughan &lt;http://talideon.com/&gt;
+#
+# A pipemenu script for Openbox for selecting and setting the current
+# wallpaper.
+#
+# Copyright (c) Keith Gaughan, 2008.
+# All Rights Reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+# 
+#  1. Redistributions of source code must retain the above copyright
+#     notice, this list of conditions and the following disclaimer.
+#
+#  2. Redistributions in binary form must reproduce the above copyright
+#     notice, this list of conditions and the following disclaimer in the
+#     documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY AUTHOR AND CONTRIBUTORS "AS IS" AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+# THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+# This license is subject to the laws and courts of the Republic of Ireland.
+#
+
+import os, sys
+from os import path
+from sys import argv
+try:
+    from xml.etree import cElementTree as et
+except:
+    from xml.etree import ElementTree as et
+
+FALLBACK_SETTERS = [
+    'hsetroot -center'
+]
+SETTINGS = path.expanduser('~/.config/talideon.com/wallpaper')
+WP_LINK = path.join(SETTINGS, 'current')
+
+def which(name):
+    """Finds the path of some named executable available on PATH."""
+    env_path = os.environ.get('PATH')
+    if env_path:
+        for dirname in env_path.split(os.pathsep):
+            executable = path.join(dirname, name)
+            if path.isfile(executable):
+                return executable
+    return None
+
+def get_setters():
+    """Loads the list of all wallpaper setting commands."""
+    setters = []
+    setters_path = path.join(SETTINGS, 'setters')
+    if path.isfile(setters_path):
+        try:
+            handle = open(setters_path, 'r')
+            for line in handle:
+                line = line.strip()
+                if line != '' and line[0] != '#':
+                    setters.append(line)
+        finally:
+            handle.close()
+    setters.extend(FALLBACK_SETTERS)
+    return setters
+
+def show_wallpaper():
+    """Gets a wallpaper setter to set the backdrop on the root window."""
+    for setter in get_setters():
+        parts = setter.split(' ', 2)
+        location = which(parts[0])
+        if location is not None:
+            parts[0] = location
+            parts.append(path.realpath(WP_LINK))
+            os.spawnvpe(os.P_NOWAIT, location, parts, os.environ)
+            return
+
+def set_wallpaper(wallpaper):
+    """Records the user's wallpaper selection."""
+    if path.isfile(wallpaper) and wallpaper != WP_LINK:
+        os.unlink(WP_LINK)
+        os.symlink(wallpaper, WP_LINK)
+
+def generate_directory_menu(dirname, tree):
+    """Generates the Openbox menuitems for a given directory."""
+    for name in sorted(os.listdir(dirname)):
+        full_path = path.join(dirname, name)
+        if path.isfile(full_path):
+            tree.start('item', { 'label': name[:name.rfind('.')] })
+            tree.start('action', { 'name': 'Execute' })
+            tree.start('execute')
+            tree.data("%s '%s'" % (argv[0], full_path))
+            tree.end('execute')
+            tree.end('action')
+            tree.end('item')
+        # Unfortunately, submenus, either as pipemenus or directly embedded
+        # in a pipemenu, aren't allowed, but we'll leave this in anyway as
+        # if/when it does, it'll be a nice hidden bonus feature.
+        elif path.isdir(full_path):
+            tree.start('menu', { 'label': name })
+            generate_directory_menu(full_path, tree)
+            tree.end('menu')
+
+def generate_pipemenu(dirname):
+    """Generates a pipemenu for a given directory."""
+    tree = et.TreeBuilder()
+    tree.start('openbox_pipe_menu')
+    generate_directory_menu(dirname, tree)
+    return et.tostring(tree.close(), 'UTF-8')
+
+def bad_path():
+    """
+    Generates a pipemenu indicating that the path given was not a valid one.
+    """
+    tree = et.TreeBuilder()
+    tree.start('openbox_pipe_menu')
+    tree.start('item', { 'label': 'Bad path' })
+    return et.tostring(tree.close(), 'UTF-8')
+
+if __name__ == '__main__':
+    if not path.exists(SETTINGS):
+        os.makedirs(SETTINGS)
+    if len(argv) == 1:
+        # With no args, the currently selected wallpaper is rendered.
+        show_wallpaper()
+    elif len(argv) &gt;= 2:
+        if path.isdir(argv[1]):
+            # With one arg that' a directory, a pipemenu of that directory's
+            # contents is generated.
+            print generate_pipemenu(argv[1])
+        elif path.isfile(argv[1]):
+            # With one arg that's a file, that file is make the current
+            # wallpaper.
+            set_wallpaper(path.realpath(argv[1]))
+            show_wallpaper()
+        else:
+            print bad_path()
+            print &gt;&gt; sys.stderr, 'Bad path.'
+</code></pre>
+
+<p>Now, add a pipemenu entry to your root menu. The simplest way to do so is with <a href="http://obmenu.sourceforge.net/">obmenu</a>, and the command to execute should be the name of the <code>talideon-wallpaper</code> executable, followed by the path of your wallpaper directory. I store my wallpaper in <code>~/.config/wallpaper/1280x800</code>, so I use <code>talideon-wallpaper ~/.config/wallpaper/1280x800</code>.</p>
+
+<p>The last thing to do is have <code>talideon-wallpaper</code> run when you log into X. If you use a session manager, you&#8217;ll have to take a look into how it requires you set these things up, but I run it in my <code>.xinitrc</code>.</p>
+
+<p>And that&#8217;s it! There&#8217;s really nothing more to it.</p>
+
+	<div id="metadata">
+		Created at 8:07 UTC on March 15th, 2009					and last modified at 19:48 UTC on March 15th, 2009			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/weblog/">Weblog</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/colophon">Colophon</a></li>
+					<li><a href="/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

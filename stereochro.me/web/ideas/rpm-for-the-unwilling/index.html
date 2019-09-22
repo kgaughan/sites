@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+		<title>Building an RPM package: a guide for the unwilling</title>
+
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="https://i.canthack.it/theme/css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://i.canthack.it/theme/css/pygments.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:500,400|Inconsolata|Oswald:400&amp;subset=latin-ext" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+		<link href="https://i.canthack.it/feeds/all.xml" type="application/atom+xml" rel="alternate" title="Can’t Hack It Atom Feed">
+
+</head><body>
+
+<section class="sidebar">
+	<div class="sidebar-content">
+		<figure id="user-logo">
+			<a href="https://i.canthack.it"><div class="logo">&nbsp;</div></a>
+		</figure>
+
+		<div class="user-meta">
+			<h1 id="user"><a href="https://i.canthack.it">Can’t Hack It</a></h1>
+			<h2>...but trying to</h2>
+
+
+			<ul>
+						<li><a href="https://i.canthack.it/pages/about.html">About</a></li>
+						<li><a href="https://i.canthack.it/pages/conlanging.html">Conlanging</a></li>
+				<li><a href="https://i.canthack.it/categories.html">Categories</a></li>
+				<li><a href="/">Main site</a></li>
+				<li><a href="https://github.com/kgaughan/">Github</a></li>
+				<li><a href="https://twitter.com/talideon/">Twitter</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="posts">
+<article>
+<h1 class="title">
+	<a href="https://i.canthack.it/rpm-for-the-unwilling.html" rel="bookmark"
+		title="Permalink to Building an RPM package: a guide for the unwilling">Building an <span class="caps">RPM</span> package: a guide for the&nbsp;unwilling</a>
+</h1>
+<div class="published" title="2008-01-16T22:31:00+00:00">Wed 16 January 2008</div>
+
+<div class="entry-content"><p>Some day, if you&#8217;re a software developer and develop software than runs on Linux, you will end up, whether you like it or not, having to build an <a href="http://www.rpm.org/"><span class="caps">RPM</span></a>&nbsp;file.</p>
+<p>I&#8217;ve just spent an absolutely inordinate amount of time working out how to do this. It wasn&#8217;t fun, and I don&#8217;t think I&#8217;d like to ever have to do it again, so to save myself or some other poor <a href="http://www.urbandictionary.com/define.php?term=sod">sod</a> similar pain, I thought I&#8217;d write up what I did&nbsp;here.</p>
+<p>First, a few assumptions. Unlike most explanations of how to do this, I&#8217;m not going to be building from an tarball, so I&#8217;m not going to be covering <code>%prep</code> and all that just yet. Also, I&#8217;m building the <span class="caps">RPM</span> from a <a href="http://svnbook.red-bean.com/en/1.1/ch04s06.html">tag in a subversion repository</a>.</p>
+<p>Before we do anything else, we need to set up our system so we can build the <span class="caps">RPM</span> without being root. To do that, open the file <em>~/.rpmmacros</em> in your editor of choice and enter the&nbsp;following:</p>
+<div class="highlight"><pre><span></span><span class="nf">%_topdir</span> <span class="o">%</span><span class="p">(</span><span class="n">echo</span> <span class="o">~/</span><span class="n">rpmbuild</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This tells <span class="caps">RPM</span> to use <em>~/rpmbuild</em> as its working directory. <span class="caps">RPM</span> requires its working directory to have a certain format, so type the following to build&nbsp;it:</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> rpmbuild<span class="p">;</span> mkdir -p BUILD RPMS/i386 SOURCES SPECS SRPMS
+</pre></div>
+
+
+<p><em><span class="caps">BUILD</span></em> is where the work is done, <em><span class="caps">RPMS</span></em> is where the finished <span class="caps">RPM</span> is dumped, <em><span class="caps">SOURCES</span></em>  is where you drop tarballs if you&#8217;re building from one, <em><span class="caps">SPECS</span></em> is where you put your spec files, and <em><span class="caps">SRPMS</span></em> is where finished source RPMs are&nbsp;dumped.</p>
+<p>Let&#8217;s get to writing the spec file, which I&#8217;m going to call <em>libexample.spec</em>. The first section of the <span class="caps">RPM</span> contains <a href="http://www.rpm.org/RPM-HOWTO/build.html#HEADER">metadata</a>, so let&#8217;s write up&nbsp;some:</p>
+<div class="highlight"><pre><span></span><span class="n">Summary</span><span class="o">:</span> <span class="n">My</span> <span class="n">example</span> <span class="n">library</span><span class="o">.</span>
+<span class="n">Name</span><span class="o">:</span> <span class="n">libexample</span>
+<span class="n">Version</span><span class="o">:</span> <span class="mf">0.1</span>
+<span class="n">Release</span><span class="o">:</span> <span class="mi">1</span>
+<span class="n">Group</span><span class="o">:</span> <span class="n">Development</span><span class="o">/</span><span class="n">Libraries</span>
+<span class="n">Packager</span><span class="o">:</span> <span class="n">J</span><span class="o">.</span><span class="na">R</span><span class="o">.</span> <span class="n">Hacker</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">me</span><span class="err">@</span><span class="n">example</span><span class="o">.</span><span class="na">com</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span>
+<span class="n">License</span><span class="o">:</span> <span class="n">BSD</span>
+<span class="n">BuildRoot</span><span class="o">:</span> <span class="o">%{</span><span class="n">_tmppath</span><span class="o">}/%{</span><span class="n">name</span><span class="o">}-</span><span class="n">root</span>
+</pre></div>
+
+
+<p>Most of these should be pretty self-explanatory: <em>Summary</em> is a short human-readable summary of what the package is for; <em>Name</em> is its actual name; <em>Version</em> is the version of the library you&#8217;re building; <em>Release</em> is the release number of that version; <em>Group</em> specifies the kind of package it is, <em>Packager</em> is your name and contact details, and <em>License</em> specifies the licensing details for the&nbsp;package.</p>
+<p>The last one, <em>BuildRoot</em> needs a little more explanation. When you&#8217;re building an <span class="caps">RPM</span>, you&#8217;re building a directory tree that will be extracted to the filesystem root of your machine when the package is installed. You don&#8217;t want to pollute the directory of your machine with crap, so you need somewhere you can cleanly build it. In the case above, let&#8217;s say that the value of the <code>%\{_tmppath}</code> macro is <em>/tmp</em>. This would mean that <em>BuildRoot</em> would have the value <em>/tmp/libexample-root</em>. Similarly to how the <em>Name</em> header is referenced here as <code>%{name}</code>, we&#8217;ll be referencing <em>BuildRoot</em> as <code>%{buildroot}</code>.</p>
+<p>Next comes the <code>%description</code> section, which contains a longer description of the package than given in the summary. Following this is normally the <code>%prep</code> section, which we&#8217;re going to ignore here and not use because we&#8217;re not fiddling with tarballs. Then we have the <code>%build</code> section. This is where the first bit of real work happens, but first a quick note on the directory structure we&#8217;re&nbsp;building.</p>
+<p>We&#8217;re exporting a single directory from <span class="caps">SVN</span> called <em>src</em>. This contains a makefile that build a library using <a href="http://www.gnu.org/software/libtool/"><span class="caps">GNU</span> libtool</a> into a folder within it called <em>src/.libs</em>. The project doesn&#8217;t use the <a href="http://sources.redhat.com/autobook/">autotools</a>, so the spec file does all the installation work after it&#8217;s built. I&#8217;m using this structure because I want to demonstrate explicitly how the contents of <code>%{buildroot}</code> is&nbsp;built.</p>
+<p>Here&#8217;s what our <code>%build</code> section looks&nbsp;like:</p>
+<div class="highlight"><pre><span></span><span class="nf">%build</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">src</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span>
+<span class="n">svn</span> <span class="k">export</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//svn.example.com/projects/libexample/tags/0.1/src/</span>
+<span class="p">(</span><span class="n">cd</span> <span class="n">src</span><span class="p">;</span> <span class="n">make</span><span class="p">)</span>
+</pre></div>
+
+
+<p>When this section is being executed, <span class="caps">RPM</span> automatically changed to the <code>%{_topdir}/BUILD</code> directory. It&#8217;s here that we do our work. The second line cleans up our environment so that we can build it. The third exports the project&#8217;s <em>src</em> directory to a directory of the same name. The third then switches to this within a subshell and executes the makefile within it. Now it&#8217;s time to for the <code>%install</code> section, which is where we build the directory tree that&#8217;s going to end up in the <span class="caps">RPM</span>.</p>
+<div class="highlight"><pre><span></span><span class="nf">%install</span>
+<span class="cp"># Create the directory hierarchy for building our RPM.</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_includedir</span><span class="p">}</span>
+<span class="cp"># Copy whichever files that RPM will contain into it.</span>
+<span class="n">install</span> <span class="o">--</span><span class="n">strip</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="mo">0755</span> <span class="n">src</span><span class="o">/</span><span class="p">.</span><span class="n">libs</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">src</span><span class="o">/</span><span class="p">.</span><span class="n">libs</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">a</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span>
+<span class="n">install</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="mo">0755</span> <span class="n">src</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">la</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span>
+<span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">e</span> <span class="n">s</span><span class="o">/^</span><span class="n">installed</span><span class="o">=</span><span class="n">no</span><span class="err">$</span><span class="o">/</span><span class="n">installed</span><span class="o">=</span><span class="n">yes</span><span class="o">/</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span><span class="cm">/*.la</span>
+<span class="cm">install --mode=0644 src/*.h %{buildroot}%{_includedir}</span>
+<span class="cm">(cd %{buildroot}%{_libdir}; ln -sf %{name}.so.0 %{name}.so)</span>
+<span class="cm"># Build a manifest of the RPM&#39;s directory hierarchy.</span>
+<span class="cm">echo &quot;%%defattr(-, root, root)&quot; &amp;gt;MANIFEST</span>
+<span class="cm">(cd %{buildroot}; find . -type f -or -type l | sed -e s/^.// -e /^$/d) &amp;gt;&amp;gt;MANIFEST</span>
+</pre></div>
+
+
+<p>The <code>%{_libdir}</code> and <code>%{_includedir}</code> macros specify the directories where your system installs libraries and header files. On a typical Red Hat derived system, these are going to have the values <em>/usr/lib</em> and <em>/usr/include</em>, though this isn&#8217;t necessarily what they&#8217;re going to&nbsp;be.</p>
+<p>Within <code>%{buildroot}</code> we need to create the directory tree that&#8217;s going to end up in the <span class="caps">RPM</span>. We then need to copy anything that will end up in <code>%{_libdir}</code> after installation into the correct place under <code>%{buildroot}</code>, and to the same with any headers too. We use <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?install"><code>install</code></a> to make sure that permissions and ownership for all the files are correct. The fourth last line makes a symbolic link pointing whatever linkers end up linking to our library to the version of it we&#8217;re installing. The second last and last lines build a manifest of the files within <code>%{buildroot}</code>. We&#8217;ll be using that later to save ourselves some work. Now that our root directory hierarchy&#8217;s been built, we can get on with the odds and&nbsp;ends.</p>
+<p>Your <span class="caps">RPM</span> might need to have commands executed before or after installation and deinstallation. There are hooks for these, but I&#8217;m only going to cover two of them: <code>%post</code>, which is ran post-installation, and <code>%postun</code>, which is ran post-deinstallation. We&#8217;re installing libraries, which means that after they&#8217;re added and after they&#8217;re removed, we need to call <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?ldconfig"><code>ldconfig</code></a> so that the dynamic linker knows about&nbsp;them.</p>
+<div class="highlight"><pre><span></span><span class="nf">%post</span>
+<span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">ldconfig</span>
+
+<span class="nf">%postun</span>
+<span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">ldconfig</span>
+</pre></div>
+
+
+<p>After the <span class="caps">RPM</span> is built, we need to clean up our environment again. That&#8217;s what the <code>%clean</code> section is&nbsp;for:</p>
+<div class="highlight"><pre><span></span><span class="nf">%clean</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">src</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span> <span class="n">MANIFEST</span>
+</pre></div>
+
+
+<p>The last section is the file manifest, which is contained within the <code>%files</code> section. Here you specify what files the <span class="caps">RPM</span> will contain and where they reside in the filesystem. Normally, it&#8217;d look something like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><span class="nf">%files</span>
+<span class="nf">%defattr</span><span class="p">(</span><span class="o">-</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">root</span><span class="p">)</span>
+<span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">so</span><span class="o">*</span>
+<span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">la</span>
+<span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">a</span>
+<span class="o">%</span><span class="p">{</span><span class="n">_includedir</span><span class="p">}</span><span class="o">/</span><span class="n">example</span><span class="p">.</span><span class="n">h</span>
+</pre></div>
+
+
+<p>The <code>%defattr</code> macro specifies the permissions and ownership of the files that follow it and takes three arguments: the permissions, the owner, and the group. If any of these don&#8217;t matter, use a hyphen. This way, the attributes already specified on the files will be used&nbsp;instead.</p>
+<p>However, we were clever earlier on and built a manifest of the contents of <code>%{buildroot}</code>, so we can just tell <span class="caps">RPM</span> to use that, which means the <code>%files</code> section is reduced to&nbsp;this:</p>
+<div class="highlight"><pre><span></span><span class="nf">%files</span> <span class="o">-</span><span class="n">f</span> <span class="n">MANIFEST</span>
+</pre></div>
+
+
+<p>And that&#8217;s it! You should now have an <span class="caps">RPM</span>. Here&#8217;s our finished spec&nbsp;file:</p>
+<div class="highlight"><pre><span></span><span class="nl">Summary</span><span class="p">:</span> <span class="n">My</span> <span class="n">example</span> <span class="n">library</span><span class="p">.</span>
+<span class="nl">Name</span><span class="p">:</span> <span class="n">libexample</span>
+<span class="nl">Version</span><span class="p">:</span> <span class="mf">0.1</span>
+<span class="nl">Release</span><span class="p">:</span> <span class="mi">1</span>
+<span class="nl">Group</span><span class="p">:</span> <span class="n">Development</span><span class="o">/</span><span class="n">Libraries</span>
+<span class="nl">Packager</span><span class="p">:</span> <span class="n">J</span><span class="p">.</span><span class="n">R</span><span class="p">.</span> <span class="n">Hacker</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">me</span><span class="err">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+<span class="nl">License</span><span class="p">:</span> <span class="n">BSD</span>
+<span class="nl">BuildRoot</span><span class="p">:</span> <span class="o">%</span><span class="p">{</span><span class="n">_tmppath</span><span class="p">}</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}</span><span class="o">-</span><span class="n">root</span>
+
+<span class="nf">%description</span>
+<span class="n">A</span> <span class="n">library</span> <span class="n">that</span> <span class="n">acts</span> <span class="n">as</span> <span class="n">an</span> <span class="n">example</span> <span class="n">of</span> <span class="n">how</span> <span class="n">to</span> <span class="n">build</span> <span class="n">an</span> <span class="n">RPM</span><span class="p">.</span>
+
+<span class="nf">%build</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">src</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span>
+<span class="n">svn</span> <span class="k">export</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//svn.example.com/projects/libexample/tags/0.1/src/</span>
+<span class="p">(</span><span class="n">cd</span> <span class="n">src</span><span class="p">;</span> <span class="n">make</span><span class="p">)</span>
+
+<span class="nf">%install</span>
+<span class="cp"># Create the directory hierarchy for building our RPM.</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_includedir</span><span class="p">}</span>
+<span class="cp"># Copy whichever files that RPM will contain into it.</span>
+<span class="n">install</span> <span class="o">--</span><span class="n">strip</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="mo">0755</span> <span class="n">src</span><span class="o">/</span><span class="p">.</span><span class="n">libs</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">src</span><span class="o">/</span><span class="p">.</span><span class="n">libs</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">a</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span>
+<span class="n">install</span> <span class="o">--</span><span class="n">mode</span><span class="o">=</span><span class="mo">0755</span> <span class="n">src</span><span class="o">/%</span><span class="p">{</span><span class="n">name</span><span class="p">}.</span><span class="n">la</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span>
+<span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">e</span> <span class="n">s</span><span class="o">/^</span><span class="n">installed</span><span class="o">=</span><span class="n">no</span><span class="err">$</span><span class="o">/</span><span class="n">installed</span><span class="o">=</span><span class="n">yes</span><span class="o">/</span> <span class="o">%</span><span class="p">{</span><span class="n">buildroot</span><span class="p">}</span><span class="o">%</span><span class="p">{</span><span class="n">_libdir</span><span class="p">}</span><span class="cm">/*.la</span>
+<span class="cm">install --mode=0644 src/*.h %{buildroot}%{_includedir}</span>
+<span class="cm">(cd %{buildroot}%{_libdir}; ln -sf %{name}.so.0 %{name}.so)</span>
+<span class="cm"># Build a manifest of the RPM&#39;s directory hierarchy.</span>
+<span class="cm">echo &quot;%%defattr(-, root, root)&quot; &amp;gt;MANIFEST</span>
+<span class="cm">(cd %{buildroot}; find . -type f -or -type l | sed -e s/^.// -e /^$/d) &amp;gt;&amp;gt;MANIFEST</span>
+
+<span class="cm">%post</span>
+<span class="cm">/sbin/ldconfig</span>
+
+<span class="cm">%postun</span>
+<span class="cm">/sbin/ldconfig</span>
+
+<span class="cm">%clean</span>
+<span class="cm">rm -rf src %{buildroot} MANIFEST</span>
+
+<span class="cm">%files -f MANIFEST</span>
+</pre></div>
+
+
+<p>There&#8217;s much more to creating RPMs to what I&#8217;ve detailed here, but this should at least give you a good&nbsp;start.</p>
+<p><em>Nota bene:</em> This was all written pretty much trail-of-though, so there may be errors and typos. If you find any before I do, post up a&nbsp;comment.</p>
+<h2>References</h2>
+<p>I didn&#8217;t really find anything particularly clear and informative online about building RPMs, except the <a href="http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/">Fedora Project&#8217;s <span class="caps">RPM</span> Guide</a>, the <a href="http://www.rpm.org/RPM-HOWTO/"><span class="caps">HOW</span>-<span class="caps">TO</span> linked to above</a>, and <a href="http://genetikayos.com/code/repos/rpm-tutorial/trunk/rpm-tutorial.html">this oldish tutorial</a>. I also found <a href="http://www.brandonhutchinson.com/Building_an_RPM.html">this one</a> after the fact, and it looks pretty decent, if&nbsp;terse.</p></div>
+
+<div class="article-meta">
+	<div>Category: <a href="https://i.canthack.it/category/systems-administration.html">Systems Administration</a></div>
+</div>
+</article>
+</section>
+
+</body></html>
