@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			The Porteressia - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://stereochro.me/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="https://stereochro.me/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body class="">
+		<div id="masthead"><a href="https://stereochro.me/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>The Porteressia</h1>
+
+	<p>The Porteressia (meaning, &#8216;The People of Portu&#8217;) was a <a href="http://en.wikipedia.org/wiki/Constructed_culture">conculture</a> I worked on some years back. It&#8217;s far from finished, but I figure I ought to put my notes up online.</p>
+
+<p>The language and culture were developed for a set of stories I&#8217;d intended to write revolving initially about a messiah-like figure called <em>Portu</em> and later on the effect he had on the culture he was part of. The stories were intended to be part of a metaseries centring on something called <em><a href="the-weave">The Weave</a></em>, and was meant to deal with themes like the resolution of the ideas of pre-destination and free will, the heroism of small actions, and other such lofty things.</p>
+
+<p><img src="http://stereochro.me/assets/uploads/concultures/eretas_e1.png" width="50" height="139" title="The word 'eretas', meaning 'language'" style="float:right">I got as far as developing a complete <a href="http://en.wikipedia.org/wiki/Writing_system">writing system</a> called <em>Fenaï[^dieresis]</em>, a <a href="http://en.wikipedia.org/wiki/Featural_alphabet">featural alphabet</a> (albeit with some <a href="http://en.wikipedia.org/wiki/Abjad">abjad</a>-like properties), and one (decorative) typeface. I&#8217;ve included a same of the word &#8216;Eretas&#8217;, which means &#8216;speech&#8217; or &#8216;language&#8217;, to give you an idea of what text written in the language would look like. It runs from top to bottom, left-to-right. The character shapes take influence from the <a href="http://www.omniglot.com/writing/syriac.htm">syriac Nestorian script</a> and the <a href="http://www.omniglot.com/writing/manchu.htm">Manchu alphabet</a>, so much so that the <a href="http://home.ccil.org/~cowan/essential.html">essentialist explanation</a> I came up with for <em>Fenaï</em> is:</p>
+
+<blockquote>
+  <p>Fenaïr[^articles] is essentially badly scrawled Nestorian masquerading as Manchu.</p>
+</blockquote>
+
+<p>Feel free to download <a href="http://stereochro.me/assets/uploads/concultures/eretas.pdf">my unfinished notes on Eretas</a> in PDF form. Some day, I&#8217;d like to revisit Eretas and the Porteressia when I&#8217;ve time and some inspiration.</p>
+
+<p>For a rough idea of what the language looks like, here&#8217;s a slightly updated version of the CONLANG t-shirt fragment, which translates as &#8220;Fight language death: invent a language&#8221;: <em>Mjulhin eretasséan sjessonde; eretas ellonde</em>. I&#8217;m pretty sure that&#8217;s out of date though. Here&#8217;s the interlinear:</p>
+
+<table class="interlinear" style="margin:1em auto 1em auto">
+  <tbody>
+    <tr>
+      <td>Mjulhin</td>
+      <td>eretasséan</td>
+      <td>sjessonde;</td>
+      <td>eretas</td>
+      <td>ellonde</td>
+    </tr>
+    <tr>
+      <td>death</td>
+      <td>language.GENpl</td>
+      <td>dispute.IMPpl</td>
+      <td>language</td>
+      <td>make.IMPpl</td>
+    </td>
+  </tbody>
+</table>
+
+<p>[^dieresis]: That dieresis is a hint that &#8216;ai&#8217; is not a diphthong, but two separately pronounced vowels.</p>
+
+<p>[^articles]: Articles are enclitic, as in languages such as Danish. The article <em>ir</em> (&#8216;that&#8217;) becomes &#8216;-r&#8217; and is attached to the end of the word. Thus <em>fenaï</em> means &#8216;strokes&#8217; whereas <em>fenaïr</em> means &#8216;the strokes&#8217;. Similarly, the singular would be <em>fene</em>, &#8216;stroke&#8217;, and <em>fener</em>, &#8216;the stroke&#8217;.</p>
+
+	<div id="metadata">
+		Created at 13:37 UTC on September 1st, 2010					and last modified at 17:25 UTC on September 2nd, 2010			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="https://stereochro.me/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="https://stereochro.me/">Home</a></li>
+					<li><a href="https://stereochro.me/about">About</a></li>
+					<li><a href="https://stereochro.me/weblog/">Weblog</a></li>
+					<li><a href="https://stereochro.me/projects">Projects</a></li>
+					<li><a href="https://stereochro.me/colophon">Colophon</a></li>
+					<li><a href="https://stereochro.me/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://stereochro.me/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

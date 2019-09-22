@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			Salted hashes - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://stereochro.me/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="https://stereochro.me/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body class="">
+		<div id="masthead"><a href="https://stereochro.me/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>Salted hashes</h1>
+
+	<p>A salted hash is hash of a piece of information that has been seasoned with a piece of known random information, the <a href="http://en.wikipedia.org/wiki/Salt_%28cryptography%29"><em>salt</em></a>. The salt is stored with the salted hash so that when you want to check if the hash matches a piece of information you have, you can concatenate the salt and data, hash it, and compare it to you existing hash.</p>
+
+<h2>Storing passwords as salted hashes</h2>
+
+<p>Most applications need to store passwords of some form or another. However, actually keeping a hold of those passwords in plain-text form isn&#8217;t a good idea because if your system is compromised and a cracker manages to get their hands on your accounts table, given that people tend to use a small number of passwords and will tend to use the same password for multiple different services, your users&#8217; accounts on all those other services have been compromised.</p>
+
+<p>You could try obscuring the passwords by using a hash function such as <a href="http://www.faqs.org/rfcs/rfc1321.html">MD5</a> or <a href="http://www.faqs.org/rfcs/rfc3174.html">SHA1</a>, but you&#8217;re still left with a problem: password distributions tend to obey a <a href="http://en.wikipedia.org/wiki/Power_law">power law</a> distribution (which generally looks like an L-shaped curve), meaning there&#8217;s a small number of passwords or families of passwords that the vast majority of your users will choose. Given this, it&#8217;s relatively trivial to mount a dictionary attack to figure out what your users&#8217; passwords are: once one person&#8217;s password has been worked out from the hash, any other users that have the same hashes have the same password.</p>
+
+<p>To guard against this, you can include a cryptographic salt in your hash. By salting the password hash, you manage to obscure identical passwords, which greatly mitigates against dictionary attacks and attacks using <a href="http://en.wikipedia.org/wiki/Rainbow_table">rainbow tables</a>.</p>
+
+<p>To demonstrate its use, say you&#8217;re using the following schema for your accounts table:</p>
+
+<pre class="prettyprint"><code>CREATE TABLE accounts (
+    uname  CHAR(24) NOT NULL PRIMARY KEY,
+    pwd    CHAR(40) NOT NULL
+);
+</code></pre>
+
+<p>The <code>pwd</code> field consists of a MD5 hash of the actual password and the salt, which makes up the first 32 characters, and the clear-text salt, which is the last eight. I&#8217;m not going to cover how you should generate the salt, but I will say that you should make every and all effort to ensure that each salt is unique and cryptographically random.</p>
+
+<p>Here&#8217;s a MySQL stored function that will generate the salted password field given a password and a salt to use:</p>
+
+<pre class="prettyprint"><code>CREATE FUNCTION salted_password (pwd CHAR, salt CHAR)
+RETURNS CHAR(40) DETERMINISTIC
+RETURN CONCAT(MD5(CONCAT(pwd, salt)), salt);
+</code></pre>
+
+<p>Here&#8217;s a MySQL stored function that, given a salted password, will check if it matches the given actual password:</p>
+
+<pre class="prettyprint"><code>CREATE FUNCTION is_valid_password (salted CHAR, pwd CHAR)
+RETURNS TINYINT DETERMINISTIC
+RETURN SUBSTR(salted, 1, 32) = MD5(CONCAT(pwd, SUBSTR(salted, 33)));
+</code></pre>
+
+<p>As you can see, it partitions the salted hash in two parts, the first 32 characters being the actual salted hash, and everything from the 33rd character onwards being the salt. It then attempts to reconstruct what the salted hash would be given the salt we got from the salted hash and the password the user provided. If the two match, we&#8217;re good.</p>
+
+<p>You&#8217;d use this to check against your accounts table as follows:</p>
+
+<pre class="prettyprint"><code>SELECT COUNT(*)
+FROM   accounts
+WHERE  uname = 'joebloggs'
+  AND  is_valid_password(pwd, 'password');
+</code></pre>
+
+<p>If you can&#8217;t or don&#8217;t want to use stored functions, here&#8217;s what you&#8217;d do:</p>
+
+<pre class="prettyprint"><code>SELECT COUNT(*)
+FROM   accounts
+WHERE  uname = 'joebloggs'
+  AND  SUBSTR(pwd, 1, 32) = MD5(CONCAT('password', SUBSTR(pwd, 33)));
+</code></pre>
+
+<h2>Generating salts</h2>
+
+<p>A simple, though far from perfect, method for creating salts is:</p>
+
+<pre class="prettyprint"><code>function generate_salt() {
+    return md5(uniqid(mt_rand(), true));
+}
+</code></pre>
+
+<p>This yields a 64-character long password value when the salt and salted hash are combined. In reality, while this is plenty of data for a good salt, there are likely superior methods for salt generation. The use of MD5 helps obscure the method used to generate the salt, and the combination of <code>uniqid()</code> and <code>mt_rand()</code> uses two PRNGs[^prngs] along with a counter (the current time in microseconds) ought to produce pretty good salts, but a cryptographer would be able to come up with something far superior.</p>
+
+<p>I generally keep my authentication details, i.e., the username and password, separate from the account details to make sure each row is of a constant size, which keeps things fast.</p>
+
+<p>[^prngs]: A <a href="http://en.wikipedia.org/wiki/Linear_congruential_generator">linear conguential generator</a> and the <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">mersenne twister</a> respectively, though neither is a <a href="http://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator">cryptographically secure pseudo-random numbers</a>, which must be borne in mind.</p>
+
+	<div id="metadata">
+		Created at 11:10 UTC on July 31st, 2007			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="https://stereochro.me/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="https://stereochro.me/">Home</a></li>
+					<li><a href="https://stereochro.me/about">About</a></li>
+					<li><a href="https://stereochro.me/weblog/">Weblog</a></li>
+					<li><a href="https://stereochro.me/projects">Projects</a></li>
+					<li><a href="https://stereochro.me/colophon">Colophon</a></li>
+					<li><a href="https://stereochro.me/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://stereochro.me/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

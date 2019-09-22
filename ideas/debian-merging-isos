@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			Merging .iso files on Debian, Ubuntu, and most likely Linux in general - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://stereochro.me/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="https://stereochro.me/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body class="">
+		<div id="masthead"><a href="https://stereochro.me/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>Merging .iso files on Debian, Ubuntu, and most likely Linux in general</h1>
+
+	<p>I hardly ever have to do this, so I can never remember precisely how to do it. Hopefully by noting it here, I won&#8217;t forget again.</p>
+
+<p>Specifically, I want to do this so that I can create a single DVD image from the FreeBSD 6.3 CD images I have. Here&#8217;s more-or-less how it goes:</p>
+
+<pre class="prettyprint"><code>mount -t iso9660 -o loop disc1-mountpoint
+mount -t iso9660 -o loop disc2-mountpoint
+mkisofs -l -J -R -o dvd.iso disc1-mountpoint disc2-mountpoint
+</code></pre>
+
+<p>Don&#8217;t forget to unmount those mountpoints afterwards.</p>
+
+<p>Here&#8217;s a shell script to do the work. It assumes it&#8217;s in a directory with a subdirectory called <code>isos</code>, which contains the source .iso images. It has no error handling, so the usual caveats apply:</p>
+
+<pre class="prettyprint"><code>#!/bin/sh
+
+rm -rf mnt contents
+mkdir mnt contents
+for i in isos/*.iso; do
+    mount -t iso9660 -o loop $i mnt
+    cp -av mnt/* contents
+    umount mnt
+done
+
+# This bit is specific to merging FreeBSD .isos.
+sed -i -e 's/^CD_VOLUME = .$/CD_VOLUME = 1/' contents/cdrom.inf
+sed -i -e 's/|.$/|1/' contents/packages/INDEX
+
+mkisofs -l -J -R -o dvd.iso contents
+rm -rf mnt contents
+</code></pre>
+
+<p>And here&#8217;s how you <a href="http://www.pa.msu.edu/~tigner/bsddvd.html">merge several .iso files into a single one on FreeBSD</a>, and <a href="http://mexinetica.com/~lanjoe9/freebsd/bsd_dvd_howto.html">how to do it for FreeBSD .iso images</a>.</p>
+
+	<div id="metadata">
+		Created at 23:52 UTC on January 25th, 2008					and last modified at 10:50 UTC on April 7th, 2010			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="https://stereochro.me/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="https://stereochro.me/">Home</a></li>
+					<li><a href="https://stereochro.me/about">About</a></li>
+					<li><a href="https://stereochro.me/weblog/">Weblog</a></li>
+					<li><a href="https://stereochro.me/projects">Projects</a></li>
+					<li><a href="https://stereochro.me/colophon">Colophon</a></li>
+					<li><a href="https://stereochro.me/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://stereochro.me/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

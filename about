@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			About me - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://stereochro.me/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="https://stereochro.me/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body class="">
+		<div id="masthead"><a href="https://stereochro.me/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>About me</h1>
+
+	<p>Hi, my name&#8217;s Keith Gaughan. Alternatively, you can call me Cíat Ó Gáibhtheacháin. Both are my legal name, with the former being the form in English, and the latter being the form in Irish. I&#8217;ll happily respond to either.</p>
+
+<p>I&#8217;m an Irishman, and was born in Galway, raised in Sligo, went to college in Cork, and currently reside in Dublin where I spend my weekdays working as a senior software developer for <a href="https://www.workday.com/">Workday</a>.</p>
+
+<p>I started coding when I was about ten years old, possibly eleven. My parents bought a <a href="http://en.wikipedia.org/wiki/Commodore_64">Commodore 64</a> for my sister, Niamh, and myself one Christmas. Niamh pretty much never got near the computer after that day. I learned to program it, and later saved up to buy myself an <a href="http://en.wikipedia.org/wiki/Datel_Action_Replay">Action Replay</a> cartridge so that I could use the machine code monitor to pull the games I had apart.</p>
+
+<p>The rest is a blur of beer, WimpManager and <a href="http://www.tofla.iconbar.com/tofla/gen/msg/">MessageTrans</a> SWI calls, <a href="http://www.latex-project.org/">LaTeX</a>, chicken baguettes, planes, and code. :-)</p>
+
+<h2>Getting in contact</h2>
+
+<p>Keep in mind that I&#8217;m a terrible, terrible correspondent at the best of times, so if you email me and it takes me what seems to be an inordinate amount of time to reply, please don&#8217;t take it personally.</p>
+
+<p>I don&#8217;t give out my email addresses to anyone, but you can probably guess at least two of them. If that&#8217;s not easy enough, here&#8217;s another hint: I have a GMail account and the bit before the &#8216;@&#8217; symbol is my first name, followed by a full stop, and then my surname. And if that&#8217;s <em>still</em> not easy enough, email me by the first letter of my name at this domain.</p>
+
+<p>If email isn&#8217;t your thing, I can sometimes be found <a href="http://twitter.com/talideon">spouting rubbish on Twitter</a>. Otherwise, you can find me in these fine establishments:</p>
+
+<ul>
+<li><a href="http://github.com/kgaughan">GitHub</a>, and</li>
+<li><a href="http://www.last.fm/user/hereticmessiah">Last.fm</a>,</li>
+<li><a href="http://www.facebook.com/people/Keith-Gaughan/639231218">Facebook</a>,</li>
+<li><a href="http://www.linkedin.com/in/keithgaughan">LinkedIn</a>, and</li>
+<li><a href="http://www.flickr.com/photos/talideon/">Flickr</a>.</li>
+</ul>
+
+<p>You&#8217;ll also find me cropping up elsewhere, possibly using the nicks <em>talideon</em> or <em>hereticmessiah</em>; I tend to prefer the former, and the latter I primarily started using for gaming in college. I can&#8217;t really think of anything more to write, so I think I&#8217;ll stop now. I&#8217;m also on a number of <a href="fun">gaming-related sites</a>.</p>
+
+<h2>My public key</h2>
+
+<p>I usually sign the email I send, so if you want to email me something securely, or want to verify that something I&#8217;m sending you is actually from me, you&#8217;ll need <a href="http://pgp.mit.edu:11371/pks/lookup?search=0xCF9F6473&amp;op=get">my personal public key</a>, which is&#8230;</p>
+
+<pre class="public-key">
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.11 (FreeBSD)
+
+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
+=E26i
+-----END PGP PUBLIC KEY BLOCK-----
+</pre>
+
+<p>My personal public key ID is <strong><a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&amp;search=0x682D43CCCF9F6473">CF9F6473</a></strong>, and that&#8217;s the one you should trust. Owing to some early misguided experiments with GnuPG, you&#8217;ll find the following key IDs that has not either expired or been revoked: E9F931C3. I&#8217;ve no way to revoke this key, so it&#8217;s best not to trust it. All the others expired back in 2010. Also, due to an accident, I can no longer use 3E896381, which is associated with my current work email address, though there&#8217;s no chance that you&#8217;d ever receive anything signed with that key anyway. My current work public key is <a href="http://pgp.mit.edu:11371/pks/lookup?op=vindex&amp;search=0x4212D37182AC3634">82AC3634</a>. Also, I&#8217;m on <a href="https://keybase.io/">keybase.io</a> as <strong><a href="https://keybase.io/talideon">talideon</a></strong>.</p>
+
+<h2>The obligatory work disclaimer</h2>
+
+<p>The opinions expressed on this site are my own. Nothing here is affiliated with, sponsored by, or endorsed by my employer unless explicitly noted.</p>
+
+	<div id="metadata">
+		Created at 1:46 UTC on March 10th, 2009					and last modified at 13:26 UTC on August 7th, 2018			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="https://stereochro.me/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="https://stereochro.me/">Home</a></li>
+					<li><a href="https://stereochro.me/about">About</a></li>
+					<li><a href="https://stereochro.me/weblog/">Weblog</a></li>
+					<li><a href="https://stereochro.me/projects">Projects</a></li>
+					<li><a href="https://stereochro.me/colophon">Colophon</a></li>
+					<li><a href="https://stereochro.me/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://stereochro.me/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

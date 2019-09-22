@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			Language learning - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://stereochro.me/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="https://stereochro.me/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body class="">
+		<div id="masthead"><a href="https://stereochro.me/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>Language learning</h1>
+
+	<p>Earlier this summer, I started brushing up on my French, and learning Spanish and Portuguese using <a href="https://www.duolingo.com/">Duolingo</a>. More recently, I started learning some Dutch too for when I attend FOSDEM. Here are some resources I&#8217;m using to help me.</p>
+
+<h2>General</h2>
+
+<ul>
+<li><a href="http://www.forvo.com/">Forvo</a> - for getting the proper pronunciation of words.</li>
+<li><a href="http://www.linguee.com/">Linguee</a> - good for figuring out the context in which words are used.</li>
+<li><a href="http://dictionary.reverso.net/">Reverso dictionary</a>.</li>
+<li><a href="http://tatoeba.org/">Tatoeba</a> - a database of example sentences translated into different languages.</li>
+<li><a href="http://www.verbix.com/">Verbix</a> - verb conjugations.</li>
+<li><a href="http://duolingo.wikia.com/wiki/Study_aids">Study aids</a>.</li>
+<li><a href="http://www.fsi-language-courses.org/">FSI language courses</a> - dated, but free and comprehensive.</li>
+</ul>
+
+<h2>Dutch</h2>
+
+<ul>
+<li><a href="http://www.dutchgrammar.com/">DutchGrammar.com</a>.</li>
+</ul>
+
+<h2>French</h2>
+
+<ul>
+<li><a href="http://www.ebooksgratuits.com/">ebooks libres et gratuits</a> - Free e-books in French.</li>
+<li><a href="http://practicefrenchverbs.com/">Practice French verbs</a>.</li>
+<li><a href="http://www.larousse.fr/dictionnaires/francais">Larousse</a>.</li>
+</ul>
+
+<h2>Portuguese</h2>
+
+<ul>
+<li><a href="http://www.conjuga-me.net/">Conjuga-me</a> - Portuguese verb conjugations.</li>
+<li><a href="http://www.practiceportuguese.com/">Practice Portuguese</a> - I&#8217;m learning Brazilian Portuguese, but I just found this, and I figure it&#8217;s a good idea to at least become familiar with European Portuguese.</li>
+</ul>
+
+	<div id="metadata">
+		Created at 3:20 UTC on August 3rd, 2014					and last modified at 21:04 UTC on August 24th, 2014			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="https://stereochro.me/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="https://stereochro.me/">Home</a></li>
+					<li><a href="https://stereochro.me/about">About</a></li>
+					<li><a href="https://stereochro.me/weblog/">Weblog</a></li>
+					<li><a href="https://stereochro.me/projects">Projects</a></li>
+					<li><a href="https://stereochro.me/colophon">Colophon</a></li>
+					<li><a href="https://stereochro.me/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://stereochro.me/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

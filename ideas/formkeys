@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			Formkeys - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://stereochro.me/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="https://stereochro.me/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body class="">
+		<div id="masthead"><a href="https://stereochro.me/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>Formkeys</h1>
+
+	<p>Formkeys are something I first discovered when snooping around the source for <a href="http://www.slashcode.com/">Slashcode</a> many, many moons ago. The idea is to embed a hidden field in a form that can be later used to check if a form has been submitted twice, or if somebody&#8217;s attempting to use it for the purpose of <a href="http://www.urbandictionary.com/define.php?term=crapflood">crapflooding</a>.</p>
+
+<p>I wrote my own implementation of the idea in ColdFusion for my own use. Ok, I wrote <em>two</em> implementations, both with different intents behind them. The first one used session variables and the second using a database. I&#8217;ll outline the way I implemented them, though there are many other ways of doing so.</p>
+
+<p>They&#8217;re useful for protecting against duplicate form submission and against cross-site request forgery attacks.</p>
+
+<h2>Common Elements</h2>
+
+<p>For it to be effective, you need:</p>
+
+<ul>
+<li>A lump of <em>opaque data</em>: this is your <em>formkey</em> or your <em>salt</em>.</li>
+<li>Some information to validate the formkey when you get it back. These could include a <em>user id</em>, <em>remote host address</em>, <em>action/form name</em> and <em>creation timestamp</em>.</li>
+<li>A <em>usage timestamp</em> marking when it was used.</li>
+</ul>
+
+<p>In both of my implementations, I went the route of using a <a href="salted-hash">salted hash</a> of the data I was keeping to validate the formkey.</p>
+
+<p>Initially the usage timestamp will be <code>null</code> because the formkey hasn&#8217;t been used, but the moment the server gets a request that includes that formkey, the usage timestamp is set to the current time to prevent reuse of that formkey. If you keep formkeys around, you can use them to track if anybody or anything appears to be attempting CSRF attacks on your users.</p>
+
+<h2>Session-based Formkeys</h2>
+
+<p>For this, I stored a struct called <code>formkeys</code> in the <code>SESSION</code> struct. This struct is keyed by the formkey and maps onto another struct containing the data to validate the formkey, specifically:</p>
+
+<ul>
+<li>the address of the remote host that generated the request,</li>
+<li>the timestamp of its creation, and</li>
+<li>the random salt.</li>
+</ul>
+
+<p>This data, as well as the contents of the <code>action</code> field passed with the form and the user id of the user associated with the session, is concatenated and hashed. This hash is compared with the formkey and if they match, it validates.</p>
+
+<p>If the formkey cannot be found or doesn&#8217;t match the data associated with it, it fails.</p>
+
+	<div id="metadata">
+		Created at 2:30 UTC on March 15th, 2009					and last modified at 10:35 UTC on September 7th, 2010			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="https://stereochro.me/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="https://stereochro.me/">Home</a></li>
+					<li><a href="https://stereochro.me/about">About</a></li>
+					<li><a href="https://stereochro.me/weblog/">Weblog</a></li>
+					<li><a href="https://stereochro.me/projects">Projects</a></li>
+					<li><a href="https://stereochro.me/colophon">Colophon</a></li>
+					<li><a href="https://stereochro.me/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://stereochro.me/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

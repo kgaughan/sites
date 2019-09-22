@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			DCOM3 college notes - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://stereochro.me/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="https://stereochro.me/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body class="">
+		<div id="masthead"><a href="https://stereochro.me/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>DCOM3 college notes</h1>
+
+	<p>This was all written ages back for some friends of mine at college. I don&#8217;t think it&#8217;ll be of much interest to anybody else now, but there&#8217;s no sense in taking it down.</p>
+
+<div class="hr"><hr></div>
+
+<p>So you want decent Distributed Systems notes? Well, you&#8217;re in the right place. Here&#8217;s whatever I&#8217;ve written so far. It&#8217;s all in PDF format so you&#8217;ll need a copy of Adobe Acrobat to read them. Have fun!</p>
+
+<ul>
+<li><a href="http://stereochro.me/assets/uploads/notes/dcom3/pthreads.pdf">A Short Introduction to POSIX Threads</a> (63kB; 8pp; Last update: 2003-03-03)</li>
+<li><a href="http://stereochro.me/assets/uploads/notes/dcom3/shmem.pdf">Shared Memory and Semaphores</a> (61kB; 11pp; Last update: 2003-03-03)</li>
+<li><a href="http://stereochro.me/assets/uploads/notes/dcom3/curses.pdf">A Short Introduction to Curses</a> (54kB; 6pp; Last update: 2003-02-27)</li>
+<li><a href="http://stereochro.me/assets/uploads/notes/dcom3/sockets.pdf">Client-Server Programming with TCP/IP Sockets</a> (168kB; 21pp; Last update: 2003-03-03)</li>
+</ul>
+
+<p>The sockets notes aren&#8217;t completely finished&#8212;the section on non-blocking sockets and asynchronous I/O still needs to be finished. Except for that, they&#8217;re pretty darned well done. I don&#8217;t think I&#8217;ll cover that though until after the exams, at which time I&#8217;ll probably be rewriting the sockets notes from scratch anyway.</p>
+
+<p>Note: not that it impacts on the usefulness of the notes, but they contain a lot of in-jokes that you might only get if you&#8217;ve read them all. Still, if you haven&#8217;t, shame on you!</p>
+
+<h2>Links to other people&#8217;s stuff</h2>
+
+<p>There&#8217;s a huge collection of <a href="http://faqs.org/docs/">free books</a> on <a href="http://faqs.org/">faqs.org</a>, including:</p>
+
+<ul>
+<li><a href="http://diveintopython.org/">Dive Into Python</a></li>
+<li><a href="http://greenteapress.com/">How To Think Like A Computer Scientist</a>, a set of excellent introductory text to programming covering Python, Java, C++, and Logo.</li>
+<li><a href="http://www.faqs.org/docs/artu/">The Art of Unix Programming</a></li>
+<li><a href="http://savannah.nongnu.org/projects/pgubook/">Programming from the Ground Up</a>, an introduction to programming and Computer Science through x86 assembly language.</li>
+</ul>
+
+<p>Also, take a look at the <a href="http://www.ibiblio.org/obp/">Open Book Project</a>, <a href="http://epaperpress.com/">ePaperPress</a> and the <a href="http://www.nist.gov/dads/">Dictionary of Algorithms and Data Structures</a>. All good stuff.</p>
+
+	<div id="metadata">
+		Created at 23:49 UTC on October 22nd, 2009			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="https://stereochro.me/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="https://stereochro.me/">Home</a></li>
+					<li><a href="https://stereochro.me/about">About</a></li>
+					<li><a href="https://stereochro.me/weblog/">Weblog</a></li>
+					<li><a href="https://stereochro.me/projects">Projects</a></li>
+					<li><a href="https://stereochro.me/colophon">Colophon</a></li>
+					<li><a href="https://stereochro.me/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://stereochro.me/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

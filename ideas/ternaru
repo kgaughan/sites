@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<title>
+			Tèrnaru - Stereochrome
+		</title>
+
+		<meta name="Author" content="Keith Gaughan">
+		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://stereochro.me/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="https://stereochro.me/assets/print.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://stereochro.me/assets/prettify.css">
+
+		<style type="text/css" media="handheld">
+		#content, #footer, #masthead {
+			width: 22em;
+			font-size: 200%;
+		}
+		</style>
+	</head>
+	<body class="">
+		<div id="masthead"><a href="https://stereochro.me/">stereochro<span>me</span></a></div>
+		<div id="outer1">
+			<div id="content">
+				
+		<h1>Tèrnaru</h1>
+
+	<p>Consider this an attempt to remake my old Tèrnaru language from scratch.</p>
+
+<h2>Overview</h2>
+
+<p>The language is primarily isolating, and has a SOV typology, though it
+displays remnants of an ancestor language with VSO typology, particularly
+in the initial complex, which is a fossilised auxiliary verb. Its
+morphosyntactic alignment resembles that found in Austronesian alignment,
+but also resembles that of fluid-S languages.</p>
+
+<h2>Phonology</h2>
+
+<p>The transcription method used in this document is <em>not</em> the language&#8217;s
+native orthography and is only a latinisation for convenience.</p>
+
+<p>The phonology of the language is relatively simple.</p>
+
+<h3>Vowel system</h3>
+
+<p>There are nine vowels. The schwa only occurs in unstressed syllables.</p>
+
+<pre class="prettyprint"><code>i       u
+ e  ə  o
+  ɛ   ɔ
+   a ɑ
+</code></pre>
+
+<p>Orthographically, these are realised as:</p>
+
+<pre class="prettyprint"><code>i       u
+ e  y  o
+  è   ò
+   a á
+</code></pre>
+
+<p>&#8216;y&#8217; might appear to be an odd choice to represent schwa, but I&#8217;m Irish and
+I&#8217;m familiar with Welsh and Manx, so it&#8217;s not odd to me. The choice of the
+grave accent for lowering and thus &#8216;è&#8217; and &#8216;ò&#8217; to represent /ɛ/ and /ɔ/ is
+based on Romance languages. My choice of &#8216;á&#8217; to represent /ɑ/ is based
+loosely Irish and the fact that I needed some reasonable choice to
+represent the sound and recycling the grave accent didn&#8217;t seem appropriate.
+Other possibilities would&#8217;ve been to use the trema or the circumflex, but
+both would&#8217;ve had their own issues.</p>
+
+<h3>Consonants</h3>
+
+<p>The consonant system is similarly simple:</p>
+
+<pre class="prettyprint"><code>           Bil    Alv  Ret  Vel
+           U  V   U V    V  U V 
+Stop       p  b   t d       k g
+Fricative  f  v   s z
+Nasal         m          n
+Flap                          r
+Lat. App.                l
+</code></pre>
+
+<p>/f/ can be realised as either [f] or [ɸ] and /v/ as [v] or [β]. They&#8217;re
+generally realised bilabially. /s/ can be realised [ʃ] or [s] and /z/ and
+be realised as [ʒ] or [z]. Both are generally realised as alveolar
+consonants. [h] is occasionally used to prevent hiatus, but is not written.</p>
+
+<h3>Phonotatics</h3>
+
+<p>To do.</p>
+
+<h2>Some sample sentences</h2>
+
+<pre class="prettyprint"><code>?       fè  ták
+?       βe  tɑk
+MID.PST 1sg hit
+'I hit myself'
+</code></pre>
+
+	<div id="metadata">
+		Created at 19:23 UTC on August 9th, 2013			</div>
+				</div>
+		</div>
+		<div id="outer2">
+			<div id="footer">
+				<hr>
+				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="https://stereochro.me/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
+								<ul id="nav">
+					<li><a href="https://stereochro.me/">Home</a></li>
+					<li><a href="https://stereochro.me/about">About</a></li>
+					<li><a href="https://stereochro.me/weblog/">Weblog</a></li>
+					<li><a href="https://stereochro.me/projects">Projects</a></li>
+					<li><a href="https://stereochro.me/colophon">Colophon</a></li>
+					<li><a href="https://stereochro.me/sitemap">Sitemap</a></li>
+				</ul>
+				<address>
+					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
+					All Rights Reserved.
+					You can stop reading now.
+				</address>
+				<p>
+<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
+  <img width="120" height="20"
+	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
+	alt="[IPv6 Ready]">
+</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://stereochro.me/assets/prettify.js"></script>
+<script type="text/javascript">prettyPrint();</script>			</body>
+</html>

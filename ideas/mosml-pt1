@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+		<title>Messing with Standard ML and Moscow ML, part one: The core language</title>
+
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="https://i.canthack.it/theme/css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://i.canthack.it/theme/css/pygments.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:500,400|Inconsolata|Oswald:400&amp;subset=latin-ext" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+		<link href="https://i.canthack.it/feeds/all.xml" type="application/atom+xml" rel="alternate" title="Can’t Hack It Atom Feed">
+
+</head><body>
+
+<section class="sidebar">
+	<div class="sidebar-content">
+		<figure id="user-logo">
+			<a href="https://i.canthack.it"><div class="logo">&nbsp;</div></a>
+		</figure>
+
+		<div class="user-meta">
+			<h1 id="user"><a href="https://i.canthack.it" class="">Can’t Hack It</a></h1>
+			<h2>...but trying to</h2>
+
+
+			<ul>
+						<li><a href="https://i.canthack.it/pages/about.html">About</a></li>
+						<li><a href="https://i.canthack.it/pages/conlanging.html">Conlanging</a></li>
+				<li><a href="https://i.canthack.it/categories.html">Categories</a></li>
+				<li><a href="https://stereochro.me/">Main site</a></li>
+				<li><a href="https://github.com/kgaughan/">Github</a></li>
+				<li><a href="https://twitter.com/talideon/">Twitter</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="posts">
+<article>
+<h1 class="title">
+	<a href="https://i.canthack.it/mosml-pt1.html" rel="bookmark"
+		title="Permalink to Messing with Standard ML and Moscow ML, part one: The core language">Messing with Standard <span class="caps">ML</span> and Moscow <span class="caps">ML</span>, part one: The core&nbsp;language</a>
+</h1>
+<div class="published" title="2008-03-18T13:27:00+00:00">Tue 18 March 2008</div>
+
+<div class="entry-content"><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A cache of the original post is <a href="https://web.archive.org/web/20080829001200/http://talideon.com/weblog/2008/03/mosml-pt1.cfm">here</a>.</p>
+</div>
+<p>I was playing with <a href="http://www.itu.dk/~sestoft/mosml.html">Moscow <span class="caps">ML</span></a> because I&#8217;ve wanted to give <a href="http://en.wikipedia.org/wiki/Standard_ML">Standard <span class="caps">ML</span></a> a bash for a while now, but I could never get <a href="http://www.smlnj.org/"><span class="caps">SML</span>/<span class="caps">NJ</span></a> to play nice for me back when I tried it first on Windows. That, and there was no documentation&nbsp;download.</p>
+<p>So why Moscow <span class="caps">ML</span> and not <span class="caps">SML</span>/<span class="caps">NJ</span>, or <a href="http://mlton.org/">Mlton</a>, or one of the other proper Standard <span class="caps">ML</span> compilers? Well, even though Moscow <span class="caps">ML</span> is getting on a bit and uses bytecode compilation rather than native compilation, it&#8217;s simple to use, is well-documented, and, unlike Mlton, doesn&#8217;t require FreeBSD 7.0 and much as I&#8217;d like to, I haven&#8217;t upgraded&nbsp;yet.</p>
+<p>It also helps that I&#8217;d already fetched it down ages ago, so the source was already in my distfiles folder.&nbsp;😀</p>
+<p>It was dead easy to get something compiled and running. Here&#8217;s the &#8220;Hello, World&#8221;&nbsp;program:</p>
+<div class="highlight"><pre><span></span><span class="cm">(* helloworld.sml *)</span>
+<span class="kr">val</span> <span class="p">_</span> <span class="p">=</span>
+  <span class="n">print</span> <span class="s2">&quot;Hello, world!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</pre></div>
+
+
+<p><code>(*</code> and <code>*)</code> mark the beginning and end of comment blocks. They can be nested,&nbsp;so&#8230;</p>
+<div class="highlight"><pre><span></span><span class="cm">(* This (* is completely legal and *) makes commenting out code easy. *)</span>
+</pre></div>
+
+
+<p>I made a really dumb mistake the first time I tried this. I&#8217;d been playing with the mosml console and forgot that in actual programs the results of expressions need to be assigned somewhere. So, my first program was like&nbsp;this:</p>
+<div class="highlight"><pre><span></span><span class="cm">(* brokenhello.sml *)</span>
+<span class="n">print</span> <span class="s2">&quot;Hello, world!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Which got me&nbsp;this:</p>
+<div class="highlight"><pre><span></span><span class="c">% mosmlc -standalone -o hello brokenhello.sml</span>
+<span class="n">File</span> &quot;<span class="n">brokenhello</span><span class="p">.</span><span class="n">sml</span>&quot;<span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">characters</span> <span class="mi">0</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span>
+<span class="sx">! print &quot;Hello, world!&quot;;</span>
+<span class="sx">! ^^^^^</span>
+<span class="sx">! Syntax error.</span>
+</pre></div>
+
+
+<p>When I saw this, I stared at the screen trying to remember what I&#8217;d missed. I felt like a right dolt when I&nbsp;remembered.</p>
+<p>I then rewrote the program to use the <em><a href="http://mosml.org/mosmllib/TextIO.html">TextIO</a></em>&nbsp;module:</p>
+<div class="highlight"><pre><span></span><span class="cm">(* helloworld-mod.sml *)</span>
+<span class="kr">val</span> <span class="p">_</span> <span class="p">=</span>
+  <span class="nn">TextIO</span><span class="p">.</span><span class="n">output</span> <span class="p">(</span><span class="nn">TextIO</span><span class="p">.</span><span class="n">stdOut</span><span class="p">,</span> <span class="s2">&quot;Hello, world!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>This showed that I could access modules just&nbsp;fine.</p>
+<p>You&#8217;re probably wondering what <code>val _???_ =</code> means. That&#8217;s declaration that the value of such-and-such a variable (given by <em>???</em>) has the value of the expression that follows. In this case, the wildcard variable <code>_</code> is being bound to the result of evaluating the &#8220;Hello, World&#8221;&nbsp;program.</p>
+<p>Next I tried something a little more substantial:&nbsp;factorials.</p>
+<div class="highlight"><pre><span></span><span class="cm">(* fac1.sml *)</span>
+<span class="kr">fun</span> <span class="nf">fac</span> <span class="n">n</span> <span class="p">=</span> <span class="kr">if</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">0</span> <span class="kr">then</span> <span class="mi">1</span> <span class="kr">else</span> <span class="n">n</span> <span class="n">*</span> <span class="n">fac</span> <span class="p">(</span><span class="n">n</span> <span class="n">-</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="kr">val</span> <span class="p">_</span> <span class="p">=</span> <span class="n">print</span> <span class="p">(</span><span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="p">(</span><span class="n">fac</span> <span class="mi">5</span><span class="p">)</span> <span class="n">^</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Which wrote out <em>120</em>, just as I&#8217;d expected. As you might guess, Standard <span class="caps">ML</span>&#8217;s if-expressions are just like a more readable version of C&#8217;s trinary&nbsp;operator.</p>
+<p>A quick word on functions. Standard <span class="caps">ML</span> functions really only take one argument. To be able to take more than one, you need to either pass everything in an n-<a href="http://en.wikipedia.org/wiki/Tuple">tuple</a> or use curried function, though naturally because tuples are just another kind of value, you can mix and match both methods. The <em><a href="http://mosml.org/mosmllib/TextIO.html#output-val">TextIO.output</a></em> function above is an example of using a tuple to supply multiple&nbsp;arguments.</p>
+<p>A <a href="http://en.wikipedia.org/wiki/Currying">curried functions</a> is one that use individual one-argument functions to consume each argument. Curried functions are useful in that they allow one to partially apply functions and apply them in interesting ways. For instance, what if we wrapped <em>TextIO.output</em> as&nbsp;follows:</p>
+<div class="highlight"><pre><span></span><span class="kr">fun</span> <span class="nf">sayToStream</span> <span class="n">str</span> <span class="n">s</span> <span class="p">=</span> <span class="nn">TextIO</span><span class="p">.</span><span class="n">output</span> <span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Here we&#8217;ve a two-argument curried function called <em>sayToStream</em>, that take a stream, <em>str</em>, and a string to output, <em>s</em>. Evaluating this function in the mosml <a href="http://en.wikipedia.org/wiki/REPL"><span class="caps">REPL</span></a> says the function has this&nbsp;type:</p>
+<div class="highlight"><pre><span></span><span class="kr">val</span> <span class="nv">sayToStream</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="n">outstream</span> <span class="p">-&gt;</span> <span class="n">string</span> <span class="p">-&gt;</span> <span class="n">unit</span>
+</pre></div>
+
+
+<p>The arrow (<code>-&gt;</code>) can be thought of as meaning ‘evaluates to&#8217;, so <em>sayToStream</em> is a function that takes an <code>outstream</code> and evaluates to a function that takes a <code>string</code>, which evaluates to <code>unit</code>, Standard <span class="caps">ML</span>&#8217;s rough equivalent of <code>void</code> in C-derived lanuages, but here, <code>unit</code> equates to a proper value rather than some notional one. You see, our above declaration of <em>sayToStream</em> is just a shorter, less noisy, way of&nbsp;saying:</p>
+<div class="highlight"><pre><span></span><span class="kr">val</span> <span class="nv">sayToStream</span> <span class="p">=</span> <span class="kr">fn</span> <span class="n">str</span> <span class="p">=&gt;</span> <span class="kr">fn</span> <span class="n">s</span> <span class="p">=&gt;</span> <span class="nn">TextIO</span><span class="p">.</span><span class="n">output</span> <span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Where <code>fn _arg_ =&gt; _expr_</code> defines a <a href="http://en.wikipedia.org/wiki/Lambda_calculus">lambda function</a> evaluating to <em>expr</em>. <code>fn</code> is pronounced ‘lambda&#8217;, I&#8217;m told, which would make sense if they&#8217;d used something that at least looked vaguely like a lambda such as a backslash like <a href="http://www.haskell.org/">Haskell</a> uses, but there you&nbsp;go.</p>
+<p>We can partially evaluate <em>sayToStream</em> to create a function that writes its argument to standard output. Here&#8217;s what we&#8217;d get typing at the mosml <span class="caps">REPL</span> (<code>-</code> is the prompt, by the way, and <code>&gt;</code> precedes the result of the preceding&nbsp;expression):</p>
+<div class="highlight"><pre><span></span><span class="n">-</span> <span class="kr">val</span> <span class="nv">sayToStdOut</span> <span class="p">=</span> <span class="n">sayToStream</span> <span class="nn">TextIO</span><span class="p">.</span><span class="n">stdOut</span><span class="p">;</span>
+<span class="n">&gt;</span> <span class="kr">val</span> <span class="nv">sayToStdOut</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="n">string</span> <span class="p">-&gt;</span> <span class="n">unit</span>
+</pre></div>
+
+
+<p>So now we have <em>sayToStdOut</em>, a function that does just what we wanted. It&#8217;s pretty much equivalent to the toplevel <code>print</code> function.</p>
+<p>Where this becomes really useful is when you want to pass the partially applied function to, say, a mapping function, or if you want to compose it with other functions. Here&#8217;s an example of the former, writing out the contents of a string&nbsp;array:</p>
+<div class="highlight"><pre><span></span><span class="n">-</span> <span class="nn">List</span><span class="p">.</span><span class="n">map</span> <span class="p">(</span><span class="n">sayToStream</span> <span class="nn">TextIO</span><span class="p">.</span><span class="n">stdOut</span><span class="p">)</span> <span class="p">[</span><span class="s2">&quot;Each &quot;</span><span class="p">,</span> <span class="s2">&quot;word &quot;</span><span class="p">,</span> <span class="s2">&quot;is &quot;</span><span class="p">,</span> <span class="s2">&quot;an &quot;</span><span class="p">,</span> <span class="s2">&quot;element.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">];</span>
+<span class="n">Each</span> <span class="n">word</span> <span class="n">is</span> <span class="n">an</span> <span class="nn">element</span><span class="p">.</span><span class="err"></span>
+<span class="n">&gt;</span> <span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="p">[(),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">()]</span> <span class="p">:</span> <span class="n">unit</span> <span class="n">list</span>
+</pre></div>
+
+
+<p>An here&#8217;s an example of the latter, where we compose a function called <em>shout</em> and map it to the same&nbsp;array:</p>
+<div class="highlight"><pre><span></span><span class="n">-</span> <span class="kr">val</span> <span class="nv">shout</span> <span class="p">=</span> <span class="p">(</span><span class="n">sayToStream</span> <span class="nn">TextIO</span><span class="p">.</span><span class="n">stdOut</span><span class="p">)</span> <span class="n">o</span> <span class="p">(</span><span class="nn">String</span><span class="p">.</span><span class="n">map</span> <span class="nn">Char</span><span class="p">.</span><span class="n">toUpper</span><span class="p">);</span>
+<span class="n">&gt;</span> <span class="kr">val</span> <span class="nv">shout</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="n">string</span> <span class="p">-&gt;</span> <span class="n">unit</span>
+<span class="n">-</span> <span class="n">shout</span> <span class="s2">&quot;hello</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="n">HELLO</span>
+<span class="n">&gt;</span> <span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="p">()</span> <span class="p">:</span> <span class="n">unit</span>
+<span class="n">-</span> <span class="nn">List</span><span class="p">.</span><span class="n">map</span> <span class="n">shout</span> <span class="p">[</span><span class="s2">&quot;Each &quot;</span><span class="p">,</span> <span class="s2">&quot;word &quot;</span><span class="p">,</span> <span class="s2">&quot;is &quot;</span><span class="p">,</span> <span class="s2">&quot;an &quot;</span><span class="p">,</span> <span class="s2">&quot;element.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">];</span>
+<span class="n">EACH</span> <span class="n">WORD</span> <span class="n">IS</span> <span class="n">AN</span> <span class="nn">ELEMENT</span><span class="p">.</span><span class="err"></span>
+<span class="n">&gt;</span> <span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="p">[(),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">()]</span> <span class="p">:</span> <span class="n">unit</span> <span class="n">list</span>
+</pre></div>
+
+
+<p><code>o</code> is the <a href="http://en.wikipedia.org/wiki/Function_composition">functional composition</a> operator and glues two functions together. The operand order is backwards when compared with how the same operator works in maths. In maths, <code>_h_ = _g_ o _f_</code> would mean <code>_h_(_x_) = _f_(_g_(_x_))</code>, but in Standard <span class="caps">ML</span>, <code>_h_ = _g_ o _f_</code> means <code>_h_ _x_ = _g_ (_f_ _x_)</code>, which is completely arseways. Oh,&nbsp;well&#8230;</p>
+<p>Another example of the nifty things curried functions allow you to do would be <a href="https://ocaml.org/">OCaml</a>&#8216;s typesafe <em><a href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/Printf.html">Printf.printf</a></em> function. It takes a formatting string and returns functions that accept arguments of the correct types for each placeholder in the formatting string. The consequence of this is that the kind of exploits <em><a href="http://www.cplusplus.com/reference/clibrary/cstdio/printf.html">printf</a>()</em> and company are used for in C aren&#8217;t possible in O&#8217;Caml. It&#8217;s quite possible to do the same thing in Standard <span class="caps">ML</span>.</p>
+<p>Keep in mind that functions are value too. That&#8217;s the reason I&#8217;ve used brackets where I have. I&#8217;ve used them where there&#8217;s an expression I want to evaluate before passing its result as an argument. <code>fac n - 1</code> means something quite different from <code>fac (n - 1)</code>.</p>
+<p>Back to factorials. Now to try the same function, but this time using pattern matching&nbsp;instead:</p>
+<div class="highlight"><pre><span></span><span class="cm">(* fac2.sml *)</span>
+<span class="kr">fun</span> <span class="nf">fac</span> <span class="mi">0</span> <span class="p">=</span> <span class="mi">1</span>
+  <span class="p">|</span> <span class="nf">fac</span> <span class="n">n</span> <span class="p">=</span> <span class="n">n</span> <span class="n">*</span> <span class="n">fac</span> <span class="p">(</span><span class="n">n</span> <span class="n">-</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="kr">val</span> <span class="p">_</span> <span class="p">=</span> <span class="n">print</span> <span class="p">(</span><span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="p">(</span><span class="n">fac</span> <span class="mi">5</span><span class="p">)</span> <span class="n">^</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Again, this gave me the same answer as my original <em>fac</em> function: <em>120</em>.</p>
+<p>Pattern matching is pretty useful. It can simplify code quite a bit by separating out the various cases of a function. Rather than having lots of conditional logic, we just make statements about what the results of evaluating the function are under different&nbsp;circumstances.</p>
+<p>The pattern matching syntax above is shorthand for the&nbsp;following:</p>
+<div class="highlight"><pre><span></span><span class="cm">(* fac3.sml *)</span>
+<span class="kr">fun</span> <span class="nf">fac</span> <span class="n">n</span> <span class="p">=</span>
+  <span class="kr">case</span> <span class="n">n</span> <span class="kr">of</span>
+    <span class="mi">0</span> <span class="p">=&gt;</span> <span class="mi">1</span>
+  <span class="n">|</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="n">n</span> <span class="n">*</span> <span class="n">fac</span> <span class="p">(</span><span class="n">n</span> <span class="n">-</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Next up, I tried writing a function to join the elements of an array into a string. The function takes a function to convert each element to a string, a string to use a an element separator, and finally the list to&nbsp;join.</p>
+<p>To avoid having to write any special purpose code, I decided to write a helper function that would take an extra parameter that would be prefixed onto the stringified list element. When the helper calls itself to cope with the list tail, it would then pass the separator argument as both the prefix and separator argument. When we&#8217;re initially calling the helper function, an empty string is passed in the prefix&nbsp;argument.</p>
+<div class="highlight"><pre><span></span><span class="cm">(* join1.sml *)</span>
+<span class="kr">fun</span> <span class="nf">helper</span> <span class="p">_</span> <span class="p">_</span> <span class="p">_</span> <span class="p">[]</span> <span class="p">=</span> <span class="s2">&quot;&quot;</span>
+  <span class="p">|</span> <span class="nf">helper</span> <span class="n">toString</span> <span class="n">pre</span> <span class="n">sep</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="n">pre</span> <span class="n">^</span> <span class="p">(</span><span class="n">toString</span> <span class="n">h</span><span class="p">)</span> <span class="n">^</span> <span class="p">(</span><span class="n">helper</span> <span class="n">toString</span> <span class="n">sep</span> <span class="n">sep</span> <span class="n">t</span><span class="p">);</span>
+
+<span class="kr">fun</span> <span class="nf">join</span> <span class="n">toString</span> <span class="n">sep</span> <span class="n">lst</span> <span class="p">=</span> <span class="n">helper</span> <span class="n">toString</span> <span class="s2">&quot;&quot;</span> <span class="n">sep</span> <span class="n">lst</span><span class="p">;</span>
+</pre></div>
+
+
+<p>A quick note on this: notice <code>(_h_::_t_)</code> in the helper function&#8217;s argument list. The <code>::</code> operator is the list construction operator and in patterns can be used to decompose a list into a head element and a trailing list. As I haven&#8217;t mentioned it yet, <code>^</code> is the string concatenation&nbsp;operator.</p>
+<p>Let&#8217;s try executing it in the mosml <span class="caps">REPL</span>:</p>
+<div class="highlight"><pre><span></span><span class="n">-</span> <span class="n">load</span> <span class="s2">&quot;Int&quot;</span><span class="p">;</span>
+<span class="n">&gt;</span> <span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="p">()</span> <span class="p">:</span> <span class="n">unit</span>
+<span class="n">-</span> <span class="n">join</span> <span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="s2">&quot;, &quot;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="n">&gt;</span> <span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="s2">&quot;1, 2, 3, 4, 5&quot;</span> <span class="p">:</span> <span class="n">string</span>
+</pre></div>
+
+
+<p>We don&#8217;t really want the outside world to know about our helper functions. One way to hide them is to use a <code>local _pvtdecls_ in _decls_ end</code> block. This is particularly useful if the helpers are used by a number of different&nbsp;functions.</p>
+<div class="highlight"><pre><span></span><span class="cm">(* join2.sml *)</span>
+<span class="kr">local</span>
+  <span class="kr">fun</span> <span class="nf">helper</span> <span class="p">_</span> <span class="p">_</span> <span class="p">_</span> <span class="p">[]</span> <span class="p">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">|</span> <span class="nf">helper</span> <span class="n">toString</span> <span class="n">pre</span> <span class="n">sep</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="n">pre</span> <span class="n">^</span> <span class="p">(</span><span class="n">toString</span> <span class="n">h</span><span class="p">)</span> <span class="n">^</span> <span class="p">(</span><span class="n">helper</span> <span class="n">toString</span> <span class="n">sep</span> <span class="n">sep</span> <span class="n">t</span><span class="p">)</span>
+<span class="kr">in</span>
+  <span class="kr">fun</span> <span class="nf">join</span> <span class="n">toString</span> <span class="n">sep</span> <span class="n">lst</span> <span class="p">=</span> <span class="n">helper</span> <span class="n">toString</span> <span class="s2">&quot;&quot;</span> <span class="n">sep</span> <span class="n">lst</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Now only <em>join</em> can see <em>helper</em>. However, as <em>join</em> is the only function that needs to about <em>helper</em>, we can declare it within <em>join</em> using a <code>let _decls_ in _expr_ end</code> block:</p>
+<div class="highlight"><pre><span></span><span class="cm">(* join3.sml *)</span>
+<span class="kr">fun</span> <span class="nf">join</span> <span class="n">toString</span> <span class="n">sep</span> <span class="n">lst</span> <span class="p">=</span>
+<span class="kr">let</span>
+  <span class="kr">fun</span> <span class="nf">helper</span> <span class="p">_</span> <span class="p">_</span> <span class="p">_</span> <span class="p">[]</span> <span class="p">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">|</span> <span class="nf">helper</span> <span class="n">toString</span> <span class="n">pre</span> <span class="n">sep</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="n">pre</span> <span class="n">^</span> <span class="p">(</span><span class="n">toString</span> <span class="n">h</span><span class="p">)</span> <span class="n">^</span> <span class="p">(</span><span class="n">helper</span> <span class="n">toString</span> <span class="n">sep</span> <span class="n">sep</span> <span class="n">t</span><span class="p">)</span>
+<span class="kr">in</span>
+  <span class="n">helper</span> <span class="n">toString</span> <span class="s2">&quot;&quot;</span> <span class="n">sep</span> <span class="n">lst</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Because functions declared within other functions are contained within the scope of their parent function, we don&#8217;t need to pass these values in, meaning we can simplify our helper function down like&nbsp;so:</p>
+<div class="highlight"><pre><span></span><span class="cm">(* join4.sml *)</span>
+<span class="kr">fun</span> <span class="nf">join</span> <span class="n">toString</span> <span class="n">sep</span> <span class="n">lst</span> <span class="p">=</span>
+<span class="kr">let</span>
+  <span class="kr">fun</span> <span class="nf">helper</span> <span class="p">_</span> <span class="p">[]</span> <span class="p">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">|</span> <span class="nf">helper</span> <span class="n">pre</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="n">pre</span> <span class="n">^</span> <span class="p">(</span><span class="n">toString</span> <span class="n">h</span><span class="p">)</span> <span class="n">^</span> <span class="p">(</span><span class="n">helper</span> <span class="n">sep</span> <span class="n">t</span><span class="p">)</span>
+<span class="kr">in</span>
+  <span class="n">helper</span> <span class="s2">&quot;&quot;</span> <span class="n">lst</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+
+
+<p>I could&#8217;ve approached the join function differently. Rather than using a helper function an prefixing the separator on, I could&#8217;ve treated the separator as a suffix and omitted appending the suffix in the case of an one-element&nbsp;list:</p>
+<div class="highlight"><pre><span></span><span class="cm">(* join5.sml *)</span>
+<span class="kr">fun</span> <span class="nf">join</span> <span class="p">_</span> <span class="p">_</span> <span class="p">[]</span> <span class="p">=</span> <span class="s2">&quot;&quot;</span>
+  <span class="p">|</span> <span class="nf">join</span> <span class="n">toString</span> <span class="p">_</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="p">=</span> <span class="n">toString</span> <span class="n">h</span>
+  <span class="p">|</span> <span class="nf">join</span> <span class="n">toString</span> <span class="n">sep</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">toString</span> <span class="n">h</span><span class="p">)</span> <span class="n">^</span> <span class="n">sep</span> <span class="n">^</span> <span class="p">(</span><span class="n">join</span> <span class="n">toString</span> <span class="n">sep</span> <span class="n">t</span><span class="p">);</span>
+</pre></div>
+
+
+<p>But then we wouldn&#8217;t have learned as much.&nbsp;😃</p>
+<p><code>[_h_]</code>, by the way, is a pattern that matches a single element&nbsp;list.</p>
+<p>That&#8217;s enough for now. I&#8217;ll talk a bit about the type system later and about records, exceptions, references, the imperative side of the language, the module system, and all of that when I get the notion. However, if you&#8217;ve understood everything so far, you understand a fair bit of the core&nbsp;language.</p>
+<p>In the meantime, you might want to read Mads Tofte&#8217;s <a href="http://www.itu.dk/people/sestoft/mosml/mosmllib.pdf">Tips for Computer Scientists on Standard <span class="caps">ML</span></a> (<span class="caps">PDF</span>), which is quite readable and easy to understand, or Stephen Gilmore&#8217;s <a href="http://www.dcs.ed.ac.uk/home/stg/NOTES/">Programming in Standard <span class="caps">ML</span> 97: A Tutorial Introduction</a>, which I found more difficult to follow in places, but covers everything in much more&nbsp;detail.</p></div>
+
+<div class="article-meta">
+	<div>Category: <a href="https://i.canthack.it/category/coding.html">Coding</a></div>
+</div>
+</article>
+</section>
+
+</body></html>
