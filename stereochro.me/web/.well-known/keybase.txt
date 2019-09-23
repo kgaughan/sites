@@ -1,0 +1,59 @@
+==================================================================
+https://keybase.io/talideon
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://stereochro.me
+  * I am talideon (https://keybase.io/talideon) on keybase.
+  * I have a public key with fingerprint 59C0 C696 FC51 A3B6 ADE9  1408 682D 43CC CF9F 6473
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "59c0c696fc51a3b6ade91408682d43cccf9f6473",
+            "host": "keybase.io",
+            "key_id": "682d43cccf9f6473",
+            "uid": "2478a931b43c7f37256bfc5dca344a00",
+            "username": "talideon"
+        },
+        "service": {
+            "hostname": "stereochro.me",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1400723995,
+    "expire_in": 157680000,
+    "prev": "6ba0eeb5658f887449982c653ae93ce0dd374cf34d074ceab636f6ec5a02574d",
+    "seqno": 10,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.15
+Comment: https://keybase.io/crypto
+
+yMDoAnicbZG9ihRBFIXbXRV3QHBjEyncrF1qun66axIDQR/AbEWG+rk9Xbjb1XbX
+jC7DJCamBgYigj6CTyAiosIOGBkJvoSCbLa3hjWzkqLO/e45HOrz1e1stNvcurP+
+/tYNF04+/pln91cH15fEBHdMJkvyCDZX7dsZ9F3v20gmRChLrVSytmKsmZHagRpz
+WsmqcJxZa2tVS14ykpMmDGkDbYweYN8H1PAx9Q7V//DzzaDgZaUVGxucljUrCyEN
+hjmrGeea0gQO0Lf6CJCO+tA7CC1Z5QTVhbeoLjfR58QQoYdgmz7s4zsnXR9isOEQ
+R02M3TBJq/G4S+wTMNNzl6nxrcPmuLGAfvAYMRkjaaNPtliZlgVTSuQEnna+h6lP
+hChlRfGkHFiknkZTACOkqOqqKjlXqiqsFEyDYhaoc6zktmbcUbxBG8lkLcEKTQtR
+cof5AzxuA3qjadSzVMnPWh3nPZDVp7sXs91RdvnSVvq7bLRz7d+P7uXZ6+0XP09O
+n7+6sd659+H2w+z3lwNvszej982P0/blu2fF3ytHv9bf9h7c/HoGJv6pKQ==
+=FQKX
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/talideon
+
+==================================================================
