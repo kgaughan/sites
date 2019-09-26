@@ -1,0 +1,8 @@
+[program:komorebi]
+command=/usr/local/bin/python3 komorebi/run.py --unix /var/run/www/%(program_name)s.socket
+directory={{ vhosts_root }}/{{ domain_name }}/inklings
+user=www
+redirect_stderr=true
+stdout_logfile={{ logs_root }}/{{ domain_name }}.%(program_name)s.log
+stderr_logfile=/dev/null
+environment=KOMOREBI_DB_PATH="{{ db_path }}",PYTHONPATH="{{ vhosts_root }}/{{ domain_name }}/inklings"

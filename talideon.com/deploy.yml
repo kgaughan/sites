@@ -1,18 +1,20 @@
 ---
 - name: build talideon.com
   hosts: all
-  remote_user: freebsd
+  remote_user: keith
   become: true
   gather_facts: false
 
   vars:
     ansible_python_interpreter: /usr/local/bin/python3
     domain_name: talideon.com
-    vhosts_root: /home/freebsd/sites
+    vhosts_root: /usr/local/www
     webserver_config_root: /usr/local/etc/nginx
     logs_root: /var/log/www
     tls_root: /usr/local/etc/ssl/acme
     acme_client_root: /usr/local/etc/acme
+    acme_challenge_dir: /usr/local/www/acme
+    db_path: /var/db/komorebi/db.sqlite
 
   tasks:
     - name: create local build directory
@@ -26,14 +28,23 @@
       local_action: command mkdocs build --strict --site-dir {{ build_dir.path }}
       become: false
 
+    - name: install packages
+      pkgng:
+        name:
+          - py36-bjoern
+          - py36-Flask
+          - py36-markdown
+          - py36-sqlite3
+          - sqlite3
+        cached: true
+
     - name: ensure web site root directory exists
       file:
         dest: "{{ vhosts_root }}/{{ domain_name }}/web"
         state: directory
-        owner: freebsd
-        group: freebsd
+        owner: keith
+        group: www
         mode: 0755
-      become: false
 
     - name: populate domains.txt
       lineinfile:
@@ -41,15 +52,16 @@
         create: true
         line: "{{ domain_name }} www.{{ domain_name }}"
       notify:
-        - generate missing certificates
         - reload nginx
+        - generate missing certificates
 
     - name: copy up custom vhost config
       template:
         src: "vhost.j2"
-        dest: "{{ webserver_config_root }}/sites/{{ domain_name }}"
+        dest: "{{ webserver_config_root }}/vhosts/{{ domain_name }}"
       notify:
         - reload nginx
+        - generate missing certificates
 
     - name: copy up site
       synchronize:
@@ -59,13 +71,70 @@
         owner: false
         perms: false
         delete: true
+
+    - name: ensure app directory exists
+      file:
+        dest: "{{ vhosts_root }}/{{ domain_name }}/inklings"
+        state: directory
+        owner: keith
+        group: www
+        mode: 0755
+
+    - name: copy up komorebi
+      synchronize:
+        src: "komorebi/komorebi"
+        dest: "{{ vhosts_root }}/{{ domain_name }}/inklings"
+        group: false
+        owner: false
+        perms: false
+        delete: true
+
+    - name: ensure database directory exists
+      file:
+        dest: "{{ db_path | dirname }}"
+        state: directory
+        owner: www
+        group: www
+        mode: 0755
+
+    - name: populate database with schema
+      command: "sqlite3 {{ db_path }}"
+      args:
+        stdin: "{{ lookup('file', 'komorebi/schema/komorebi.sql') }}"
+        creates: "{{ db_path }}"
       become: false
+
+    - name: deploy supervisor configuration
+      template:
+        src: "komorebi.ini.j2"
+        dest: "/usr/local/etc/supervisord.d/komorebi.ini"
+      notify:
+        - reload supervisor
+
+    - name: ensure socket directory exists
+      file:
+        dest: "/var/run/www"
+        state: directory
+        owner: www
+        group: www
+        mode: 0755
 
   handlers:
     - name: generate missing certificates
-      command: "{{ acme_client_root }}/acme-client.sh"
+      command:
+        argv:
+          - "{{ acme_client_root }}/acme-domain-renew"
+          - "-c"
+          - "{{ acme_client_root }}"
+          - "-w"
+          - "{{ acme_challenge_dir }}"
+          - "-t"
+          - "{{ tls_root }}"
 
     - name: reload nginx
       service:
         name: nginx
         state: reloaded
+
+    - name: reload supervisor
+      command: /usr/local/bin/supervisorctl update
