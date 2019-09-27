@@ -1,4 +1,4 @@
 all:
 
 deploy:
-	ansible-playbook deploy.yml -i cian.talideon.com,
+	ansible-playbook deploy.yml -i manann.talideon.com,

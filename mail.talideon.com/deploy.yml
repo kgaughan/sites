@@ -1,7 +1,7 @@
 ---
 - name: build mail.talideon.com
   hosts: all
-  remote_user: freebsd
+  remote_user: keith
   become: true
   gather_facts: false
 
@@ -11,6 +11,7 @@
     webserver_config_root: /usr/local/etc/nginx
     tls_root: /usr/local/etc/ssl/acme
     acme_client_root: /usr/local/etc/acme
+    acme_challenge_dir: /usr/local/www/acme
 
   tasks:
     - name: populate domains.txt
@@ -25,13 +26,21 @@
     - name: copy up custom vhost config
       template:
         src: "vhost.j2"
-        dest: "{{ webserver_config_root }}/sites/{{ domain_name }}"
+        dest: "{{ webserver_config_root }}/vhosts/{{ domain_name }}"
       notify:
         - reload nginx
 
   handlers:
     - name: generate missing certificates
-      command: "{{ acme_client_root }}/acme-client.sh"
+      command:
+        argv:
+          - "{{ acme_client_root }}/acme-domain-renew"
+          - "-c"
+          - "{{ acme_client_root }}"
+          - "-w"
+          - "{{ acme_challenge_dir }}"
+          - "-t"
+          - "{{ tls_root }}"
 
     - name: reload nginx
       service:
