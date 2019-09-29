@@ -1,0 +1,15 @@
+site_name: "~talideon"
+copyright: Keith Gaughan, 2019
+
+theme:
+  name: null
+  custom_dir: ../themes/simple
+
+markdown_extensions:
+  - smarty
+  - sane_lists
+
+plugins: []
+
+nav:
+  - Home: index.md

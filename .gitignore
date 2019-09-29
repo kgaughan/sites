@@ -3,4 +3,4 @@
 .DS_Store
 *.retry
 *.orig
-/sites/*/site/
+/*/site/

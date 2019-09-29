@@ -3,10 +3,6 @@
 	{% block head %}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    {% if config.openid_url %}
-	<link rel="openid.server" href="{{ config.openid_url }}">
-	<link rel="openid.delegate" href="{{ config.openid_url }}">
-	{% endif %}
 
 	<title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ config.site_name }}</title>
 
