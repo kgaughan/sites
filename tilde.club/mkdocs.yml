@@ -3,7 +3,7 @@ copyright: Keith Gaughan, 2019
 
 theme:
   name: null
-  custom_dir: ../themes/simple
+  custom_dir: ../themes/tilde
 
 markdown_extensions:
   - smarty

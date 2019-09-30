@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-ie" dir="ltr"><head>
+	{% block head %}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ config.site_name }}</title>
+
+	<link href="{{ base_url }}/css/style.css" rel="stylesheet" type="text/css" media="screen">
+
+	{% block extrahead %}{% endblock %}
+	{% endblock %}
+
+</head><body>
+
+{% macro nav_tree(nav) -%}
+<ul>
+	{% for nav_item in nav %}
+	{% if not nav_item.children %}
+		<li><a href="{{ nav_item.url }}">{{ nav_item.title }}</a></li>
+	{% else %}
+		<li><span>{{ nav_item.title }} &#x25BE;</span>{{ nav_tree(nav_item.children) }}</li>
+	{% endif %}
+	{% endfor %}
+</ul>
+{%- endmacro %}
+
+	<h1>{{ config.site_name }}</h1>
+	{{ nav_tree(nav) }}
+
+	{% block content %}{{ page.content }}{% endblock %}
+
+	<address>
+	{% block footer %}
+	{% if config.copyright %}Copyright &copy; {{ config.copyright }}{% endif %}
+	{% endblock %}
+	</address>
+
+</body></html>

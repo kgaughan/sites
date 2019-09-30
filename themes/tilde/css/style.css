@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+  width: 40em;
+  margin: 1em auto;
+  line-height: 1.5;
+  color: #555;
+  background: #eee;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #f80;
+  margin-left: -1em;
+}
+
+address {
+  border-top: 1px solid #ddd;
+  padding: 1ex;
+  text-align: center;
+}
