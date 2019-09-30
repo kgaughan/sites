@@ -1,0 +1,15 @@
+==================
+My tilde.club site
+==================
+
+This is deployed at https://tilde.club/~talideon/
+
+I have no idea what I'm going to do with it. It'll probably end up being
+rather tilde-centric. Or just decay due to bitrot. I'm mainly doing this out
+of nostalgia.
+
+This site needs mkdocs__ to build and rsync to deploy it.
+
+.. __: https://www.mkdocs.org/
+
+.. vim:set ft=rst:
