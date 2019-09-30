@@ -1,5 +1,3 @@
-This is my first test of tilde.club.
-
 I'm nobody particularly special, but you can find me elsewhere on the internet
 while I figure out what to do with my tildespace:
 
