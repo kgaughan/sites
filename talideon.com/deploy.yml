@@ -31,7 +31,7 @@
     - name: install packages
       pkgng:
         name:
-          - py36-bjoern
+          - py36-cheroot
           - py36-Flask
           - py36-markdown
           - py36-sqlite3
@@ -44,7 +44,7 @@
         state: directory
         owner: keith
         group: www
-        mode: 0755
+        mode: "0755"
 
     - name: populate domains.txt
       lineinfile:
@@ -78,7 +78,15 @@
         state: directory
         owner: keith
         group: www
-        mode: 0755
+        mode: "0755"
+
+    - name: copy up runner
+      copy:
+        src: run.py
+        dest: "{{ vhosts_root }}/{{ domain_name }}/inklings"
+        owner: keith
+        group: www
+        mode: "0755"
 
     - name: copy up komorebi
       synchronize:
@@ -95,7 +103,7 @@
         state: directory
         owner: www
         group: www
-        mode: 0755
+        mode: "0755"
 
     - name: populate database with schema
       command: "sqlite3 {{ db_path }}"
@@ -117,7 +125,7 @@
         state: directory
         owner: www
         group: www
-        mode: 0755
+        mode: "0755"
 
   handlers:
     - name: generate missing certificates

@@ -1,5 +1,5 @@
 [program:komorebi]
-command=/usr/local/bin/python3 komorebi/run.py --unix /var/run/www/%(program_name)s.socket
+command=/usr/local/bin/python3 run.py --unix /var/run/www/%(program_name)s.socket
 directory={{ vhosts_root }}/{{ domain_name }}/inklings
 user=www
 redirect_stderr=true
