@@ -3,7 +3,9 @@ server {
 	include ssl_params;
 
 	server_name {{ domain_name }};
-	return 302 https://talideon.com/;
+	location / {
+		return 302 https://talideon.com$request_uri;
+	}
 
 	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
 	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;
@@ -14,7 +16,9 @@ server {
 	include ssl_params;
 
 	server_name www.{{ domain_name }};
-	return 301 https://talideon.com/;
+	location / {
+		return 301 https://{{ domain_name }}$request_uri;
+	}
 
 	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
 	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;
@@ -27,5 +31,7 @@ server {
 	listen [::]:80;
 
 	server_name .{{ domain_name }};
-	return 301 https://talideon.com/;
+	location / {
+		return 301 https://{{ domain_name }}$request_uri;
+	}
 }
