@@ -31,10 +31,13 @@
     - name: install packages
       pkgng:
         name:
-          - py36-cheroot
-          - py36-Flask
-          - py36-markdown
-          - py36-sqlite3
+          - py37-cheroot
+          - py37-Flask
+          - py37-Flask-HTTPAuth
+          - py37-Flask-WTF
+          - py37-markdown
+          - py37-passlib
+          - py37-sqlite3
           - sqlite3
         cached: true
 
