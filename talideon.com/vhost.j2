@@ -43,6 +43,8 @@ server {
 
 	location = "/weblog/" { return 301 https://{{ domain_name }}/inklings/; }
 	location = "/weblog/syndication.cfm" { return 301 https://{{ domain_name }}/inklings/feed; }
+	location = "/weblog/2004/08/i-love-sage.cfm" { return 301 https://i.canthack.it/i-love-sage.html; }
+	location = "/weblog/2004/09/always-finish-projects.cfm" { return 301 https://i.canthack.it/always-finish-projects.html; }
 	location = "/weblog/2004/09/bayesian-categorisation.cfm" { return 301 https://i.canthack.it/bayesian-categorisation.html; }
 	location = "/weblog/2004/09/comments-in-weblogs.cfm" { return 301 https://i.canthack.it/comments-in-weblogs.html; }
 	location = "/weblog/2004/09/fowler-on-closures.cfm" { return 301 https://i.canthack.it/fowler-on-closures.html; }
@@ -52,10 +54,24 @@ server {
 	location = "/weblog/2004/09/return-of-comments.cfm" { return 301 https://i.canthack.it/return-of-comments.html; }
 	location = "/weblog/2004/09/slow-submission.cfm" { return 301 https://i.canthack.it/slow-submission.html; }
 	location = "/weblog/2004/09/starting-hackers-diet.cfm" { return 301 https://i.canthack.it/starting-hackers-diet.html; }
-	# location = "" { return 301 https://i.canthack.it/.html; }
+	location = "/weblog/2004/10/bayesian-comment-moderation.cfm" { return 301 https://i.canthack.it/bayesian-comment-moderation.html; }
+	location = "/weblog/2004/10/cork-flooded.cfm" { return 301 https://i.canthack.it/cork-flooded.html; }
 	location = "/weblog/2004/10/hackers-diet-downloads.cfm" { return 301 https://i.canthack.it/starting-hackers-diet.html; }
+	location = "/weblog/2004/10/on-starting-a-new-project.cfm" { return 301 https://i.canthack.it/on-starting-a-new-project.html; }
+	location = "/weblog/2004/10/windows-listen-file-changes.cfm" { return 301 https://i.canthack.it/windows-listen-file-changes.html; }
+	location = "/weblog/2004/11/first-java-reflection-use.cfm" { return 301 https://i.canthack.it/first-java-reflection-use.html; }
+	location = "/weblog/2004/12/area51-opens.cfm" { return 301 https://i.canthack.it/area51-opens.html; }
+	location = "/weblog/2004/12/fusionwiki-first-commit.cfm" { return 301 https://i.canthack.it/kwiki-fusionwiki.html; }
+	location = "/weblog/2004/12/kwiki-fusionwiki.cfm" { return 301 https://i.canthack.it/kwiki-fusionwiki.html; }
+	location = "/weblog/2004/12/my-ring-tone-lament.cfm" { return 301 https://i.canthack.it/my-current-ring-tone.html; }
+	location = "/weblog/2004/12/sourceforge-approves-fusionwiki.cfm" { return 301 https://i.canthack.it/kwiki-fusionwiki.html; }
+	location = "/weblog/2004/12/worried-tsunami.cfm" { return 301 https://i.canthack.it/worried-tsunami.html; }
+	location = "/weblog/2005/01/i-want-stringtemplate-for-php.cfm" { return 301 https://i.canthack.it/i-want-stringtemplate-for-php.html; }
+	location = "/weblog/2005/01/scar-describing-morphosyntax.cfm" { return 301 https://i.canthack.it/scar-describing-morphosyntax.html; }
+	location = "/weblog/2005/02/restarting-mocha.cfm" { return 301 https://i.canthack.it/restarting-mocha.html; }
 	location = "/weblog/2005/02/detecting-broken-images-js.cfm." { return 301 https://i.canthack.it/detecting-broken-images-js.html; }
 	location = "/weblog/2005/02/detecting-broken-images-js.cfm" { return 301 https://i.canthack.it/detecting-broken-images-js.html; }
+	# location = "" { return 301 https://i.canthack.it/.html; }
 	location = "/weblog/2005/03/js-memory-leaks.cfm" { return 301 https://i.canthack.it/js-memory-leaks.html; }
 	location = "/weblog/2005/05/xmlparser.cfm" { return 301 https://i.canthack.it/xmlparser.html; }
 	location = "/weblog/2005/07/javascript-memoization.cfm." { return 301 https://i.canthack.it/javascript-memoization.html; }
