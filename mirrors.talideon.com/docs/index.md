@@ -1,18 +1,11 @@
 Mirrored Content at mirrors.talideon.com
 ========================================
 
-The purpose this site is to host *mirrored content* of various sorts,
-such as mirrored articles, FreeBSD distfiles, &c.
-
-Languages
----------
-
-- [Kalaba-X: An Artificial Language that Teaches Translation](articles/kalabax.md)
-
 Constructed languages
 ---------------------
 
 - [Breathanach](articles/morven/breathanach.md) by Geoff Eddy
+- [Kalaba-X: An Artificial Language that Teaches Translation](articles/kalabax.md)
 
 Esoteric programming languages
 ------------------------------
@@ -20,6 +13,7 @@ Esoteric programming languages
 - [Q-BAL, a queue-based programming language](articles/qbal/index.md)
 - [Malbolge language specification](articles/malbolge/spec.md)
 - [Dis language specification](articles/malbolge/dis.md)
+- [\*W](articles/star-w.pdf)
 
 Development
 -----------
