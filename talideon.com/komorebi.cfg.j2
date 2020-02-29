@@ -1,0 +1,10 @@
+SECRET_KEY = "{{ flask.secret_key }}"
+
+APPLICATION_ROOT = "/inklings"
+PREFERRED_URL_SCHEME = "https"
+
+# Application configuration.
+DB_PATH = "{{ db_path }}"
+HTPASSWD_PATH = "{{ vhosts_root }}/{{ domain_name }}/komorebi.htpasswd"
+
+# vim:set ft=python:

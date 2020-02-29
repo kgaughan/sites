@@ -1,8 +1,8 @@
 [program:komorebi]
-command=/usr/local/bin/python3 run.py --unix /var/run/www/%(program_name)s.socket
+command=/usr/local/bin/python3 run.py --host 127.0.0.1 --port 8000 --script-name /inklings
 directory={{ vhosts_root }}/{{ domain_name }}/inklings
 user=www
 redirect_stderr=true
 stdout_logfile={{ logs_root }}/{{ domain_name }}.%(program_name)s.log
 stderr_logfile=/dev/null
-environment=KOMOREBI_DB_PATH="{{ db_path }}",PYTHONPATH="{{ vhosts_root }}/{{ domain_name }}/inklings"
+environment=KOMOREBI_SETTINGS="{{ vhosts_root }}/{{ domain_name }}/komorebi.cfg",PYTHONPATH="{{ vhosts_root }}/{{ domain_name }}/inklings"

@@ -31,7 +31,6 @@
     - name: install packages
       pkgng:
         name:
-          - py37-cheroot
           - py37-Flask
           - py37-Flask-HTTPAuth
           - py37-Flask-WTF
@@ -85,7 +84,7 @@
 
     - name: copy up runner
       copy:
-        src: run.py
+        src: komorebi/supervision/run.py
         dest: "{{ vhosts_root }}/{{ domain_name }}/inklings"
         owner: keith
         group: www
@@ -122,13 +121,12 @@
       notify:
         - reload supervisor
 
-    - name: ensure socket directory exists
-      file:
-        dest: "/var/run/www"
-        state: directory
-        owner: www
-        group: www
-        mode: "0755"
+    - name: deploy site configuration
+      template:
+        src: "komorebi.cfg.j2"
+        dest: "{{ vhosts_root }}/{{ domain_name }}/komorebi.cfg"
+      notify:
+        - reload supervisor
 
   handlers:
     - name: generate missing certificates
