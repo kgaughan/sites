@@ -1,3 +1,25 @@
+# Page redirects
+map $uri $canthack_page_slug {
+	/about/ about;
+	/ideas/ananagyu/ ananagyu;
+	/ideas/the-weave/ conlanging;
+}
+
+# Weblog redirects.
+map $uri $canthack_blog_slug {
+	/ideas/debian-merging-isos/ debian-merging-isos;
+	/ideas/detecting-broken-images-js/ detecting-broken-images-js;
+	/ideas/discouraging-clientelism/ discouraging-clientelism;
+	/ideas/formkeys/ formkeys;
+	/ideas/global-in-python/ global-in-python;
+	/ideas/language-learning/ language-learning;
+	/ideas/mosml-pt1/ mosml-pt1;
+	/ideas/package-management/ package-management;
+	/ideas/rpm-for-the-unwilling/ rpm-for-the-unwilling;
+	/ideas/sql-gotchas/ sql-gotchas;
+	/ideas/type-vs-isinstance/ type-vs-isinstance;
+}
+
 server {
 	include common_params;
 	include ssl_params;
@@ -9,23 +31,15 @@ server {
 	rewrite "^/weblog/(%3b|;)feed" https://talideon.com/inklings/feed permanent;
 	rewrite "^/weblog(.*)$" https://talideon.com/inklings$1 permanent;
 
-	location = /ideas/ananagyu/ { return 301 https://i.canthack.it/pages/ananagyu.html; }
-	location = /ideas/detecting-broken-images-js/ { return 301 https://i.canthack.it/detecting-broken-images-js.html; }
-	location = /ideas/formkeys/ { return 301 https://i.canthack.it/formkeys.html; }
-	location = /ideas/mosml-pt1/ { return 301 https://i.canthack.it/mosml-pt1.html; }
-	location = /ideas/the-weave/ { return 301 https://i.canthack.it/pages/conlanging.html; }
-	location = /ideas/rpm-for-the-unwilling/ { return 301 https://i.canthack.it/rpm-for-the-unwilling.html; }
 	location = /projects/ { return 301 https://github.com/kgaughan?tab=repositories; }
 	location = /projects/elementnode/ { return 301 https://github.com/kgaughan/elementnode; }
 	location = /snippets/talideon-wallpaper/ { return 301 https://gist.github.com/kgaughan/d1180cf7bf4adebeaf6498ff499400d0; }
-	location = /about/ { return 301 https://i.canthack.it/pages/about.html; }
-	location = /ideas/debian-merging-isos/ { return 301 https://i.canthack.it/debian-merging-isos.html; }
-	location = /ideas/language-learning/ { return 301 https://i.canthack.it/language-learning.html; }
-	location = /ideas/global-in-python/ { return 301 https://i.canthack.it/global-in-python.html; }
-	location = /ideas/type-vs-isinstance/ { return 301 https://i.canthack.it/type-vs-isinstance.html; }
-	location = /ideas/sql-gotchas/ { return 301 https://i.canthack.it/sql-gotchas.html; }
-	location = /ideas/package-management/ { return 301 https://i.canthack.it/package-management.html; }
-	location = /ideas/discouraging-clientelism/ { return 301 https://i.canthack.it/discouraging-clientelism.html; }
+	if ($canthack_page_slug) {
+		return 301 https://i.canthack.it/pages/$canthack_page_slug.html;
+	}
+	if ($canthack_blog_slug) {
+		return 301 https://i.canthack.it/$canthack_blog_slug.html;
+	}
 
 	add_header Content-Security-Policy "default-src 'self'; img-src https://d-badges.ipv6ready.ie 'self'; script-src 'unsafe-inline' 'self'; style-src https://fonts.googleapis.com 'unsafe-inline' 'self'; font-src https://fonts.gstatic.com 'self'" always;
 
