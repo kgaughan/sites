@@ -10,7 +10,8 @@ markdown_extensions:
   - smarty
   - sane_lists
 
-plugins: []
+plugins:
+  - search
 
 nav:
   - Home: index.md
