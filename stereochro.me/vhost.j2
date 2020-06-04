@@ -1,25 +1,3 @@
-# Page redirects
-map $uri $canthack_page_slug {
-	/about/ about;
-	/ideas/ananagyu/ ananagyu;
-	/ideas/the-weave/ conlanging;
-}
-
-# Weblog redirects.
-map $uri $canthack_blog_slug {
-	/ideas/debian-merging-isos/ debian-merging-isos;
-	/ideas/detecting-broken-images-js/ detecting-broken-images-js;
-	/ideas/discouraging-clientelism/ discouraging-clientelism;
-	/ideas/formkeys/ formkeys;
-	/ideas/global-in-python/ global-in-python;
-	/ideas/language-learning/ language-learning;
-	/ideas/mosml-pt1/ mosml-pt1;
-	/ideas/package-management/ package-management;
-	/ideas/rpm-for-the-unwilling/ rpm-for-the-unwilling;
-	/ideas/sql-gotchas/ sql-gotchas;
-	/ideas/type-vs-isinstance/ type-vs-isinstance;
-}
-
 server {
 	include common_params;
 	include ssl_params;
@@ -29,17 +7,15 @@ server {
 	index index.html;
 
 	rewrite "^/weblog/(%3b|;)feed" https://talideon.com/inklings/feed permanent;
+	rewrite "^/about/$" https://talideon.com/about/ permanent;
+	rewrite "^/ideas/ananagyu/$" https://talideon.com/conlanging/ananagyu/ permanent;
+	rewrite "^/ideas/the-weave/$" https://talideon.com/conlanging/ permanent;
+	rewrite "^/weblog/(%3b|;)feed" https://talideon.com/inklings/feed permanent;
 	rewrite "^/weblog(.*)$" https://talideon.com/inklings$1 permanent;
-
-	location = /projects/ { return 301 https://github.com/kgaughan?tab=repositories; }
-	location = /projects/elementnode/ { return 301 https://github.com/kgaughan/elementnode; }
-	location = /snippets/talideon-wallpaper/ { return 301 https://gist.github.com/kgaughan/d1180cf7bf4adebeaf6498ff499400d0; }
-	if ($canthack_page_slug) {
-		return 301 https://i.canthack.it/pages/$canthack_page_slug.html;
-	}
-	if ($canthack_blog_slug) {
-		return 301 https://i.canthack.it/$canthack_blog_slug.html;
-	}
+	rewrite "^/projects/$" https://github.com/kgaughan?tab=repositories permanent;
+	rewrite "^/projects/([^/]+)/$" https://github.com/kgaughan/$1 permanent;
+	rewrite "^/snippets/talideon-wallpaper/$" https://gist.github.com/kgaughan/d1180cf7bf4adebeaf6498ff499400d0 permanent;
+	rewrite "^/ideas/([^/]+)/$" https://keith.gaughan.ie/$1.html permanent;
 
 	add_header Content-Security-Policy "default-src 'self'; img-src https://d-badges.ipv6ready.ie 'self'; script-src 'unsafe-inline' 'self'; style-src https://fonts.googleapis.com 'unsafe-inline' 'self'; font-src https://fonts.gstatic.com 'self'" always;
 

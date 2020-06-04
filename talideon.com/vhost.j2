@@ -46,10 +46,10 @@ server {
 	location = "/weblog/syndication.cfm" { return 301 https://{{ domain_name }}/inklings/feed; }
 	location ~ "/notes/dcom3/(.*)" { return 301 https://stereochro.me/assets/uploads/notes/dcom3/$1; }
 
-	rewrite "^/weblog/\d{4}/\d\d/([^.]+)\.cfm$" "https://i.canthack.it/$1.html" permanent;
+	rewrite "^/weblog/\d{4}/\d\d/([^.]+)\.cfm$" "https://keith.gaughan.ie/$1.html" permanent;
 
 	if ($talideon_new_path) {
-		return 301 https://i.canthack.it$talideon_new_path;
+		return 301 https://keith.gaughan.ie$talideon_new_path;
 	}
 
 	add_header Content-Security-Policy "default-src 'self'; script-src https://*.talideon.com https://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval' 'self'; style-src https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline' 'self'; font-src https://fonts.gstatic.com 'self'; object-src https://*.talideon.com https://www.youtube-nocookie.com" always;
