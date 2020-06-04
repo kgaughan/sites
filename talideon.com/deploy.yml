@@ -1,12 +1,11 @@
 ---
 - name: build talideon.com
-  hosts: all
+  hosts: targets
   remote_user: keith
   become: true
   gather_facts: false
 
   vars:
-    ansible_python_interpreter: /usr/local/bin/python3
     domain_name: talideon.com
     vhosts_root: /usr/local/www
     webserver_config_root: /usr/local/etc/nginx
@@ -89,6 +88,8 @@
         owner: keith
         group: www
         mode: "0755"
+      notify:
+        - reload supervisor
 
     - name: copy up komorebi
       synchronize:
@@ -98,6 +99,8 @@
         owner: false
         perms: false
         delete: true
+      notify:
+        - reload supervisor
 
     - name: ensure database directory exists
       file:
