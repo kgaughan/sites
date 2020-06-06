@@ -12,6 +12,3 @@ markdown_extensions:
 
 plugins:
   - awesome-pages
-
-nav:
-  - index.md
