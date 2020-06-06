@@ -5,3 +5,4 @@
 *.orig
 /*/site/
 sitemap.xml*
+output/
