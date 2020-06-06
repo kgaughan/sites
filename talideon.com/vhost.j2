@@ -36,17 +36,19 @@ server {
 	location = "/downloads/star-w.pdf" { return 301 https://mirrors.talideon.com/articles/star-w.pdf; }
 	location = "/inklings/%3bfeed" { return 301 https://{{ domain_name }}/inklings/feed; }
 	location = "/inklings/;feed" { return 301 https://{{ domain_name }}/inklings/feed; }
-	location = "/linklog/" { return 301 https://{{ domain_name }}/inklings/; }
-	location = "/linklog/syndication.cfm" { return 301 https://{{ domain_name }}/inklings/feed; }
 	location = "/notes/" { return 301 https://stereochro.me/projects/dcom3notes; }
 	location = "/projects/elementnode/" { return 301 https://github.com/kgaughan/elementnode; }
 	location = "/projects/qbal/" { return 301 https://mirrors.talideon.com/articles/qbal/; }
-	location = "/reader/" { return 301 https://reader.talideon.com/; }
-	location = "/weblog/" { return 301 https://{{ domain_name }}/inklings/; }
-	location = "/weblog/syndication.cfm" { return 301 https://{{ domain_name }}/inklings/feed; }
 	location ~ "/notes/dcom3/(.*)" { return 301 https://stereochro.me/assets/uploads/notes/dcom3/$1; }
 
+	rewrite "^/reader/?$" https://reader.talideon.com/ permanent;
+
+	rewrite "^/linklog/?$" https://{{ domain_name }}/inklings/ permanent;
+	rewrite "^/linklog/syndication.cfm$" https://{{ domain_name }}/inklings/feed permanent;
+
+	rewrite "^/weblog/?$" https://keith.gaughan.ie/ permanent;
 	rewrite "^/weblog/\d{4}/\d\d/([^.]+)\.cfm$" "https://keith.gaughan.ie/$1.html" permanent;
+	rewrite "^/weblog/syndication.cfm$" "https://keith.gaughan.ie/feeds/all.xml permanent;
 
 	if ($talideon_new_path) {
 		return 301 https://keith.gaughan.ie$talideon_new_path;
