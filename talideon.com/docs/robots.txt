@@ -2,3 +2,5 @@
 User-agent: *
 Disallow: /id/
 Disallow: /visitors/
+# Some bots support wildcards. Hitting these is pointless.
+Disallow: */edit

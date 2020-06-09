@@ -47,6 +47,7 @@ server {
 	rewrite "^/linklog/syndication.cfm$" https://{{ domain_name }}/inklings/feed permanent;
 
 	rewrite "^/weblog/?$" https://keith.gaughan.ie/ permanent;
+	rewrite "^/weblog/\d{4}/\d\d/$" "https://keith.gaughan.ie/" permanent;
 	rewrite "^/weblog/\d{4}/\d\d/([^.]+)\.cfm$" "https://keith.gaughan.ie/$1.html" permanent;
 	rewrite "^/weblog/syndication.cfm$" "https://keith.gaughan.ie/feeds/all.xml permanent;
 
