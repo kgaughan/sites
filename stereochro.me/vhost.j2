@@ -6,6 +6,11 @@ server {
 	root {{ vhosts_root }}/{{ domain_name }}/web;
 	index index.html;
 
+	location ~ "/wp-login\.php$" {
+		return 410;
+		access_log off;
+	}
+
 	rewrite "^/weblog/(%3b|;)feed" https://talideon.com/inklings/feed permanent;
 	rewrite "^/about/?$" https://talideon.com/about/ permanent;
 	rewrite "^/ideas/(ananagyu|porteressia|ternaru)/?$" https://talideon.com/conlanging/$1/ permanent;
@@ -13,9 +18,10 @@ server {
 	rewrite "^/weblog/(%3b|;)feed" https://talideon.com/inklings/feed permanent;
 	rewrite "^/weblog(.*)$" https://talideon.com/inklings$1 permanent;
 	rewrite "^/projects/$" https://github.com/kgaughan?tab=repositories permanent;
-	rewrite "^/projects/([^/]+)/$" https://github.com/kgaughan/$1 permanent;
-	rewrite "^/snippets/talideon-wallpaper/$" https://gist.github.com/kgaughan/d1180cf7bf4adebeaf6498ff499400d0 permanent;
-	rewrite "^/ideas/([^/]+)/$" https://keith.gaughan.ie/$1.html permanent;
+	rewrite "^/projects/([^/]+)/?$" https://github.com/kgaughan/$1 permanent;
+	rewrite "^/snippets/talideon-wallpaper/?$" https://gist.github.com/kgaughan/d1180cf7bf4adebeaf6498ff499400d0 permanent;
+	rewrite "^/ideas/([^/]+)/?$" https://keith.gaughan.ie/$1.html permanent;
+	rewrite ^/assets/uploads/concultures/eretas\.pdf$ /conlanging/porteressia/attachments/eretas/eretas.pdf permanent;
 
 	add_header Content-Security-Policy "default-src 'self'; img-src https://d-badges.ipv6ready.ie 'self'; script-src 'unsafe-inline' 'self'; style-src https://fonts.googleapis.com 'unsafe-inline' 'self'; font-src https://fonts.gstatic.com 'self'" always;
 
