@@ -7,9 +7,6 @@ map $uri $talideon_new_path {
 	/concultures/ananagyu/ /conlanging/ananagyu/;
 	/concultures/ananagyu/nouns.cfm /conlanging/ananagyu/;
 	/concultures/porteressia/ /conlanging/porteressia/;
-	/downloads/gridbag.pdf /attachments/gridbag.pdf;
-	/downloads/hackers-diet/ladder.pdf /attachments/hackers-diet/ladder.pdf;
-	/downloads/hackers-diet/log.pdf /attachments/hackers-diet/log.pdf;
 	/feed/ /feeds/all.xml;
 	/rss.xml /feeds/all.xml;
 }
@@ -20,7 +17,7 @@ server {
 
 	server_name {{ domain_name }};
 	root {{ vhosts_root }}/{{ domain_name }}/web;
-	index index.php index.html index.htm;
+	index index.html index.htm;
 
 	location /inklings/ {
 		proxy_pass http://127.0.0.1:8000/;
@@ -34,8 +31,6 @@ server {
 
 	location = "/code/qbal/spec/" { return 301 https://mirrors.talideon.com/articles/qbal/; }
 	location = "/downloads/star-w.pdf" { return 301 https://mirrors.talideon.com/articles/star-w.pdf; }
-	location = "/inklings/%3bfeed" { return 301 https://{{ domain_name }}/inklings/feed; }
-	location = "/inklings/;feed" { return 301 https://{{ domain_name }}/inklings/feed; }
 	location = "/notes/" { return 301 https://stereochro.me/projects/dcom3notes; }
 	location = "/projects/elementnode/" { return 301 https://github.com/kgaughan/elementnode; }
 	location = "/projects/qbal/" { return 301 https://mirrors.talideon.com/articles/qbal/; }
@@ -43,13 +38,15 @@ server {
 
 	rewrite "^/reader/?$" https://reader.talideon.com/ permanent;
 
-	rewrite "^/linklog/?$" https://{{ domain_name }}/inklings/ permanent;
-	rewrite "^/linklog/syndication.cfm$" https://{{ domain_name }}/inklings/feed permanent;
+	rewrite "^/linklog/?$" /inklings/ permanent;
+	rewrite "^/linklog/syndication.cfm$" /inklings/feed permanent;
+	rewrite "^/inklings/(%3b|;)feed$" /inklings/feed permanent;
 
 	rewrite "^/weblog/?$" https://keith.gaughan.ie/ permanent;
 	rewrite "^/weblog/\d{4}/\d\d/$" "https://keith.gaughan.ie/" permanent;
 	rewrite "^/weblog/\d{4}/\d\d/([^.]+)\.cfm$" "https://keith.gaughan.ie/$1.html" permanent;
 	rewrite "^/weblog/syndication.cfm$" "https://keith.gaughan.ie/feeds/all.xml permanent;
+	rewrite "^/downloads/(.*)" https://keith.gaughan.ie/attachments/$1 permanent;
 
 	if ($talideon_new_path) {
 		return 301 https://keith.gaughan.ie$talideon_new_path;
@@ -73,6 +70,8 @@ server {
 
 	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
 	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;
+
+	access_log off;
 }
 
 server {
@@ -83,4 +82,6 @@ server {
 
 	server_name .{{ domain_name }};
 	return 301 https://$host$request_uri;
+
+	access_log off;
 }

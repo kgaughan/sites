@@ -35,6 +35,8 @@ server {
 
 	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
 	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;
+
+	access_log off;
 }
 
 server {
@@ -45,4 +47,6 @@ server {
 
 	server_name .{{ domain_name }};
 	return 301 https://{{ domain_name }}$request_uri;
+
+	access_log off;
 }
