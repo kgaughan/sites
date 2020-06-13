@@ -50,7 +50,7 @@ server {
 	rewrite "^/weblog/?$" https://keith.gaughan.ie/ permanent;
 	rewrite "^/weblog/\d{4}/\d\d/?$" "https://keith.gaughan.ie/" permanent;
 	rewrite "^/weblog/\d{4}/\d\d/([^.]+)\.cfm$" "https://keith.gaughan.ie/$1.html" permanent;
-	rewrite "^/weblog/syndication.cfm$" "https://keith.gaughan.ie/feeds/all.xml permanent;
+	rewrite "^/weblog/syndication.cfm$" "https://keith.gaughan.ie/feeds/all.xml" permanent;
 	rewrite "^/downloads/(.*)" https://keith.gaughan.ie/attachments/$1 permanent;
 
 	if ($talideon_new_path) {
