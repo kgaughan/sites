@@ -21,4 +21,6 @@ server {
 	location / {
 		return 301 https://webmail.talideon.com$request_uri;
 	}
+
+	access_log off;
 }
