@@ -52,6 +52,7 @@ server {
 	rewrite "^/weblog/\d{4}/\d\d/([^.]+)\.cfm$" "https://keith.gaughan.ie/$1.html" permanent;
 	rewrite "^/weblog/syndication.cfm$" "https://keith.gaughan.ie/feeds/all.xml" permanent;
 	rewrite "^/downloads/(.*)" https://keith.gaughan.ie/attachments/$1 permanent;
+	rewrite "^/concultures/porteressia/eretas\.pdf$" https://keith.gaughan.ie/conlanging/porteressia/attachments/eretas.pdf permanent;
 
 	if ($talideon_new_path) {
 		return 301 https://keith.gaughan.ie$talideon_new_path;
