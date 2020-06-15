@@ -38,6 +38,8 @@
           - py37-sqlite3
           - sqlite3
         cached: true
+      notify:
+        - update supervisor
 
     - name: ensure web site root directory exists
       file:
@@ -89,7 +91,7 @@
         group: www
         mode: "0755"
       notify:
-        - reload supervisor
+        - update supervisor
 
     - name: copy up komorebi
       synchronize:
@@ -100,7 +102,7 @@
         perms: false
         delete: true
       notify:
-        - reload supervisor
+        - update supervisor
 
     - name: ensure database directory exists
       file:
@@ -122,14 +124,19 @@
         src: "komorebi.ini.j2"
         dest: "/usr/local/etc/supervisord.d/komorebi.ini"
       notify:
-        - reload supervisor
+        - update supervisor
 
     - name: deploy site configuration
       template:
         src: "komorebi.cfg.j2"
         dest: "{{ vhosts_root }}/{{ domain_name }}/komorebi.cfg"
       notify:
-        - reload supervisor
+        - update supervisor
+
+    - name: ensure supervisor is aware of the app
+      supervisorctl:
+        name: komorebi
+        state: present
 
   handlers:
     - name: generate missing certificates
@@ -148,5 +155,7 @@
         name: nginx
         state: reloaded
 
-    - name: reload supervisor
-      command: /usr/local/bin/supervisorctl update
+    - name: update supervisor
+      supervisorctl:
+        name: komorebi
+        state: restarted
