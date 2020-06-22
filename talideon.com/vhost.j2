@@ -34,6 +34,10 @@ server {
 		alias {{ vhosts_root }}/{{ domain_name }}/inklings/komorebi/static/;
 	}
 
+	if ($talideon_new_path) {
+		return 301 https://keith.gaughan.ie$talideon_new_path;
+	}
+
 	location = "/code/qbal/spec/" { return 301 https://mirrors.talideon.com/articles/qbal/; }
 	location = "/downloads/star-w.pdf" { return 301 https://mirrors.talideon.com/articles/star-w.pdf; }
 	location = "/notes/" { return 301 https://stereochro.me/projects/dcom3notes; }
@@ -53,10 +57,6 @@ server {
 	rewrite "^/weblog/syndication.cfm$" "https://keith.gaughan.ie/feeds/all.xml" permanent;
 	rewrite "^/downloads/(.*)" https://keith.gaughan.ie/attachments/$1 permanent;
 	rewrite "^/concultures/porteressia/eretas\.pdf$" https://keith.gaughan.ie/conlanging/porteressia/attachments/eretas.pdf permanent;
-
-	if ($talideon_new_path) {
-		return 301 https://keith.gaughan.ie$talideon_new_path;
-	}
 
 	add_header Content-Security-Policy "default-src 'self'; script-src https://*.talideon.com https://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval' 'self'; style-src https://cdnjs.cloudflare.com https://fonts.googleapis.com 'unsafe-inline' 'self'; font-src https://fonts.gstatic.com 'self'; object-src https://*.talideon.com https://www.youtube-nocookie.com; frame-src https:" always;
 
