@@ -1,4 +1,6 @@
 all:
 
 deploy:
-	ansible-playbook deploy.yml -i manann.talideon.com,
+	ansible-playbook -i ../hosts.ini --diff deploy.yml
+
+.PHONY: all deploy

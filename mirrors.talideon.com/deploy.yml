@@ -1,12 +1,11 @@
 ---
 - name: build mirrors.talideon.com
-  hosts: all
+  hosts: manann.talideon.com
   remote_user: keith
   become: true
   gather_facts: false
 
   vars:
-    ansible_python_interpreter: /usr/local/bin/python3
     domain_name: mirrors.talideon.com
     vhosts_root: /usr/local/www
     webserver_config_root: /usr/local/etc/nginx

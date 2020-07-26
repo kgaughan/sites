@@ -11,7 +11,7 @@ server {
 		access_log off;
 	}
 
-	location /distfiles/ {
+	location /distfiles {
 		alias {{ vhosts_root }}/{{ domain_name }}/distfiles;
 	}
 

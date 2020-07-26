@@ -1,6 +1,6 @@
 ---
 - name: build talideon.com
-  hosts: targets
+  hosts: lir.talideon.com
   remote_user: keith
   become: true
   gather_facts: false

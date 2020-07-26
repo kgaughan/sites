@@ -1,12 +1,11 @@
 ---
 - name: build gaughan.ie
-  hosts: all
+  hosts: lir.talideon.com
   remote_user: keith
   become: true
   gather_facts: false
 
   vars:
-    ansible_python_interpreter: /usr/local/bin/python3
     domain_name: gaughan.ie
     webserver_config_root: /usr/local/etc/nginx
     tls_root: /usr/local/etc/ssl/acme

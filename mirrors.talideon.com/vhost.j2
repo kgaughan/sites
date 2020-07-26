@@ -6,6 +6,14 @@ server {
 	root {{ vhosts_root }}/{{ domain_name }}/web;
 	index index.html index.htm;
 
+	location /springer {
+		autoindex on;
+		alias {{ vhosts_root }}/{{ domain_name }}/springer;
+
+		auth_basic "Friends of the Ball of Chaos";
+		auth_basic_user_file "{{ vhosts_root }}/{{ domain_name }}/speck.htpasswd";
+	}
+
 	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
 	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;
 
