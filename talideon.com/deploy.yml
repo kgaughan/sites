@@ -83,16 +83,6 @@
         group: www
         mode: "0755"
 
-    - name: copy up runner
-      copy:
-        src: komorebi/supervision/run.py
-        dest: "{{ vhosts_root }}/{{ domain_name }}/inklings"
-        owner: keith
-        group: www
-        mode: "0755"
-      notify:
-        - update supervisor
-
     - name: copy up komorebi
       synchronize:
         src: "komorebi/komorebi"
