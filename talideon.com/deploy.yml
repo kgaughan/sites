@@ -30,12 +30,12 @@
     - name: install packages
       pkgng:
         name:
-          - py38-Flask
-          - py38-Flask-HTTPAuth
-          - py38-Flask-WTF
-          - py38-markdown
-          - py38-passlib
-          - py38-sqlite3
+          - py39-Flask
+          - py39-Flask-HTTPAuth
+          - py39-Flask-WTF
+          - py39-markdown
+          - py39-passlib
+          - py39-sqlite3
           - sqlite3
         cached: true
       notify:

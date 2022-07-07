@@ -1,5 +1,5 @@
 [program:komorebi]
-command=/usr/local/bin/python3.8 -m komorebi --host 127.0.0.1 --port 8000 --script-name /inklings
+command=/usr/local/bin/python3.9 -m komorebi --host 127.0.0.1 --port 8000 --script-name /inklings
 directory={{ vhosts_root }}/{{ domain_name }}/inklings
 user=www
 redirect_stderr=true
