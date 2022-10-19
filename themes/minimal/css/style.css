@@ -90,16 +90,17 @@ h1, h2 {
   font-weight: 400;
   margin-bottom: 0;
   color: #802;
-  text-align: center;
   text-transform: lowercase;
 }
 h1 {
   font-size: 300%;
   line-height: 1.1;
+  text-align: center;
 }
 h2 {
-  font-size: 250%;
+  font-size: 200%;
   line-height: 1.2;
+  text-align: left;
 }
 table {
   border-collapse: collapse;
