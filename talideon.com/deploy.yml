@@ -74,6 +74,7 @@
         owner: false
         perms: false
         delete: true
+      become: false
 
     - name: ensure app directory exists
       file:
@@ -91,6 +92,7 @@
         owner: false
         perms: false
         delete: true
+      become: false
       notify:
         - update supervisor
 
