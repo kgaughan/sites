@@ -23,6 +23,8 @@ A collection of sites I occasionally visit.
 ## Computing
 
 * [pkgs.org](https://pkgs.org/): easier than digging around with YUM and APT for stuff
+* [Stack Overflow](https://stackoverflow.com/) ([me](https://stackoverflow.com/users/8342/keith-gaughan))
+* [Github](https://github.com/) ([me](https://github.com/kgaughan))
 
 ## Languages
 
