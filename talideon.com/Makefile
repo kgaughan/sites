@@ -1,8 +1,6 @@
 BASEDIR:=$(PWD)
 OUTPUTDIR:=$(PWD)/output
 
-all:
-
 publish:
 	mkdir -p $(OUTPUTDIR)
 	mkdocs build -d $(OUTPUTDIR)
@@ -19,4 +17,4 @@ deploy:
 	find . -name \*.orig -delete
 	ansible-playbook -i ../hosts.ini --diff deploy.yml
 
-.PHONY: all publish upload deploy
+.PHONY: publish upload deploy

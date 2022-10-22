@@ -36,9 +36,19 @@ It uses [Komorebi](https://github.com/kgaughan/komorebi), a small tumblog engine
 * [Stack Overflow](https://stackoverflow.com/) ([me](https://stackoverflow.com/users/8342/keith-gaughan))
 * [Github](https://github.com/) ([me](https://github.com/kgaughan))
 
+### Langauage references
+
+* [Go package documentation](https://pkg.go.dev/)
+* [Python documentation](https://docs.python.org/3/)
+
 ## Languages
 
 * [Forvo](https://forvo.com/): a pronunciation dictionary
+* [WordReference.com](https://www.wordreference.com/): a multilingual dictionary
 * [L'Obs: la conjugaison de Français](https://la-conjugaison.nouvelobs.com/), which also has a basic dictionary, thesaurus, and grammar for French, as well as exercises for learners
 * [Gramadach na Gaeilge](http://nualeargais.ie/gnag/gram.htm): Irish grammar
 * [Teanglann](https://www.teanglann.ie/): the best of the online Irish dictionaries
+
+### Linguistics
+
+* [World Atlas of Language Structures](https://wals.info/)

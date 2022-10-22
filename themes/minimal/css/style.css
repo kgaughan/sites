@@ -64,16 +64,15 @@ body {
   display: block;
   position: relative;
   width: 100%;
-  margin: 0;
-  padding: 5rem 0 0 0;
+  margin: 8vh 0;
+  padding: 0;
   color: #555;
 }
 main, footer {
   line-height: 1.6;
   max-width: 80ch;
-  width: 100%;
-  padding: 0 4rem;
-  margin: 2rem auto;
+  padding: 0 4vw;
+  margin: 0 auto;
 }
 footer {
   text-align: center;
@@ -84,7 +83,7 @@ footer:before {
   display: block;
   color: #802;
   font-size: 150%;
-  margin: 0.5em 0;
+  margin: 0.5rem 0;
 }
 h1, h2 {
   font-weight: 400;
@@ -102,6 +101,11 @@ h2 {
   line-height: 1.2;
   text-align: left;
 }
+h3 {
+  font-size: 100%;
+  line-height: 1.6;
+  font-weight: 600;
+}
 table {
   border-collapse: collapse;
   width: 100%;
@@ -113,9 +117,7 @@ tbody tr + tr {
   border-top: 1px solid #ccc;
 }
 th, td {
-  padding: 0.5em 1em;
-}
-th {
+  padding: 0.25ch 0.5ch 0.5ch;
   text-align: left;
 }
 a {
