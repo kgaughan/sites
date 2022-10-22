@@ -36,10 +36,15 @@ It uses [Komorebi](https://github.com/kgaughan/komorebi), a small tumblog engine
 * [Stack Overflow](https://stackoverflow.com/) ([me](https://stackoverflow.com/users/8342/keith-gaughan))
 * [Github](https://github.com/) ([me](https://github.com/kgaughan))
 
-### Langauage references
+### Language references
 
+* [C++ reference](https://cppreference.com/)
 * [Go package documentation](https://pkg.go.dev/)
 * [Python documentation](https://docs.python.org/3/)
+
+### Tools
+
+* [DNSViz](https://dnsviz.net/)
 
 ## Languages
 
