@@ -36,6 +36,7 @@
           - py39-markdown
           - py39-passlib
           - py39-sqlite3
+          - py39-waitress
           - sqlite3
         cached: true
       notify:
