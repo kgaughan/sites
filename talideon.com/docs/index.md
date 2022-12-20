@@ -5,7 +5,9 @@ _talideon.com_ is the online home of [Keith Gaughan](https://keith.gaughan.ie/ab
 [I have a weblog](https://keith.gaughan.ie/) where I write about random things occasionally.
 I also have a linklog called [Inklings](https://talideon.com/inklings/) where I post links to things I stumble across.
 
-I'm also on Twitter as [@talideon](https://twitter.com/talideon), though [I've stopped using it](https://keith.gaughan.ie/leaving-twitter.html), and on [Github](https://github.com/kgaughan).
+I'm on [Github](https://github.com/kgaughan) and I'm also on the [SDF Mastodon instance](https://mastodon.sdf.org/) as [@talideon](https://mastodon.sdf.org/@talideon/).
+I used to be on Twitter as [@talideon](https://twitter.com/talideon), though [I've stopped using it](https://keith.gaughan.ie/leaving-twitter.html).
+Apparently things got worse after I left.
 I sometimes answer coding questions on [Stack Overflow](https://stackoverflow.com/users/8342/keith-gaughan), and have the obligatory [LinkedIn](https://www.linkedin.com/in/keithgaughan) account I only look at once in a blue moon.
 
 # Useful sites
