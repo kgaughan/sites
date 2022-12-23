@@ -17,14 +17,22 @@ server {
 
 	rewrite "^/about/?$" https://keith.gaughan.ie/about/ permanent;
 	rewrite "^/ideas/(ananagyu|porteressia|ternaru)/?$" https://keith.gaughan.ie/conlanging/$1/ permanent;
-	rewrite "^/ideas/the-weave/?$" https://keith.gaughan.ie/conlanging/ permanent;
+	rewrite "^/ideas(/porteressia)?/the-weave/?$" https://keith.gaughan.ie/conlanging/ permanent;
 	rewrite "^/ideas/([^/]+)/?$" https://keith.gaughan.ie/$1.html permanent;
 	rewrite "^/projects/?$" https://github.com/kgaughan?tab=repositories permanent;
 	rewrite "^/projects/([^/]+)/?$" https://github.com/kgaughan/$1 permanent;
 	rewrite "^/snippets/talideon-wallpaper/?$" https://gist.github.com/kgaughan/d1180cf7bf4adebeaf6498ff499400d0 permanent;
-	rewrite "^/weblog/(%3b|;)feed" https://talideon.com/inklings/feed permanent;
+	rewrite "^/weblog/(%3b|;)feed$" https://talideon.com/inklings/feed permanent;
 	rewrite "^/weblog(.*)$" https://talideon.com/inklings$1 permanent;
+	rewrite "^/inklings/feed$" https://talideon.com/inklings/feed permanent;
 	rewrite "^/assets/uploads/concultures/eretas\.pdf$" https://keith.gaughan.ie/conlanging/porteressia/attachments/eretas.pdf permanent;
+	rewrite "^/(atom|feeds?|rss)/?$" https://keith.gaughan.ie/feeds/all.xml permanent;
+	rewrite "^/feeds/posts/default$" https://keith.gaughan.ie/feeds/all.xml permanent;
+	rewrite "^/feeds?/atom/?$" https://keith.gaughan.ie/feeds/all.xml permanent;
+	rewrite "^/(index|atom|feed|rss|rdf)\.(xml|rdf|rss|atom)?$" https://keith.gaughan.ie/feeds/all.xml permanent;
+	rewrite "^/(rss|atom|rdf|feed)\.php$" https://keith.gaughan.ie/feeds/all.xml permanent;
+	rewrite "^/(blog|news)/rss\.xml$" https://keith.gaughan.ie/feeds/all.xml permanent;
+	rewrite "^/conlanging/porteressia/attachments/eretas\.pdf" https://keith.gaughan.ie/conlanging/porteressia/attachments/eretas.pdf permanent;
 
 	add_header Content-Security-Policy "default-src 'self'; img-src https://d-badges.ipv6ready.ie 'self'; script-src 'unsafe-inline' 'self'; style-src https://fonts.googleapis.com 'unsafe-inline' 'self'; font-src https://fonts.gstatic.com 'self'" always;
 
