@@ -9,6 +9,16 @@ map $uri $talideon_new_path {
 	/concultures/porteressia/ /conlanging/porteressia/;
 	/feed/ /feeds/all.xml;
 	/rss.xml /feeds/all.xml;
+	/linklog/syndication.cfm /inklings/feed;
+
+	/weblog/syndication.cfm https://keith.gaughan.ie/feeds/all.xml;
+	/code/qbal/spec/ https://mirrors.talideon.com/articles/qbal/;
+	/downloads/star-w.pdf https://mirrors.talideon.com/articles/star-w.pdf;
+	/notes/ https://stereochro.me/projects/dcom3notes;
+	/projects/elementnode/ https://github.com/kgaughan/elementnode;
+	/projects/qbal/ https://mirrors.talideon.com/articles/qbal/;
+	/concultures/ternadi/ternaru.cfm https://keith.gaughan.ie/conlanging/ternaru/;
+	/concultures/porteressia/eretas.pdf https://keith.gaughan.ie/conlanging/porteressia/attachments/eretas.pdf;
 }
 
 server {
@@ -43,28 +53,18 @@ server {
 		return 301 https://keith.gaughan.ie$talideon_new_path;
 	}
 
-	location = "/code/qbal/spec/" { return 301 https://mirrors.talideon.com/articles/qbal/; }
-	location = "/downloads/star-w.pdf" { return 301 https://mirrors.talideon.com/articles/star-w.pdf; }
-	location = "/notes/" { return 301 https://stereochro.me/projects/dcom3notes; }
-	location = "/projects/elementnode/" { return 301 https://github.com/kgaughan/elementnode; }
-	location = "/projects/qbal/" { return 301 https://mirrors.talideon.com/articles/qbal/; }
-	location ~ "/notes/dcom3/(.*)" { return 301 https://stereochro.me/assets/uploads/notes/dcom3/$1; }
-
+	rewrite "^/notes/dcom3/(.*)" https://stereochro.me/assets/uploads/notes/dcom3/$1 permanent;
 	rewrite "^/reader/?$" https://reader.talideon.com/ permanent;
 
 	rewrite "^/linklog/?$" /inklings/ permanent;
-	rewrite "^/linklog/syndication.cfm$" /inklings/feed permanent;
 	rewrite "^/inklings/(%3b|;)feed$" /inklings/feed permanent;
 
 	rewrite "^/weblog/?$" https://keith.gaughan.ie/ permanent;
 	rewrite "^/weblog/\d{4}/\d\d/?$" "https://keith.gaughan.ie/" permanent;
 	rewrite "^/weblog/\d{4}/\d\d/([^.]+)\.cfm$" "https://keith.gaughan.ie/$1.html" permanent;
-	rewrite "^/weblog/syndication.cfm$" "https://keith.gaughan.ie/feeds/all.xml" permanent;
 	rewrite "^/downloads/(.*)" https://keith.gaughan.ie/attachments/$1 permanent;
-	rewrite "^/concultures/porteressia/eretas\.pdf$" https://keith.gaughan.ie/conlanging/porteressia/attachments/eretas.pdf permanent;
 	rewrite "^/concultures/ae/?$" https://keith.gaughan.ie/conlanging/ae/;
 	rewrite "^/concultures/ternadi/?$" https://keith.gaughan.ie/conlanging/ternaru/;
-	rewrite "^/concultures/ternadi/ternaru\.cfm$" https://keith.gaughan.ie/conlanging/ternaru/;
 
 	add_header Content-Security-Policy "default-src 'self'; script-src https://*.talideon.com 'self'; style-src 'self'; font-src https://fonts.gstatic.com 'self'; object-src https://*.talideon.com https://www.youtube-nocookie.com; img-src https://*.talideon.com https://i.ytimg.com 'self'; frame-src https:" always;
 
