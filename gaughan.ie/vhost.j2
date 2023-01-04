@@ -1,5 +1,4 @@
 server {
-	include common_params;
 	include ssl_params;
 
 	server_name {{ domain_name }};
@@ -14,7 +13,6 @@ server {
 }
 
 server {
-	include common_params;
 	include ssl_params;
 
 	server_name www.{{ domain_name }};
@@ -29,8 +27,6 @@ server {
 }
 
 server {
-	include common_params;
-
 	listen 80;
 	listen [::]:80;
 

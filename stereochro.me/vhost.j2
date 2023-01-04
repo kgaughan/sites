@@ -6,11 +6,6 @@ server {
 	root {{ vhosts_root }}/{{ domain_name }}/web;
 	index index.html;
 
-	location ~ "^.*/wp-login\.php$" {
-		return 410;
-		access_log off;
-	}
-
 	location /distfiles {
 		alias {{ vhosts_root }}/{{ domain_name }}/distfiles;
 	}
@@ -44,7 +39,6 @@ server {
 }
 
 server {
-	include common_params;
 	include ssl_params;
 
 	server_name www.{{ domain_name }};
@@ -57,8 +51,6 @@ server {
 }
 
 server {
-	include common_params;
-
 	listen 80;
 	listen [::]:80;
 
