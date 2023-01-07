@@ -14,6 +14,7 @@
     acme_client_root: /usr/local/etc/acme
     acme_challenge_dir: /usr/local/www/acme
     db_path: /var/db/komorebi/db.sqlite
+    komorebi_socket: /var/run/www/inklings.sock
 
   tasks:
     - name: create local build directory

@@ -29,7 +29,7 @@ server {
 	}
 
 	location /inklings/ {
-		proxy_pass http://127.0.0.1:8000/;
+		proxy_pass http://unix:{{ komorebi_socket }};
 		proxy_redirect off;
 
 		proxy_set_header Host $host;
