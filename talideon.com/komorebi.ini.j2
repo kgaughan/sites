@@ -1,8 +1,8 @@
 [program:komorebi]
-command=/usr/local/bin/waitress-serve --listen=127.0.0.1:8000 --asyncore-use-poll --threads 12 --call komorebi:create_wsgi_app
+command=/usr/local/bin/waitress-serve --listen=127.0.0.1:8000 --asyncore-use-poll --threads=12 --url-prefix=/inklings --call komorebi:create_wsgi_app
 directory={{ vhosts_root }}/{{ domain_name }}/inklings
 user=www
 redirect_stderr=true
 stdout_logfile={{ logs_root }}/{{ domain_name }}.%(program_name)s.log
 stderr_logfile=/dev/null
-environment=KOMOREBI_SETTINGS="{{ vhosts_root }}/{{ domain_name }}/komorebi.cfg",PYTHONPATH="{{ vhosts_root }}/{{ domain_name }}/inklings",APP_PREFIX="/inklings"
+environment=KOMOREBI_SETTINGS="{{ vhosts_root }}/{{ domain_name }}/komorebi.cfg",PYTHONPATH="{{ vhosts_root }}/{{ domain_name }}/inklings"
