@@ -94,8 +94,11 @@
         owner: false
         perms: false
         delete: true
+        rsync_opts:
+          - "--exclude=__pycache__"
       become: false
       notify:
+        - compile source files
         - update supervisor
 
     - name: ensure database directory exists
@@ -133,6 +136,10 @@
         state: present
 
   handlers:
+    - name: compile source files
+      command: "python3 -m compileall -o2 {{ vhosts_root }}/{{ domain_name }}/inklings"
+      become: false
+
     - name: generate missing certificates
       command:
         argv:
