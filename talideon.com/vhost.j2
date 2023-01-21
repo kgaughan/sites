@@ -40,7 +40,7 @@ server {
 
 	location /inklings/static/ {
 		alias {{ vhosts_root }}/{{ domain_name }}/inklings/komorebi/static/;
-		add_header Cache-Control 'public,immutable,max-age=28800'; # eight hours
+		add_header Cache-Control 'public, immutable, max-age=28800'; # eight hours
 	}
 
 	if ($talideon_new_path) {

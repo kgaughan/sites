@@ -4,3 +4,15 @@ Disallow: /id/
 Disallow: /visitors/
 # Some bots support wildcards. Hitting these is pointless.
 Disallow: */edit
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: Barkrowler
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
