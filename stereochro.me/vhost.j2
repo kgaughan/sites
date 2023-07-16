@@ -29,7 +29,7 @@ server {
 	rewrite "^/(blog|news)/rss\.xml$" https://keith.gaughan.ie/feeds/all.xml permanent;
 	rewrite "^/conlanging/porteressia/attachments/eretas\.pdf" https://keith.gaughan.ie/conlanging/porteressia/attachments/eretas.pdf permanent;
 
-	add_header Content-Security-Policy "default-src 'self'; img-src https://d-badges.ipv6ready.ie 'self'; script-src 'unsafe-inline' 'self'; style-src https://fonts.googleapis.com 'unsafe-inline' 'self'; font-src https://fonts.gstatic.com 'self'" always;
+	add_header Content-Security-Policy "default-src 'self'; img-src https://d-badges.ipv6ready.ie 'self'; script-src 'unsafe-inline' 'self'; style-src https://fonts.googleapis.com 'unsafe-inline' 'self'; font-src https://fonts.gstatic.com https://fonts.bunny.net 'self'" always;
 
 	ssl_certificate {{ tls_root }}/{{ domain_name }}/fullchain.pem;
 	ssl_certificate_key {{ tls_root }}/private/{{ domain_name }}.pem;

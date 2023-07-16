@@ -66,7 +66,7 @@ server {
 	rewrite "^/concultures/ae/?$" https://keith.gaughan.ie/conlanging/ae/;
 	rewrite "^/concultures/ternadi/?$" https://keith.gaughan.ie/conlanging/ternaru/;
 
-	add_header Content-Security-Policy "default-src 'self'; script-src https://*.talideon.com 'self'; style-src 'self'; font-src https://fonts.gstatic.com 'self'; object-src https://*.talideon.com https://www.youtube-nocookie.com; img-src https://*.talideon.com https://i.ytimg.com 'self'; frame-src https:" always;
+	add_header Content-Security-Policy "default-src 'self'; script-src https://*.talideon.com 'self'; style-src 'self'; font-src https://fonts.bunny.net https://fonts.gstatic.com 'self'; object-src https://*.talideon.com https://www.youtube-nocookie.com; img-src https://*.talideon.com https://i.ytimg.com 'self'; frame-src https:" always;
 
 	add_header Permissions-Policy "geolocation=(), autoplay=()" always;
 
