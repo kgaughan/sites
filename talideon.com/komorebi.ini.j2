@@ -1,5 +1,5 @@
 [program:komorebi]
-command=/usr/local/bin/waitress-serve --unix-socket={{ komorebi_socket }} --asyncore-use-poll --threads=12 --url-prefix=/inklings --call komorebi:create_wsgi_app
+command=/usr/local/bin/waitress-serve --unix-socket={{ komorebi_socket }} --asyncore-use-poll --threads=12 --url-scheme=https --url-prefix=/inklings --call komorebi:create_wsgi_app
 directory={{ vhosts_root }}/{{ domain_name }}/inklings
 user=www
 redirect_stderr=true
