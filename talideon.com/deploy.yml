@@ -33,7 +33,7 @@
         name:
           - py311-flask
           - py311-Flask-HTTPAuth
-          - py311-Flask-WTF
+          - py311-flask_wtf
           - py311-markdown
           - py311-passlib
           - py311-sqlite3

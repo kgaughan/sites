@@ -1,82 +1,53 @@
 <!DOCTYPE html>
 
-<html lang="en" dir="ltr">
-	<head>
-		<title>
-			House: A parliamentary visualisation of Dáil Éireann - Stereochrome
-		</title>
+<html lang="en" dir="ltr"><head>
 
-		<meta name="Author" content="Keith Gaughan">
-		<meta name="Copyright" content="Copyright (c) Keith Gaughan, 2001-2019">
+	<title>House: A parliamentary visualisation of Dáil Éireann</title>
 
-		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" media="screen" href="/assets/screen.css"><link rel="stylesheet" type="text/css" media="print" href="/assets/print.css">
-<link rel="stylesheet" type="text/css" media="screen" href="/assets/prettify.css">
+</head><body>
 
-		<style type="text/css" media="handheld">
-		#content, #footer, #masthead {
-			width: 22em;
-			font-size: 200%;
-		}
-		</style>
-	</head>
-	<body>
-		<div id="masthead"><a href="/">stereochro<span>me</span></a></div>
-		<div id="outer1">
-			<div id="content">
-				
-		<h1>House: A parliamentary visualisation of Dáil Éireann</h1>
+<h1>House: A parliamentary visualisation of Dáil Éireann</h1>
 
-	<p>A few days back, <a href="http://www.mulley.net/2006/06/09/dail-visualiser-lazyweb-suggestion/">Damien
-Mulley suggested</a> that somebody build an applet for visualising the changes in Dáil representation of the various parties here in Ireland. I thought it was a neat idea, so I decided to have a go at it when I had some free time.</p>
+<p>A few days back, <a href="http://www.mulley.net/2006/06/09/dail-visualiser-lazyweb-suggestion/">Damien
+Mulley suggested</a> that somebody build an applet for visualising the changes
+in Dáil representation of the various parties here in Ireland. I thought it was
+a neat idea, so I decided to have a go at it when I had some free time.</p>
 
 <p>Behold!</p>
 
 <!--[if !IE]>--><object classid="java:house.House" archive="/assets/uploads/old/house.jar" type="application/x-java-applet" width="600" height="250"><param name="archive" value="/assets/uploads/old/house.jar"><param name="url" value="/assets/uploads/old/house.txt"><!--<![endif]--><object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" width="600" height="250"><param name="code" value="house.House"><param name="archive" value="/assets/uploads/old/house.jar"><param name="url" value="/assets/uploads/old/house.txt"></object><!--[if !IE]>--></object><!--<![endif]-->
 
-<p>The visualisation is written in Java, so you&#8217;ll need to <a href="http://www.java.com/en/download/">install a copy</a>. If you want the data, feel free to <a href="http://projects.talideon.com/static/archives/house.txt">download it</a>.</p>
+<p>The visualisation is written in Java, so you&#8217;ll need to
+<a href="http://www.java.com/en/download/">install a copy</a>. If you want
+the data, feel free to <a href="http://projects.talideon.com/static/archives/house.txt">download it</a>.</p>
 
-<p>Drag the slider at the top to move forward and backwards in time, or use the arrow keys. The parties on the top half are the government parties, and the ones below are in opposition.</p>
+<p>Drag the slider at the top to move forward and backwards in time, or use the
+arrow keys. The parties on the top half are the government parties, and the
+ones below are in opposition.</p>
 
-<p>I&#8217;m working on a better version of the graph to the right currently. It&#8217;ll have two representations, one listing the parties in alphabetical order, and the other by size (which is how they&#8217;re shown right now and how they&#8217;re allocated seats in the Dáil itself). I&#8217;m also working on a third graph showing the number of seats won and lost between elections, and that will go on below the graphs showing representation.</p>
+<p>I&#8217;m working on a better version of the graph to the right currently.
+It&#8217;ll have two representations, one listing the parties in alphabetical
+order, and the other by size (which is how they&#8217;re shown right now and
+how they&#8217;re allocated seats in the Dáil itself). I&#8217;m also working
+on a third graph showing the number of seats won and lost between elections,
+and that will go on below the graphs showing representation.</p>
 
-<p>The representation graphs will also be reworked to render as an arc, which ought to be more space efficient and look better.</p>
+<p>The representation graphs will also be reworked to render as an arc, which
+ought to be more space efficient and look better.</p>
 
-<p>The code&#8217;s a bit stinky right now, and I&#8217;m not happy with the visualisation. But it&#8217;s a start, and it works! If anybody&#8217;s any suggestions, <a href="/about">contact me</a>.</p>
+<p>The code&#8217;s a bit stinky right now, and I&#8217;m not happy with the
+visualisation. But it&#8217;s a start, and it works! If anybody&#8217;s any
+suggestions, <a href="/about">contact me</a>.</p>
 
-<p>Credit where credit&#8217;s due. I&#8217;d terrible problems getting it to appear in IE, but I found <a href="http://eyeasme.com/Shayne/XHTML/appletObject.html">this
-explanation</a> of where I was going wrong and of how
-<span title="fuckwitted">f*********d</span> IE&#8217;s implementations of the
-<code class="prettyprint">&lt;object/&gt;</code> and <code class="prettyprint">&lt;applet/&gt;</code> tags are.</p>
+<p>Credit where credit&#8217;s due. I&#8217;d terrible problems getting it to
+appear in IE, but I found
+<a href="http://eyeasme.com/Shayne/XHTML/appletObject.html">this explanation</a>
+of where I was going wrong and of how awful IE&#8217;s implementations of the
+<code>&lt;object/&gt;</code> and <code>&lt;applet/&gt;</code> tags are.</p>
 
-	<div id="metadata">
-		Created at 22:16 UTC on October 22nd, 2009					and last modified at 20:24 UTC on March 25th, 2018			</div>
-				</div>
-		</div>
-		<div id="outer2">
-			<div id="footer">
-				<hr>
-				<a href="http://en.wikipedia.org/wiki/Hacker_(programmer_subculture)"><img src="/assets/images/glider.png" style="float:right" width="55" height="55" alt="Hacker"></a>
-								<ul id="nav">
-					<li><a href="/">Home</a></li>
-					<li><a href="/about">About</a></li>
-					<li><a href="/weblog/">Weblog</a></li>
-					<li><a href="/projects">Projects</a></li>
-					<li><a href="/sitemap">Sitemap</a></li>
-				</ul>
-				<address>
-					Copyright &copy; Keith Gaughan, 2001&#8210;2019.
-					All Rights Reserved.
-					You can stop reading now.
-				</address>
-				<p>
-<a href="//ipv6ready.ie/verify/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de">
-  <img width="120" height="20"
-	src="//d-badges.ipv6ready.ie/d/64/e5/fe/d64e5fedaefdb41b1a0b198d4a4faa7a3cf832de-s.png"
-	alt="[IPv6 Ready]">
-</a>
-				</p>
-			</div>
-		</div>
-		<script type="text/javascript" src="/assets/prettify.js"></script>
-<script type="text/javascript">prettyPrint();</script>			</body>
-</html>
+<address>
+	Created at 22:16 UTC on October 22nd, 2009 and last modified at 20:24 UTC on March 25th, 2018.<br/>
+	Copyright &copy; <a href="https://keith.gaughan.ie/">Keith Gaughan</a>, 2001&#8210;2019.
+</address>
+
+</body></html>
