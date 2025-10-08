@@ -15,8 +15,7 @@ Setup
 
 Ensure pipx is installed, and run:
 
-    pipx install mkdocs
-    pipx inject mkdocs mkdocs-awesome-pages-plugin
+    uv tool install mkdocs --with mkdocs-awesome-pages-plugin
 
 To do
 =====
