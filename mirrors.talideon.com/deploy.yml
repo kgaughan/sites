@@ -1,6 +1,6 @@
 ---
 - name: build mirrors.talideon.com
-  hosts: manann.talideon.com
+  hosts: lir.talideon.com
   remote_user: keith
   become: true
   gather_facts: false

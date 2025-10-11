@@ -1,20 +1,16 @@
 BASEDIR:=$(PWD)
 OUTPUTDIR:=$(PWD)/output
 
-publish:
+.PHONY: build
+build:
 	mkdir -p $(OUTPUTDIR)
 	mkdocs build -d $(OUTPUTDIR)
 
-upload: publish
+.PHONY: upload
+upload: build
 	rsync -P -rvczz --delete \
 		--exclude=.DS_Store \
 		--exclude='.*.sw?' \
 		--exclude='*.orig' \
 		--cvs-exclude $(OUTPUTDIR)/ \
 		keith@lir.talideon.com:/usr/local/www/talideon.com/web
-
-deploy:
-	find . -name \*.orig -delete
-	ansible-playbook -i ../hosts.ini --diff deploy.yml
-
-.PHONY: publish upload deploy
