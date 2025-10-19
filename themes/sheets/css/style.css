@@ -75,6 +75,11 @@ p.source {
   display: block;
   font-size: smaller;
 }
+.subtitle {
+  margin-top: 0px;
+  font-style: italic;
+  text-align: center;
+}
 p.formula {
   text-align: center;
 }

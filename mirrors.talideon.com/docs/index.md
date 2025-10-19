@@ -25,3 +25,4 @@ General
 -------
 
 - [Caring for your introvert: The habits and needs of a little-understood group](articles/rauch.md)
+- [How to Fit a Large Program into a Small Machine](articles/zmachine.md)
