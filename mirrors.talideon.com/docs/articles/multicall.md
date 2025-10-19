@@ -9,7 +9,7 @@ RFC: system.multicall
 
 Originally posted by
 [Eric Kidd](http://www.xmlrpc.com/profiles/$11)
-on 2001-01-25 31:34:52
+on 2001-01-25 13:34:52
 {: .source }
 
 After speaking with Adrian Likins at RedHat, I’ve been thinking about

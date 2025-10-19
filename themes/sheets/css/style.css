@@ -2,180 +2,191 @@
 @import url(//fonts.googleapis.com/css?family=Asap:400,700,400italic&display=swap);
 
 html {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 
-	background: #EEE no-repeat;
-	background-image: linear-gradient(top, #CCC 0, #EEE 16px);
+  background: #EEE no-repeat;
+  background-image: linear-gradient(top, #CCC 0, #EEE 16px);
 }
 
 body {
-	font-family: "Asap", sans-serif;
-	line-height: 1.5;
-	margin: 0 auto 1em auto;
-	padding: 1em;
-	width: 44em;
+  font-family: "Asap", sans-serif;
+  line-height: 1.5;
+  margin: 0 auto 1em auto;
+  padding: 1em;
+  width: 44em;
 
-	background: #FFF no-repeat;
-	background-image: linear-gradient(top, #DDD 0, #FFF 12px);
+  background: #FFF no-repeat;
+  background-image: linear-gradient(top, #DDD 0, #FFF 12px);
 
-	border: 1px solid #DDD;
-	border-top: none;
+  border: 1px solid #DDD;
+  border-top: none;
 
-	box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
 }
 h1, h2, h3 {
-	font-family: "Yanone Kaffeesatz", sans-serif;
-	color: maroon;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  color: maroon;
 }
 h1 {
-	font-weight: bold;
-	font-size: 300%;
-	text-align: center;
+  font-weight: bold;
+  font-size: 300%;
+  text-align: center;
   line-height: 1.1;
 }
 h2, h3 {
-	font-weight: normal;
-	text-align: left;
+  font-weight: normal;
+  text-align: left;
   line-height: 1.3;
 }
 h2 {
-	font-size: 200%;
+  font-size: 200%;
 }
 h3 {
-	font-size: 125%;
+  font-size: 125%;
 }
 h1 + h2 {
-	margin-top: -1em;
-	text-align: center;
+  margin-top: -1em;
+  text-align: center;
 }
 h4 {
-	font-family: inherit;
-	font-size: 100%;
-	font-weight: bold;
-	font-style: normal;
-	margin-top: 3ex;
-	margin-bottom: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: bold;
+  font-style: normal;
+  margin-top: 3ex;
+  margin-bottom: 0;
 }
 h4 + p {
-	margin-top: 1ex;
+  margin-top: 1ex;
 }
 p.source {
-	text-align: center;
+  text-align: center;
   margin-left: 4em;
   margin-right: 4em;
 }
 .author {
-	display: block;
-	font-size: larger;
-	font-style: italic;
+  display: block;
+  font-size: larger;
+  font-style: italic;
 }
 .published {
-	display: block;
-	font-size: smaller;
+  display: block;
+  font-size: smaller;
 }
 p.formula {
-	text-align: center;
+  text-align: center;
 }
 table {
-	border-collapse: collapse;
-	margin: 1em auto;
+  border-collapse: collapse;
+  margin: 1em auto;
 }
 table th {
-	font-weight: bold;
+  font-weight: bold;
 }
 table tr {
-	border-bottom: 1px solid silver;
+  border-bottom: 1px solid silver;
 }
 table th, table td {
-	padding: 0.125ex 1ex 0.5ex 1ex;
-	text-align: left;
-	vertical-align: top;
+  padding: 0.125ex 1ex 0.5ex 1ex;
+  text-align: left;
+  vertical-align: top;
 }
 table.formula {
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 p + h2, div + h2, blockquote + h2 {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 h2, h3, h4, h5, h6 {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 pre {
-	border-left: 0.5ex solid maroon;
-	border-right: 0.5ex solid maroon;
-	padding-left: 1ex;
-	padding-right: 1ex;
-	margin-left: -1.5ex;
-	margin-right: -1.5ex;
-	background: #FEE;
+  border-left: 0.5ex solid #DCC;
+  border-right: 0.5ex solid #FEE;
+  padding: 0.75ex 1ex;
+  margin-left: -1.5ex;
+  margin-right: -1.5ex;
+  background: #FEE;
+  border-radius: 2px;
 }
 code {
-	background: #FEE;
+  background: #FEE;
+  outline: 1px solid #EDD;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+pre code {
+  padding: 0;
+  outline: none;
 }
 
 dd {
-	margin-top: 1ex;
-	margin-bottom: 1ex;
-	margin-left: 1em;
+  margin-top: 1ex;
+  margin-bottom: 1ex;
+  margin-left: 1em;
 }
 dd:before {
-	content: "—";
-	margin-left: -1em;
+  content: "—";
+  margin-left: -1em;
 }
 dd + dt {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 dt {
-	font-style: italic;
+  font-style: italic;
 }
 li {
-	margin-top: 1ex;
-	margin-bottom: 1ex;
+  margin-top: 1ex;
+  margin-bottom: 1ex;
 }
 blockquote {
-	margin-left: 2em;
+  margin-left: 2em;
 }
 .screen-only {
-	display: none;
+  display: none;
 }
 @media print {
-	h1, h2, h3, h4, h5, h6 {
-		/* I live in hope... */
-		page-break-after: avoid;
-		page-break-inside: avoid;
-	}
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-	.host-note {
-		display: none;
-	}
-	.aside {
-		display: none;
-	}
-	pre {
-		margin-left: 0;
-	}
+  h1, h2, h3, h4, h5, h6 {
+    /* I live in hope... */
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .host-note {
+    display: none;
+  }
+  .aside {
+    display: none;
+  }
+  pre {
+    margin-left: 0;
+  }
 }
 @media screen {
-	.host-note {
-		border: 1px solid silver;
-		padding: 1em;
-		font-size: smaller;
-		margin: 1em 0;
-		color: gray;
-	}
-	.aside {
-		font-size: smaller;
-		font-style: italic;
-	}
-	p + h1, div + h1, blockquote + h1 {
-		margin-top: 2em;
-	}
-	.screen-only {
-		display: block;
-	}
+  .host-note {
+    border: 1px solid silver;
+    padding: 1em;
+    font-size: smaller;
+    margin: 1em 0;
+    color: gray;
+  }
+  .aside {
+    font-size: smaller;
+    font-style: italic;
+  }
+  p + h1, div + h1, blockquote + h1 {
+    margin-top: 2em;
+  }
+  .screen-only {
+    display: block;
+  }
+}
+
+.toc ul {
+  list-style-type: none;
 }

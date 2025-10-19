@@ -9,6 +9,9 @@ markdown_extensions:
   - def_list
   - sane_lists
   - smarty
+  - toc:
+      permalink: false
+      toc_depth: 2-6
 
 plugins: []
 
