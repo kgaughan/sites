@@ -9,6 +9,7 @@ markdown_extensions:
   - def_list
   - sane_lists
   - smarty
+  - footnotes
   - toc:
       permalink: false
       toc_depth: 2-6
@@ -28,4 +29,5 @@ nav:
       - Dis: articles/malbolge/dis.md
   - Other:
       - XML-RPC Multicall: articles/multicall.md
+      - A Beginner's Guide to Forth: articles/forth/index.md
       - Caring for your introvert: articles/rauch.md

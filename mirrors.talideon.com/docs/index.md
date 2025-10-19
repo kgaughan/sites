@@ -19,6 +19,7 @@ Development
 -----------
 
 - [RFC: system.multicall](articles/multicall.md) (XML-RPC)
+- [A Beginner's Guide to Forth](articles/forth/index.md)
 
 General
 -------

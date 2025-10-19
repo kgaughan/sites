@@ -69,6 +69,7 @@ p.source {
   display: block;
   font-size: larger;
   font-style: italic;
+  text-align: center;
 }
 .published {
   display: block;
