@@ -1,4 +1,4 @@
-Please links to [the original](https://www.taygeta.com/fsl/docs/551.jvn.fall01/primer.htm)
+Please links to [the original](http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm)
 and only refer to this as a mirror.
 {: .host-note }
 
@@ -1947,7 +1947,8 @@ is specialized for Win32Forth.
 
 - M. Kelly and N. Spies, Forth: A text and Reference (Prentice-Hall, NJ, 1986)
 - L. Brodie, Starting Forth, 2nd ed. (Prentice-Hall, NJ, 1986)
-- L. Brodie, Thinking FORTH (Prentice-Hall, NJ, 1984 (online edition)
+- L. Brodie, Thinking FORTH (Prentice-Hall, NJ, 1984 ([online
+  edition](https://thinking-forth.sourceforge.net/))
 
 [^postpone]:
   the word `POSTPONE` in this context means that the word following it—in this
