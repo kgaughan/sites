@@ -4,25 +4,28 @@ sites
 
 Yet another attempt to get my various sites under control.
 
-The aim is for everything except `Can't Hack`_ and `bethisad.talideon.com`_ to
+The aim is for everything except `my blog`_ and `bethisad.talideon.com`_ to
 go here, which have their own repos.
 
-.. _Can't Hack: https://github.com/kgaughan/canthack
+.. _my blog: https://github.com/kgaughan/blog
 .. _bethisad.talideon.com: https://github.com/kgaughan/bethisad.talideon.com
 
 Setup
 =====
 
-Ensure pipx is installed, and run:
+Ensure uv_ and just_ is installed, and run::
 
-    uv tool install mkdocs --with mkdocs-awesome-pages-plugin
+    just tools
 
-To do
-=====
+To deploy a site, run::
 
-* Deploy komorebi__ on talideon.com properly.
-* Deploy stereochro.me: almost a series of redirects at this point.
+    just deploy <site>
 
-.. __: https://github.com/kgaughan/komorebi/
+To do a local build of a site with mkdocs, run::
+
+    just build <site>
+
+.. _uv: https://docs.astral.sh/uv/
+.. _just: https://just.systems/
 
 .. vim:set ft=rst:
