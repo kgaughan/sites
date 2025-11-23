@@ -18,15 +18,17 @@
 
   tasks:
     - name: create local build directory
-      local_action:
-        module: tempfile
+      tempfile:
         state: directory
       become: false
       register: build_dir
+      delegate_to: localhost
 
     - name: build site
-      local_action: command mkdocs build --strict --site-dir {{ build_dir.path }}
+      command:
+        cmd: mkdocs build --strict --site-dir {{ build_dir.path }}
       become: false
+      delegate_to: localhost
 
     - name: install packages
       pkgng:
@@ -35,7 +37,6 @@
           - py311-Flask-HTTPAuth
           - py311-flask_wtf
           - py311-markdown
-          - py311-passlib
           - py311-sqlite3
           - py311-waitress
           - sqlite3
