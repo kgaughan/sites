@@ -1,4 +1,9 @@
-SECRET_KEY = None  # Disable sessions
+import secrets
+
+# Needed for the form flash. It doesn't need to be stable, nor does it need
+# to be secure, really. It just needs to be stable when the service starts
+# up.
+SECRET_KEY = secrets.token_bytes(64)
 
 APPLICATION_ROOT = "/inklings"
 PREFERRED_URL_SCHEME = "https"
