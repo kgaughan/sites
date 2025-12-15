@@ -1,6 +1,8 @@
 Mirrored Content at mirrors.talideon.com
 ========================================
 
+This is mostly a collection of documents that have either disappeared from the Internet or stuff I just really want to make sure are mirrored somewhere.
+
 Constructed languages
 ---------------------
 
