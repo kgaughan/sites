@@ -20,6 +20,9 @@ DB_DATABASE = "{{ db_name }}"
 DB_USER = "{{ db_user }}"
 DB_PASSWORD = "{{ db_password }}"
 
+CACHE_TYPE = "FileSystemCache"
+CACHE_DIR = "{{ vhosts_root }}/{{ domain_name }}/cache"
+
 # Application configuration.
 PASSWD_PATH = "{{ vhosts_root }}/{{ domain_name }}/komorebi.passwd.json"
 

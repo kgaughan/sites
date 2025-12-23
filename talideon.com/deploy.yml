@@ -37,6 +37,7 @@
         name:
           - py311-firebirdsql
           - py311-flask
+          - py311-flask-caching
           - py311-Flask-HTTPAuth
           - py311-flask_wtf
           - py311-markdown
@@ -50,6 +51,14 @@
         dest: "{{ vhosts_root }}/{{ domain_name }}/web"
         state: directory
         owner: keith
+        group: www
+        mode: "0755"
+
+    - name: ensure cache directory exists
+      file:
+        dest: "{{ vhosts_root }}/{{ domain_name }}/cache"
+        state: directory
+        owner: www
         group: www
         mode: "0755"
 
