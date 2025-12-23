@@ -14,8 +14,13 @@ BLOG_AUTHOR = "Keith Gaughan"
 BLOG_RIGHTS = "Copyright (c) " + BLOG_AUTHOR + " 2001-2025"
 FEED_ID = "tag:talideon.com,2001:weblog"
 
+# Database configuration
+DB_HOST = "{{ db_host }}"
+DB_DATABASE = "{{ db_name }}"
+DB_USER = "{{ db_user }}"
+DB_PASSWORD = "{{ db_password }}"
+
 # Application configuration.
-DB_PATH = "{{ db_path }}"
 PASSWD_PATH = "{{ vhosts_root }}/{{ domain_name }}/komorebi.passwd.json"
 
 # vim:set ft=python:

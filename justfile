@@ -4,7 +4,7 @@
 
 # run the deployment playbook for a given site
 deploy site:
-	cd {{site}} && find . -name \*.orig -delete && ansible-playbook -i ../hosts.ini --diff deploy.yml
+	cd {{site}} && find . -name \*.orig -delete && ansible-playbook --ask-vault-password -i ../hosts.ini --diff deploy.yml
 
 # do a local build of a site with mkdocs
 build site:

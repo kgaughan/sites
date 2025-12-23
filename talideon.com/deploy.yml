@@ -13,8 +13,10 @@
     tls_root: /usr/local/etc/ssl/acme
     acme_client_root: /usr/local/etc/acme
     acme_challenge_dir: /usr/local/www/acme
-    db_path: /var/db/komorebi/db.sqlite
     komorebi_socket: /var/run/www/inklings.sock
+
+  vars_files:
+    - secrets.yml
 
   tasks:
     - name: create local build directory
@@ -33,13 +35,12 @@
     - name: install packages
       pkgng:
         name:
+          - py311-firebirdsql
           - py311-flask
           - py311-Flask-HTTPAuth
           - py311-flask_wtf
           - py311-markdown
-          - py311-sqlite3
           - py311-waitress
-          - sqlite3
         cached: true
       notify:
         - update supervisor
@@ -102,20 +103,7 @@
         - compile source files
         - update supervisor
 
-    - name: ensure database directory exists
-      file:
-        dest: "{{ db_path | dirname }}"
-        state: directory
-        owner: www
-        group: www
-        mode: "0755"
-
-    - name: populate database with schema
-      command: "sqlite3 {{ db_path }}"
-      args:
-        stdin: "{{ lookup('file', 'komorebi/schema/komorebi.sql') }}"
-        creates: "{{ db_path }}"
-      become: false
+    # TODO: configure the database
 
     - name: deploy supervisor configuration
       template:
