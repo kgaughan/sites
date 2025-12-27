@@ -9,7 +9,6 @@ map $uri $talideon_new_path {
 	/concultures/porteressia/ /conlanging/porteressia/;
 	/feed/ /feeds/all.xml;
 	/rss.xml /feeds/all.xml;
-	/linklog/syndication.cfm /inklings/feed;
 	/concultures/porteressia/eretas.pdf /conlanging/porteressia/attachments/eretas.pdf;
 	/weblog/syndication.cfm /feeds/all.xml;
 	/concultures/ternadi/ternaru.cfm /conlanging/ternaru/;
@@ -56,6 +55,7 @@ server {
 	rewrite "^/notes/dcom3/(.*)" https://stereochro.me/assets/uploads/notes/dcom3/$1 permanent;
 	rewrite "^/reader/?$" https://reader.talideon.com/ permanent;
 
+	rewrite "^/linklog/syndication\.cfm$" /inklings/feed permanent;
 	rewrite "^/linklog/?$" /inklings/ permanent;
 	rewrite "^/inklings/(%3b|;)feed$" /inklings/feed permanent;
 
