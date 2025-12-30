@@ -29,6 +29,7 @@ nav:
       - Dis: articles/malbolge/dis.md
   - Other:
       - XML-RPC Multicall: articles/multicall.md
+      - Weblogs.com XML-RPC interface: articles/weblogUpdates.ping.md
       - A Beginner's Guide to Forth: articles/forth/index.md
       - Caring for your introvert: articles/rauch.md
       - How to Fit a Large Program into a Small Machine: articles/zmachine.md
