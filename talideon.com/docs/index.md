@@ -52,9 +52,17 @@ It uses [Komorebi](https://github.com/kgaughan/komorebi), a small tumblog engine
 
 * [Forvo](https://forvo.com/): a pronunciation dictionary
 * [WordReference.com](https://www.wordreference.com/): a multilingual dictionary
+
+### French
+
 * [L'Obs: la conjugaison de Français](https://la-conjugaison.nouvelobs.com/), which also has a basic dictionary, thesaurus, and grammar for French, as well as exercises for learners
-* [Gramadach na Gaeilge](http://nualeargais.ie/gnag/gram.htm): Irish grammar
+
+### Irish
+
+* [Gramadach na Gaeilge](https://cuplamilefocal.github.io/gnag/): Irish grammar. The [original site](http://nualeargais.ie/gnag/gram.htm) has unfortunately been offline for quite a while.
 * [Teanglann](https://www.teanglann.ie/): the best of the online Irish dictionaries
+* [Réimhnigh](https://www.reimnigh.com/): an Irish verb conjugator, which includes both the 11 irregular verbs (the copula isn't a proper verb) and paradigms of the regular verbs in the major dialects.
+* [Taisce Chanúintí na Gaeilge](https://www.canuint.ie/ga/): historical speech samples and transcriptions demonstrating regional forms of the language.
 
 ### Linguistics
 
