@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-ie" dir="ltr"><head>
-	{% block head %}
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-	<title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ config.site_name }}</title>
+	<title>$title$</title>
 
-	<link rel="stylesheet" href="{{ base_url }}/css/style.css" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" media="screen">
-
-	{% for path in extra_css %}
-	<link href="{{ path }}" rel="stylesheet">
-	{% endfor %}
-
-	{% for path in extra_javascript %}
-	<script src="{{ path }}"></script>
-	{% endfor %}
-
-	{% block extrahead %}{% endblock %}
-	{% endblock %}
+	<link rel="stylesheet" href="$base_url$/css/style.css" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" media="screen">
 
 </head><body>
 
 	<main>
-	{% block content %}
-	{{ page.content }}
-	{% endblock %}
+		<h1>$title$</h1>
+		$body$
 	</main>
 
-	<footer>
-	{% block footer %}
-	{% if config.copyright %}Copyright &copy; {{ config.copyright }}{% endif %}
-	{% endblock %}
-	</footer>
+	$if(copyright)$<footer>Copyright &copy; $copyright$</footer>$endif$
 
 </body></html>

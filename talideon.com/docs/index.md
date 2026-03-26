@@ -1,4 +1,6 @@
-# Talideon.com
+---
+title: Talideon.com
+---
 
 _talideon.com_ is the online home of [Keith Gaughan](https://keith.gaughan.ie/about/), a software developer based in Dublin in Ireland.
 
