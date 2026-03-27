@@ -1,17 +1,19 @@
-Ben’s original interpreter is available for download here too as a
-[ZIP file](dis.zip "Dis interpreter") and as a
-[tarball](dis.tar.gz "Dis interpreter").
-If you’re interested in Dis, you’d probably be interested in
-[Malbolge](spec.md) too.
-{: .host-note }
-
-Dis ’98
-=======
-
-Ben Olmstead
+---
+title: Malbolge ’98
+author: Ben Olmstead
+original: http://web.archive.org/web/20031202211441/http://www.mines.edu/students/b/bolmstea/malbolge/
+host_note: |
+    This content is also
+    [mirrored by Lou Scheffer](http://www.lscheffer.com/malbolge.shtml), who
+    has some interesting stuff on the langauge too.
+    I’ve added additional links to the text.
+    Ben’s original interpreter is available for download here too as a
+    [ZIP file](malbolge.zip "Malbolge interpreter") and as a
+    [tarball](malbolge.tar.gz "Malbolge interpreter").
+---
 
 I hereby relenquish any and all copyright on this language,
-documentation, and interpreter; Dis is officially public domain.
+documentation, and interpreter; Malbolge is officially public domain.
 
 Introduction
 ------------
@@ -32,34 +34,36 @@ of mental torment, were designed with other goals: INTERCAL to have
 nothing in common with any major programming language, and BrainF\*\*\*
 to be a very tiny, yet still Turing-complete, language.
 
-Hence the author created [Malbolge](spec.md). It was meant to be a
-nightmare to write in, and it was.
+INTERCAL’s constructs are certainly tortuous, but they are all too
+flexible; you can, for instance, quite easily assign any number to a
+variable with a single statement.
 
-But the author soon discovered that, try as he had, the only program he
-had successfully written in Malbolge was one which printed ’666‘ and
-aborted. He had succeeded in his quest far too well.
+BrainF\*\*\* is lacking the flexibility which is INTERCAL’s major
+weakness, but it fails in that its constructs are far, far too
+intuitive. Certainly, there are only 8 instructions, none of which take
+any arguments—but it is quite easy to determine how to use those
+instructions. Subtract 8 from the current number? With a simple
+`--------` you are done! This kind of simple answer was unacceptable to
+the author.
 
-This was a problem.
+Hence the author created Malbolge. It borrows from machine,
+BrainF\*\*\*, and
+[tri-INTERCAL](http://www.muppetlabs.com/~breadbox/intercal-man/s06.html),
+but put together in a unique way. It was designed to be difficult to
+use, and so it is. It is designed to be incomprehensible, and so it is.
 
-He thought upon this for many hours, slept a bit, had some dinner,
-freaked out a Principles of Programming Languages professor, and came
-back to the problem at hand.
+So far, no Malbolge programs have been written. Thus, we cannot give an
+example.
 
-He examined Malbolge, and came to a decision: he would split the
-evolution in twain. Malbolge proper would become even more of a
-nightmare (for, though he had not consciously realized it, he had used a
-certain, albeit tiny, amount of restraint when creating Malbolge), while
-he would create another language which was—just barely—humanly possible
-to use. After pulling out his copy of The Divine Comedy again, he
-decided to call this ‘lesser’ branch **Dis**, after the capital city of
-Hell, at the heart of which lies Malbolge. Dis, literally, means
-‘Satan’.
+**Malbolge** is the name of Dante’s Eighth Circle of Hell, in which
+practitioners of deception (seducers, flatterers, simonists, thieves,
+hypocrites, and so on) spend eternity.
 
 Environment
 -----------
 
-In many languages, the environment is easy to understand. In Dis, it is
-best to understand the runtime environment before you ever see a
+In many languages, the environment is easy to understand. In Malbolge,
+it is best to understand the runtime environment before you ever see a
 command.
 
 The environment is, roughly, that of a primitive trinary CPU. Both code
@@ -68,8 +72,8 @@ are three registers. Machine words are ten trits (trinary digits) wide,
 giving a maximum possible value of *59048* (all numbers are unsigned).
 Memory space is exactly *59049 words long*.
 
-The three registers are the A, C, and D. A is the accumulator, used for
-data manipulation. A is implicitly set to the value written by all write
+The three registers are A, C, and D. A is the accumulator, used for data
+manipulation. A is implicitly set to the value written by all write
 operations on memory. (Standard I/O, a distinctly non-chip-level
 feature, is done directly with the A register.)
 
@@ -82,84 +86,121 @@ manipulation commands.
 
 All registers begin with the value 0.
 
-When the interpreter loads the program, it ignores all whitespace
-(including comments). If it encounters anything that is not one of
-`!{}|^>_*` and is not whitespace, it will give an error, otherwise it
-loads the file, one non-whitespace character per cell, into memory. All
-uninitialized cells are set to 0.
+When the interpreter loads the program, it ignores all whitespace. If it
+encounters anything that is not one of an instruction and is not
+whitespace, it will give an error, otherwise it loads the file, one non-
+whitespace character per cell, into memory. Cells which are not
+initialized are set by performing op on the previous two cells
+repetitively.
 
 Commands
 --------
 
-This mythical Dis CPU supports seven instructions; all are equivalent to
-the ASCII codes of punctuation characters. Unsupported instructions are
-treated as no-ops.
-
-\*
-: sets the data pointer to the value in the cell pointed to by the current
-  data pointer.
-
-^
-: sets the code pointer to the value in the cell pointed to be the current
-  data pointer.
-
->
-: rotates the trinary value of the cell pointed to by D to the right 1.
-  The least significant trit becomes the most significant trit, and all
-  others move one position to the left.
-
-|
-: performs a tritwise ‘op’ on the value pointed to by D with the contents
-  of A. The op is *Tritwise Subtract Without Borrow* and is:
+When the interpreter tries to execute a program, it first checks to see
+if the current instruction is a graphical ASCII character (33 through
+126). If it is, it subtracts 33 from it, adds C to it, mods it by 94,
+then uses the result as an index into the following table of 94
+characters:
 
 ```nohighlight
-	 |   A
-_____|_0_1_2_
-   0 | 0 1 2
-*D 1 | 2 0 1
-   2 | 1 2 0
++b(29e*j1VMEKLyC})8&m#~W>qxdRp0wkrUo[D7,XTcA"lI
+v%{gJh4G\-=O@5`_3i<?Z';FNQuY]szf$!BS/|t:Pn6^Ha
 ```
 
-}
-: reads an ASCII value from the stdin and converts it to Trinary, then
-  stores it in A. 10 (line feed) is considered ‘newline’, and 2222222222t
-  (59048 dec.) is EOF.
+It then checks it against the characters listed below, and performs an
+appropriate action.
 
-{
-: converts the value in A to ASCII and writes it to stdout. Writing 10 is
-  a newline. If the value 2222222222t (EOF) is written, program execution
-  is instantly terminated.
+If the result is not one of the characters listed below, it is treated
+as a nop. If the original character is not graphic ASCII, the program is
+immediately ended.
 
-!
-: indicates a full stop for the machine.
+When the interpreter parses the input file, it checks each
+non-whitespace character with the process above. If any result is not
+one of the eight characters below, the file will be rejected.
 
-\_
-: Used to explicitly place a nop instruction (of value 95 decimal) in the
-  source file. This is the only major difference between the original
-  Malbolge and Dis.
+After the instruction is executed, 33 is subtracted from the instruction
+at C, and the result is used as an index in the table below. The new
+character is then placed at C, and then C is incremented.
+
+```nohighlight
+5z]&gqtyfr$(we4{WP)H-Zn,[%\3dL+Q;>U!pJS72FhOA1C
+B6v^=I_0/8|jsb9m<.TVac`uY*MK'X~xDl}REokN:#?G"i@
+```
+
+j
+:   sets the data pointer to the value in the cell pointed to by the
+    current data pointer.
+
+i
+:   sets the code pointer to the value in the cell pointed to be the
+    current data pointer.
+
+\*
+:   rotates the trinary value of the cell pointed to by D to the
+    right 1. The least significant trit becomes the most significant
+    trit, and all others move one position to the left.
+
+p
+:   performs a tritwise ‘op‘ on the value pointed to by D with the
+    contents of A. The op (don’t look for pattern, it’s not there) is:
+
+               | A trit:
+        _______|_0__1__2_
+             0 | 1  0  0
+         *D  1 | 1  0  2
+        trit 2 | 2  2  1
+
+        Di-trits:
+            00 01 02 10 11 12 20 21 22
+
+        00  04 03 03 01 00 00 01 00 00
+        01  04 03 05 01 00 02 01 00 02
+        02  05 05 04 02 02 01 02 02 01
+        10  04 03 03 01 00 00 07 06 06
+        11  04 03 05 01 00 02 07 06 08
+        12  05 05 04 02 02 01 08 08 07
+        20  07 06 06 07 06 06 04 03 03
+        21  07 06 08 07 06 08 04 03 05
+        22  08 08 07 08 08 07 05 05 04
+
+<
+:   reads an ASCII value from the stdin and converts it to trinary, then
+    stores it in A. 10 (line feed) is considered ‘newline’, and
+    2222222222t (59048 dec.) is EOF.
+
+/
+:   converts the value in A to ASCII and writes it to stdout. Writing 10
+    is a newline.
+
+v
+:   indicates a full stop for the machine.
+
+o
+:   does nothing, except increment C and D, as all other instructions
+    do.
 
 Turing-Completeness
 -------------------
 
-Though I have not proven it, I believe Dis to be Turing-complete. To be
-Turing-complete, there must be some data construct which can be used to
-do any mathematical calculation. I believe that using `|>` in various
-clever ways on the tritwords, while using `*_` to manipulate D, can
-fulfill this requirement.
+Though I have not proven it, I *think* Malbolge to be Turing-complete.
+To be Turing-complete, there must be some data construct which can be
+used to do any mathematical calculation. I believe that using \*p in
+various clever ways on the tritwords can fulfill this requirement.
 
-Turing-completeness also requires three code constructs: sequential
-execution (which Malbolge obviously has), repetition (provided by the ^
-and, indirectly, \* instructions), and conditional-execution (provided,
-I believe, by self-modifying code and altering ^ destinations).
+Turing-completeness also requires three code constructs: *sequential
+execution* (which Malbolge obviously has), *repetition* (provided by the
+i and, indirectly, j instructions), and *conditional-execution*
+(provided, I believe, by self-modifying code and altering i
+destinations).
 
-But, of course, I cannot be certain unless I prove it, and I fear that
-Dis’ tortuous syntax is too much for me to overcome to create a proof.
+I do have my doubts, particularly about data constructs, but I *think*
+this works...
 
 Appendix: Trinary Conversion Table
 ----------------------------------
 
 Trinary to ASCII to decimal to hex table, provided, strangely enough,
-for the convenience of Dis programmers.
+for the convenience of Malbolge programmers.
 
 ```nohighlight
 00000 NUL 000 00    01012   032 20    02101 @ 064 40    10120 ` 096 60
@@ -193,7 +234,7 @@ for the convenience of Dis programmers.
 01001 FS  028 1c    02020 < 060 3c    10102 \ 092 5c    11121 | 124 7c
 01002 GS  029 1d    02021 = 061 3d    10110 ] 093 5d    11122 } 125 7d
 01010 RS  030 1e    02022 > 062 3e    10111 ^ 094 5e    11200 ~ 126 7e
-01011 US  031 1f    02100 ? 063 3f    10112 _ 095 5f    11201 . 127 7f
+01011 US  031 1f    02100 ? 063 3f    10112 _ 095 5f
 
 11202 128 80    12221 160 a0    21010 192 c0    22022 224 e0
 11210 129 81    12222 161 a1    21011 193 c1    22100 225 e1

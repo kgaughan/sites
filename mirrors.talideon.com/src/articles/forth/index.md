@@ -1,13 +1,8 @@
-Please links to [the original](http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm)
-and only refer to this as a mirror.
-{: .host-note }
-
-# A Beginner's Guide to Forth
-
-by J.V. Noble
-{: .author }
-
-[TOC]
+---
+title: A Beginner's Guide to Forth
+author: J.V. Noble
+original: http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm
+---
 
 ## 1. Preliminaries
 

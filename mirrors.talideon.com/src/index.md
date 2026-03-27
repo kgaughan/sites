@@ -1,5 +1,7 @@
-Mirrored Content at mirrors.talideon.com
-========================================
+---
+title: Mirrored Content at mirrors.talideon.com
+toc: false
+---
 
 This is mostly a collection of documents that have either disappeared from the Internet or stuff I just really want to make sure are mirrored somewhere.
 

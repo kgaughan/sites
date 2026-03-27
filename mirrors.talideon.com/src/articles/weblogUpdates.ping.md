@@ -1,6 +1,6 @@
-# Weblogs.Com XML-RPC interface
-
-NOTE: This mirror exists because weblogs.com is no more.
+---
+title: Weblogs.Com XML-RPC interface
+---
 
 ## What is Weblogs.Com? 
 

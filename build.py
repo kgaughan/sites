@@ -80,7 +80,10 @@ def main():
         shutil.which("pandoc"),
         "--from",
         config.get("from", "markdown+smart"),
-        "--to=html",
+        "--to=html5",
+        "--toc",
+        "--lua-filter",
+        path.join(path.dirname(sys.argv[0]), "links-to-html.lua"),
         "--template",
         template_path,
     ]

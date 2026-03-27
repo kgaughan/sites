@@ -24,7 +24,7 @@
 
     - name: build site
       command:
-        cmd: mkdocs build --strict --site-dir {{ build_dir.path }}
+        cmd: ../build.py --out={{ build_dir.path }} --config=build.json
       become: false
       delegate_to: localhost
 

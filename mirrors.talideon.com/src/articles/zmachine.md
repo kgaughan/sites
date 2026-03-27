@@ -1,11 +1,11 @@
-# How to Fit a Large Program Into a Small Machine
+---
+title: How to Fit a Large Program Into a Small Machine
+author: Marc S. Blank/S. W. Galley
+published: Creative Computing, July 1980, pages 80-87
+---
 
 or "How to fit the Great Underground Empire on your desktop"
 {: .subtitle }
-
-by Marc S. Blank/S. W. Galley
-Creative Computing, July 1980, pages 80-87.
-{: .source }
 
 As a rule, "sophisticated" programming is pretty boring - optimizing the unnecessary to speed up the uninteresting. Here, however, is an incredibly sophisticated package intended for fun and games. The more you know about software, the more astounded you will become as you read this.
 

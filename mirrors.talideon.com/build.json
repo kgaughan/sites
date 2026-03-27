@@ -1,0 +1,6 @@
+{
+  "theme": "../themes/sheets",
+  "host": "lir.talideon.com",
+  "remote_path": "/usr/local/www/mirrors.talideon.com/web",
+  "variables": {}
+}

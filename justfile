@@ -6,10 +6,10 @@
 deploy site:
 	cd {{site}} && find . -name \*.orig -delete && ansible-playbook --ask-vault-password -i ../hosts.ini --diff deploy.yml
 
-# do a local build of a site with mkdocs
+# do a local build of a site
 build site:
-	cd {{site}} && mkdir -p output && mkdocs build -d output
+	cd {{site}} && mkdir -p output && ../build.py --out=output --config=build.json
 
-# install the tooling
-tools:
-    uv tool install mkdocs --with mkdocs-awesome-pages-plugin
+# serve a site locally
+serve site: (build site)
+	cd {{site}} && python3 -m http.server -d output

@@ -1,5 +1,6 @@
-Q-BAL Programming Language
-==========================
+---
+title: Q-BAL Programming Language
+---
 
 Q-BAL is a programming language that Ben Yackley and Michael Shulman
 invented on a whim, based on the question “What would it be like if a
@@ -7,73 +8,13 @@ language were based on queues rather than stacks?” The acronym stands
 for Queue-BAsed Lanugage. This language is not designed to be useful,
 just fun.
 
-How to Program in Q-BAL
------------------------
-
-1.  [Introduction](#intro)
-    -   [Introduction to Queues](#queues)
-        -   [Declaring Queues of Numbers](#declqs)
-        -   [Initialization](#init)
-    -   [Attachment](#attach)
-        -   [The Attachment Operators](#attops)
-        -   [What they do](#attwhat)
-        -   [Arithmetic](#arith)
-        -   [Logic](#logic)
-    -   [Assignment](#assign)
-    -   [The Basic Prefix Operators](#bscprfx)
-        -   [The Preservation Operator (`*`)](#preserve)
-        -   [The Number Operator (`#`)](#number)
-    -   [The Use of the Null](#null)
-    -   [Comments](#comments)
-    -   [Compiler/Interpreter Directives](#direct)
-2.  [Input and Output](#io)
-    -   [Stdin and Stdout](#stdinout)
-        -   [The Predefined Queues `in` and `out`](#inout)
-        -   [ASCII Character input and output](#chrio)
-        -   [String and multiple number input and output](#longio)
-    -   [Variable Input and Output](#vario)
-        -   [The Predefined Variable I/O Queues](#ioq)
-        -   [I/O include files](#ioinc)
-3.  [Program Control](#progctrl)
-    -   [The Program Counter](#progcounter)
-    -   [Program Execution](#execution)
-    -   [Relative Branching](#relbranch)
-    -   [Multithreading](#multithread)
-    -   [Ending Execution](#endexec)
-    -   [Line Labels](#linelabels)
-4.  [Introduction to Functions](#introfunc)
-    -   [Declaring Functions](#declfs)
-    -   [Initializing Functions](#initf)
-    -   [The Code of a Function](#fcode)
-    -   [The Higher-Level Prefix Operator](#lvlop)
-    -   [Calling a Function](#fcall)
-5.  [Advanced Functions](#advfunc)
-    -   [The Input/Output Override Prefix Operators](#io_ops)
-    -   [Static Local Variables](#static)
-    -   [The Instruction Queue](#instq)
-        -   [The `code` Predefined Queue](#codeprdf)
-    -   [Object Oriented Programming in Q-BAL](#oop)
-    -   [Variable I/O and Functions](#vario_func)
-        -   [File Handling](#files)
-    -   [Static Local Variables](#static)
-        -   [The `?` is Static](#static_q)
-        -   [Dynamic Allocation](#dynalloc)
-6.  [Compound Data Types](#datatypes)
-    -   [What are compound data types?](#datawhat)
-    -   [The “Greatest Common Denominator”](#gcd)
-    -   [The Input/Output Override Prefix Operators
-        Revisited](#dataioops)
-    -   [Variable Data Types](#vardata)
-    -   [The String Prefix Operator](#string)
-    -   [The Diminish Prefix Operator](#diminish)
-
-Revisions since then {#revisions-since-then}
+Revisions since then
 --------------------
 
 -   [Revision](revision.txt)
 -   [Comment by Andy](comment.txt)
 
-Other versions {#other-versions}
+Other versions
 --------------
 
 -   [Q-BAL Specification in PDF format](specification.pdf)

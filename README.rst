@@ -21,7 +21,7 @@ To deploy a site, run::
 
     just deploy <site>
 
-To do a local build of a site with mkdocs, run::
+To do a local build of a site, run::
 
     just build <site>
 

@@ -1,12 +1,8 @@
-July 31st, 2013: Currently, the description of Breathanach isn’t
-published anywhere, so I grabbed
-[a cached version from the Internet Archive](http://web.archive.org/web/20100110124000/http://www.cix.co.uk/~morven/lang/breath.html).
-I hope Geoff Eddy doesn’t mind me taking liberties like this, but I
-think the language is worth preserving.
-{: .host-note }
-
-Bein-fheinéath all fhoil de Bhreathanach!
-=========================================
+---
+title: Bein-fheinéath all fhoil de Bhreathanach!
+author: Geoff Eddy
+original: http://web.archive.org/web/20100110124000/http://www.cix.co.uk/~morven/lang/breath.html
+---
 
 “U gcabhall all oc dúichir poithis, seidh si ill so ill dorsa eannáir
 faichis, cuas bon aibhis.”
@@ -66,33 +62,6 @@ improbable resemblances to
 [Proto-Liotan](http://web.archive.org/web/20100110124000/http://www.cix.co.uk/~morven/lang/l_proto.html);
 the two languages should have nothing in common except their
 Q-Celticity, but some crossover is, I suppose, inevitable.
-
-Contents
---------
-
-Bits and pieces will be added to this file as time goes on and I unearth
-more about Breathanach, so keep coming back!
-
--   [Sounds and Spelling](#ssp)
-    -   [Stress and syncope](#s-stress)
-    -   [Consonants](#s-cons)
-    -   [Mutations](#s-mut)
-    -   [Vowels](#s-vow)
--   [Grammar](#gram)
-    -   [Nouns](#g-nouns)
-    -   [Adjectives and adverbs](#g-adjs)
-    -   [Pronouns](#g-prons)
-    -   [Prepositions](#g-preps)
-    -   [Verbs](#g-verbs)
-    -   [Conjunctions and relatives](#g-conjs)
-    -   [Question words](#g-quest)
--   [Numbers](#numb)
--   [Other bits](#etc)
--   [Babel text](#babel)
--   [Breathanach-to-English Dictionary](#dictionary); still in its
-    embryonic stages.
--   [The evolution of Breathanach](#evolution) from Latin, for
-    interested parties.
 
 Sounds and Spelling {#ssp}
 -------------------

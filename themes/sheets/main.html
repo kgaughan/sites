@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-
 <html lang="en-ie" dir="ltr"><head>
-	{% block head %}
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-	<title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ config.site_name }}</title>
+	<title>$title$</title>
 
-	<link rel="stylesheet" type="text/css" href="{{ base_url }}/css/style.css" media="all">
-
-	{% for path in extra_css %}
-	<link href="{{ path }}" rel="stylesheet">
-	{% endfor %}
-
-	{% for path in extra_javascript %}
-	<script src="{{ path }}"></script>
-	{% endfor %}
-
-	{% block extrahead %}{% endblock %}
-	{% endblock %}
+	<link rel="stylesheet" type="text/css" href="$base_url$/css/style.css" media="all">
 
 </head><body>
 
-{% block content %}
-{{ page.content }}
-{% endblock %}
+	<header>
+	$if(original)$
+	<div class="host-note">Original: <a href="$original$">$original$</a></div>
+	$endif$
+
+	$if(host_note)$
+	<div class="host-note">$host_note$</div>
+	$endif$
+
+	<h1>$title$</h1>
+
+	$if(author)$
+	<p class="author">$author$</p>
+	$endif$
+	$if(published)$
+	<p class="published">Published: $published$</p>
+	$endif$
+	</header>
+
+	$if(toc)$
+	<nav id="$idprefix$TOC" role="doc-toc">
+		$if(toc-title)$
+		<h2 id="$idprefix$toc-title">$toc-title$</h2>
+		$endif$
+		$table-of-contents$
+	</nav>
+	$endif$
+
+	<main>$body$</main>
 
 </body></html>

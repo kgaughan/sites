@@ -59,7 +59,7 @@ h4 {
 h4 + p {
   margin-top: 1ex;
 }
-p.source {
+.source {
   text-align: center;
   margin-left: 4em;
   margin-right: 4em;
@@ -79,7 +79,7 @@ p.source {
   font-style: italic;
   text-align: center;
 }
-p.formula {
+.formula {
   text-align: center;
 }
 table {
