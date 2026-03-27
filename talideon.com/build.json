@@ -1,0 +1,9 @@
+{
+  "theme": "../themes/minimal",
+  "host": "lir.talideon.com",
+  "remote_path": "/usr/local/www/talideon.com/web",
+  "variables": {
+    "base_url": "https://talideon.com",
+    "copyright": "Keith Gaughan, 2003-2025"
+  }
+}
