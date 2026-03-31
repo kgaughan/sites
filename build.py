@@ -42,6 +42,7 @@ def pandoc_build(here, config, template_path):
         "--template",
         template_path,
     ]
+    args += config.get("extra_flags", [])
     for key, value in config.get("variables", {}).items():
         args.append(f"--variable={key}={value}")
     args += ["--output"]
@@ -60,6 +61,7 @@ def lowdown_build(here, config, template_path):
         "--template",
         template_path,
     ]
+    args += config.get("extra_flags", [])
     for key, value in config.get("variables", {}).items():
         args.append(f"-m{key}={value}")
 
