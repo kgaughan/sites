@@ -29,6 +29,51 @@ def copytree(src, dst, *ignore_patterns):
     )
 
 
+def pandoc_build(here, config, template_path):
+    args = [
+        shutil.which("pandoc"),
+        "--from",
+        config.get("from", "markdown+smart"),
+        "--to=html5",
+        "--toc",
+        "--lua-filter",
+        path.join(here, "links-to-html.lua"),
+        "--template",
+        template_path,
+    ]
+    for key, value in config.get("variables", {}).items():
+        args.append(f"--variable={key}={value}")
+    args += ["--output"]
+
+    def run(html_path, md_path):
+        subprocess.run(args + [html_path, md_path])
+
+    return run
+
+
+def lowdown_build(here, config, template_path):
+    args = [
+        shutil.which("lowdown"),
+        "-s",
+        "-thtml",
+        "--template",
+        template_path,
+    ]
+    for key, value in config.get("variables", {}).items():
+        args.append(f"-m{key}={value}")
+
+    def run(html_path, md_path):
+        subprocess.run(args + ["-o", html_path, md_path])
+
+    return run
+
+
+builders = {
+    "pandoc": pandoc_build,
+    "lowdown": lowdown_build,
+}
+
+
 def main():
     opts, args = getopt.getopt(
         args=sys.argv[1:],
@@ -70,26 +115,18 @@ def main():
     if not path.isfile(template_path):
         sys.exit(f"error: cannot find '{template_path}'")
 
+    builder_name = config.get("builder", "pandoc")
+    make_build = builders.get(builder_name)
+    if make_build is None:
+        sys.exit(f"error: no such builder: {builder_name}")
+
     print("Copying from:", theme_path, file=sys.stderr)
     copytree(theme_path, out_path, "*.html")
 
     print("Copying from:", root_path, file=sys.stderr)
     copytree(root_path, out_path, "*.md")
 
-    common_args = [
-        shutil.which("pandoc"),
-        "--from",
-        config.get("from", "markdown+smart"),
-        "--to=html5",
-        "--toc",
-        "--lua-filter",
-        path.join(path.dirname(sys.argv[0]), "links-to-html.lua"),
-        "--template",
-        template_path,
-    ]
-    for key, value in config.get("variables", {}).items():
-        common_args.append(f"--variable={key}={value}")
-    common_args += ["--output"]
+    build = make_build(path.dirname(sys.argv[0]), config, template_path)
 
     for dirpath, dirnames, filenames in os.walk(root_path):
         dirpath = path.relpath(dirpath, root_path)
@@ -103,8 +140,7 @@ def main():
                     filename.removesuffix(".md") + ".html",
                 )
                 print("Generating:", path.join(dirpath, filename), file=sys.stderr)
-                args = common_args + [html_path, md_path]
-                subprocess.run(common_args + [html_path, md_path])
+                build(html_path, md_path)
 
     sys.exit(0)
 
