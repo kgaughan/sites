@@ -8,6 +8,7 @@ import getopt
 import json
 import os
 from os import path
+import re
 import shutil
 import subprocess
 import sys
@@ -46,7 +47,7 @@ def pandoc_build(here, config, template_path):
     args += ["--output"]
 
     def run(html_path, md_path):
-        subprocess.run(args + [html_path, md_path])
+        subprocess.run(args + [html_path, md_path], check=True)
 
     return run
 
@@ -62,8 +63,17 @@ def lowdown_build(here, config, template_path):
     for key, value in config.get("variables", {}).items():
         args.append(f"-m{key}={value}")
 
+    md_subber = re.compile(r'href="([^"]+)\.md"')
+
     def run(html_path, md_path):
-        subprocess.run(args + ["-o", html_path, md_path])
+        result = subprocess.run(
+            args + [md_path],
+            stdout=subprocess.PIPE,
+            encoding="utf-8",
+            check=True,
+        )
+        with open(html_path, encoding="utf-8", mode="w") as fh:
+            fh.write(md_subber.sub(r'href="\1.html"', result.stdout))
 
     return run
 
