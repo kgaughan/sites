@@ -35,14 +35,14 @@
     - name: install packages
       pkgng:
         name:
-          - py311-firebirdsql
-          - py311-flask
-          - py311-flask-caching
-          - py311-Flask-Compress
-          - py311-Flask-HTTPAuth
-          - py311-flask_wtf
-          - py311-markdown
-          - py311-waitress
+          - py312-firebirdsql
+          - py312-flask
+          - py312-flask-caching
+          - py312-Flask-Compress
+          - py312-Flask-HTTPAuth
+          - py312-flask_wtf
+          - py312-markdown
+          - py312-waitress
         cached: true
       notify:
         - update supervisor
