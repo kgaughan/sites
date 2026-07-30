@@ -113,6 +113,23 @@
         - compile source files
         - update supervisor
 
+    - name: get version tag for komorebi
+      command:
+        cmd: git describe --tags --abbrev=0
+        chdir: "komorebi"
+      register: komorebi_version
+      become: false
+      delegate_to: localhost
+
+    - name: write _version.py
+      copy:
+        dest: "{{ vhosts_root }}/{{ domain_name }}/inklings/komorebi/_version.py"
+        content: |
+          __version__ = "{{ komorebi_version | trim('v') }}"
+        owner: keith
+        group: www
+        mode: "0644"
+
     # TODO: configure the database
 
     - name: deploy supervisor configuration
